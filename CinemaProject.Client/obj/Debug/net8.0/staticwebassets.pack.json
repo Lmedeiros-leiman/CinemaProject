@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\obj\\Debug\\net8.0\\compressed\\r7fm8pgzbn.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\wwwroot\\appsettings.Development.json",
+      "PackagePath": "staticwebassets\\appsettings.Development.json"
+    },
+    {
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CinemaProject.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CinemaProject.Client.props",
+      "PackagePath": "build\\CinemaProject.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CinemaProject.Client.props",
+      "PackagePath": "buildMultiTargeting\\CinemaProject.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CinemaProject.Client.props",
+      "PackagePath": "buildTransitive\\CinemaProject.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

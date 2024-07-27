@@ -1,0 +1,114 @@
+@page "/movies"
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+<PageTitle>Movies</PageTitle>
+
+@using System.Text.Json;
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Models.FormModels;
+@using CinemaProject.Data.Services;
+
+@inject IMovieService MovieService
+@inject IAttachmentService AttachmentService
+@inject ILogger<Movie> Logger
+
+
+<EditForm OnValidSubmit="SubmitHandler" Model="@FormData" FormName="MovieInputForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="movieTitle">Movie Title</label>
+        <InputText @bind-Value="FormData.Title" class="form-control" required />
+
+    </div>
+    <div class="form-group">
+        <label>Movie Description</label>
+        <InputTextArea @bind-Value="FormData.Description" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Movie Release date</label>
+        <InputDate @bind-Value="FormData.ReleaseDate" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Movie categories</label>
+        <InputText @bind-Value="FormData.Categories" required class="form-control" />
+    </div>
+
+    <div class="form-group custom-file">
+        <label class="custom-file-label">Input poster image</label>
+
+        @code {
+        private long maxFileSize = 1024 * 1024 * 25; // represents 25 MB
+        private int maxAmmountFiles = 10;
+        }
+        <InputFile @bind-Value="FormData.PosterImage" OnChange="@HandleNewFile" accept="image/*" />
+        @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
+        {
+            <p class="text-danger">@PosterFileErrorMessage</p>
+
+
+        }
+    </div>
+
+    <div class="form-group ">
+        <input type="submit" class="btn btn-primary mt-2" value="Add new Movie" />
+    </div>
+
+</EditForm>
+
+
+@code {
+
+    public List<Movie> MovieList = [];
+    // Form related stuff
+    [SupplyParameterFromForm]
+    public MovieInput? FormData { get; set; }
+    public string PosterFileErrorMessage { get; set; }
+    protected override void OnInitialized()
+    {
+        FormData ??= new();
+        PosterFileErrorMessage ??= string.Empty;
+
+    }
+
+    private void HandleNewFile(InputFileChangeEventArgs e)
+    {
+        if (e.FileCount == 1)
+        {
+            // Handle Poster Data change.
+            if (!e.File.ContentType.Contains("image")) { return; }
+            if (e.File.Size > maxFileSize) { PosterFileErrorMessage = "Image is bigger than 25MB."; return; }
+            
+            FormData.PosterImage = e.File;
+        }
+        else
+        {
+            // Handle Extras data change.
+        }
+
+
+
+    }
+
+    
+
+    private async void SubmitHandler()
+    {
+        Movie ResultMovie = new() {
+            Title = FormData.Title,
+            Description = FormData.Description,
+            Categories = FormData.Categories,
+            ReleaseDate = FormData.ReleaseDate,
+            PosterImage = await AttachmentService.UploadFile(FormData.PosterImage)
+        };
+        var newMovie = await MovieService.CreateMovie(ResultMovie);
+        if (newMovie != null) {
+            MovieList.Prepend(newMovie);
+        }
+    }
+
+
+}
