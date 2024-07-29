@@ -1,0 +1,58 @@
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Models.FormModels;
+@using CinemaProject.Data.Services;
+@using System.Text.Json
+
+@inject IMovieService MovieService
+
+<h2>Movie List</h2>
+
+@if (!fetchingData) {
+    <table>
+        <thead>
+            Movie count: @movies.Count
+        </thead>
+    </table>
+    <div class="container ">
+        @foreach(var movie in movies) {
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    
+                    <img src="#" alt="Movie Poster Image" width="300px" height="300px" />
+
+                    <h2 class="text-center ">@movie.Title</h2>
+                
+                    
+                    
+                        @JsonSerializer.Serialize(@movie);
+                    
+                    
+                    <article>@movie.Description</article>
+                    <sub>Released Date - @movie.ReleaseDate.ToString() </sub>
+                    
+                </div>
+            </div>
+            
+        }
+     </div>
+} else {
+    <p>Loading...</p>
+}
+
+
+@code {
+    public List<Movie> movies {get; set;}
+    public bool fetchingData {get; set;}
+
+    protected override void OnInitialized()
+    {
+        movies ??= [];
+        fetchingData = true;
+    }
+    protected async override Task OnInitializedAsync() {
+
+        movies = await MovieService.GetAllMovies();
+        fetchingData = false;
+    }
+}

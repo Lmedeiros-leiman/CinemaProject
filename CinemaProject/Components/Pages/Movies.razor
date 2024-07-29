@@ -4,14 +4,14 @@
 
 <PageTitle>Movies</PageTitle>
 
-@using System.Text.Json;
+
 @using CinemaProject.Data.Models;
 @using CinemaProject.Data.Models.FormModels;
 @using CinemaProject.Data.Services;
 
+@inject NavigationManager NavigationManager
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
-@inject ILogger<Movie> Logger
 
 
 <EditForm OnValidSubmit="SubmitHandler" Model="@FormData" FormName="MovieInputForm">
@@ -48,8 +48,6 @@
         @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
         {
             <p class="text-danger">@PosterFileErrorMessage</p>
-
-
         }
     </div>
 
@@ -59,10 +57,14 @@
 
 </EditForm>
 
+<main>
+    <CinemaProject.Components.Pages.Components.MovieList/>
+</main>
+
+
+
 
 @code {
-
-    public List<Movie> MovieList = [];
     // Form related stuff
     [SupplyParameterFromForm]
     public MovieInput? FormData { get; set; }
@@ -71,7 +73,6 @@
     {
         FormData ??= new();
         PosterFileErrorMessage ??= string.Empty;
-
     }
 
     private void HandleNewFile(InputFileChangeEventArgs e)
@@ -93,10 +94,9 @@
 
     }
 
-    
-
-    private async void SubmitHandler()
+    private async Task SubmitHandler()
     {
+
         Movie ResultMovie = new() {
             Title = FormData.Title,
             Description = FormData.Description,
@@ -105,10 +105,7 @@
             PosterImage = await AttachmentService.UploadFile(FormData.PosterImage)
         };
         var newMovie = await MovieService.CreateMovie(ResultMovie);
-        if (newMovie != null) {
-            MovieList.Prepend(newMovie);
-        }
+        NavigationManager.NavigateTo("/movies",true);
+        
     }
-
-
 }

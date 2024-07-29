@@ -12,7 +12,7 @@ namespace CinemaProject.Data.Models.FormModels
         public string? Title { get; set; }
         [Required]
         public string? Description { get; set; }
-        public DateTime? ReleaseDate { get; set; } = null;
+        public DateTime ReleaseDate { get; set; }
         public string?/*List<string>*/ Categories { get; set; }
         public IBrowserFile? PosterImage { get; set; }
         //public List<Attachment> MovieExtras { get; set; } = [];

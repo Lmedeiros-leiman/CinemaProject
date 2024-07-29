@@ -1036,3 +1036,4 @@ C:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject.Client\obj\Debug\
 C:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject.Client\obj\Debug\net8.0\refint\CinemaProject.Client.dll
 C:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject.Client\obj\Debug\net8.0\CinemaProject.Client.pdb
 C:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject.Client\obj\Debug\net8.0\ref\CinemaProject.Client.dll
+C:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject.Client\obj\Debug\net8.0\CinemaProject.Client.sourcelink.json
