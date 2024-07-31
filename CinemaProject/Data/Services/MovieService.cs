@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 using CinemaProject.Data.Models;
+using System.Text.Json;
 
 namespace CinemaProject.Data.Services;
 
@@ -20,10 +17,12 @@ namespace CinemaProject.Data.Services;
         public  Task<bool> DeleteMovie(int id);
     }
 
-    public class MovieService(ApplicationDbContext context) : IMovieService   {
+    public class MovieService(ApplicationDbContext context, ILogger<MovieService> logger) : IMovieService   {
         private readonly ApplicationDbContext _context = context;
+        private readonly ILogger _logger = logger;
+
         public async Task<List<Movie>> GetAllMovies() {
-            return await _context.Movies.ToListAsync();
+            return await _context.Movies.Include(p => p.PosterImage).ToListAsync();
         }
 
         public async Task<Movie?> GetMovieByiD(int id) {

@@ -83,13 +83,16 @@ namespace CinemaProject.Migrations
 
             modelBuilder.Entity("CinemaProject.Data.Models.Attachment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ContentType")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("MovieId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -101,12 +104,14 @@ namespace CinemaProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MovieId");
+
                     b.ToTable("Attachments");
                 });
 
             modelBuilder.Entity("CinemaProject.Data.Models.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -114,20 +119,21 @@ namespace CinemaProject.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Categories")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PosterImageId")
+                    b.Property<long>("PosterImageId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("ReleaseDate")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("TEXT");
+                    b.Property<long>("ReleaseDate")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -265,11 +271,20 @@ namespace CinemaProject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CinemaProject.Data.Models.Attachment", b =>
+                {
+                    b.HasOne("CinemaProject.Data.Models.Movie", null)
+                        .WithMany("MovieExtras")
+                        .HasForeignKey("MovieId");
+                });
+
             modelBuilder.Entity("CinemaProject.Data.Models.Movie", b =>
                 {
                     b.HasOne("CinemaProject.Data.Models.Attachment", "PosterImage")
                         .WithMany()
-                        .HasForeignKey("PosterImageId");
+                        .HasForeignKey("PosterImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("PosterImage");
                 });
@@ -323,6 +338,11 @@ namespace CinemaProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CinemaProject.Data.Models.Movie", b =>
+                {
+                    b.Navigation("MovieExtras");
                 });
 #pragma warning restore 612, 618
         }

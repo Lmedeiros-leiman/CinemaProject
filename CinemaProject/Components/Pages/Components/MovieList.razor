@@ -1,10 +1,10 @@
 
 @using CinemaProject.Data.Models;
-@using CinemaProject.Data.Models.FormModels;
+@using CinemaProject.Components.Pages.Models;
 @using CinemaProject.Data.Services;
 @using System.Text.Json
 
-@inject IMovieService MovieService
+@inject ISessionService SessionService
 
 <h2>Movie List</h2>
 
@@ -15,27 +15,41 @@
         </thead>
     </table>
     <div class="container ">
-        @foreach(var movie in movies) {
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    
-                    <img src="#" alt="Movie Poster Image" width="300px" height="300px" />
+        <EditForm Model="formData" OnSubmit="HandleSectionSubmit">
+            <div>
+                <label>Movie</label>
+                <InputSelect  @bind-Value="formData.selectedMovieIndex">
+                    @for (int i = 0; i < movies.Count; i++)
+                    {
 
-                    <h2 class="text-center ">@movie.Title</h2>
-                
-                    
-                    
-                        @JsonSerializer.Serialize(@movie);
-                    
-                    
-                    <article>@movie.Description</article>
-                    <sub>Released Date - @movie.ReleaseDate.ToString() </sub>
-                    
-                </div>
+                        <option value="i">
+                            @movies[i].Title
+                        </option>
+                    }
+                </InputSelect>
             </div>
-            
-        }
-     </div>
+            <div>
+                <label>Time</label>
+                <InputSelect @bind-Value="formData.SectionTurn">
+                    <option value="1">Morning</option>
+                    <option value="2">afternoon</option>
+                    <option value="3">Night</option>
+                </InputSelect>
+            </div>
+            <div>
+                <label>Date</label>
+                <InputDate @bind-Value="formData.SectionDate"/>
+            </div>
+            <div>
+                <label>Section Price</label>
+                <InputNumber  @bind-Value="formData.SectionPrice" />
+            </div>
+            <div>
+                <input type="submit" value="Register section."/>
+            </div>
+
+        </EditForm>
+    </div>
 } else {
     <p>Loading...</p>
 }
@@ -43,10 +57,11 @@
 
 @code {
     public List<Movie> movies {get; set;}
+    public SectionInput formData {get; set;}
     public bool fetchingData {get; set;}
-
     protected override void OnInitialized()
     {
+        formData ??= new();
         movies ??= [];
         fetchingData = true;
     }
@@ -55,4 +70,19 @@
         movies = await MovieService.GetAllMovies();
         fetchingData = false;
     }
+
+    private async Task HandleSectionSubmit() private async Task SubmitHandler()
+    {
+        Session ResultSession = new()
+            {
+                TargetMovie = movies[formData.selectedMovieIndex],
+                SessionDate = formData.SectionDate.Ticks,
+                SessionTime = formData.SectionTurn,
+                SessionPrice = formData.SectionPrice
+            };
+
+        var newSession = await SessionService.CreateSession(ResultSession);
+        NavigationManager.NavigateTo("/sessions", true);
+    }
+
 }

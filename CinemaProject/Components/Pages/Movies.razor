@@ -8,73 +8,95 @@
 @using CinemaProject.Data.Models;
 @using CinemaProject.Data.Models.FormModels;
 @using CinemaProject.Data.Services;
+@using System.Text.Json;
 
 @inject NavigationManager NavigationManager
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
 
 
-<EditForm OnValidSubmit="SubmitHandler" Model="@FormData" FormName="MovieInputForm">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <div class="form-group">
-        <label for="movieTitle">Movie Title</label>
-        <InputText @bind-Value="FormData.Title" class="form-control" required />
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Movie Register Form
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <EditForm OnValidSubmit="SubmitHandler" Model="@FormData" FormName="MovieInputForm">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="form-group">
+                <label for="movieTitle">Movie Title</label>
+                <InputText @bind-Value="FormData.Title" class="form-control" required />
 
-    </div>
-    <div class="form-group">
-        <label>Movie Description</label>
-        <InputTextArea @bind-Value="FormData.Description" class="form-control" required />
-    </div>
+            </div>
+            <div class="form-group">
+                <label>Movie Description</label>
+                <InputTextArea @bind-Value="FormData.Description" class="form-control" required />
+            </div>
 
-    <div class="form-group">
-        <label>Movie Release date</label>
-        <InputDate @bind-Value="FormData.ReleaseDate" required class="form-control" />
-    </div>
+            <div class="form-group">
+                <label>Movie Release date</label>
+                <InputDate @bind-Value="FormData.ReleaseDate" required class="form-control" />
+            </div>
 
-    <div class="form-group">
-        <label>Movie categories</label>
-        <InputText @bind-Value="FormData.Categories" required class="form-control" />
-    </div>
+            <div class="form-group">
+                <label>Movie categories</label>
+                <InputText @bind-Value="FormData.Categories" required class="form-control" />
+            </div>
 
-    <div class="form-group custom-file">
-        <label class="custom-file-label">Input poster image</label>
+            <div class="form-group custom-file">
+                <label class="custom-file-label">Input poster image</label>
 
-        @code {
+                @code {
         private long maxFileSize = 1024 * 1024 * 25; // represents 25 MB
         private int maxAmmountFiles = 10;
-        }
-        <InputFile @bind-Value="FormData.PosterImage" OnChange="@HandleNewFile" accept="image/*" />
-        @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
-        {
-            <p class="text-danger">@PosterFileErrorMessage</p>
-        }
+                }
+                <InputFile @bind-Value="FormData.PosterImage" OnChange="@HandleNewFile" accept="image/*" />
+                @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
+                {
+                    <p class="text-danger">@PosterFileErrorMessage</p>
+                }
+            </div>
+
+            <div class="form-group ">
+                <input type="submit" class="btn btn-primary mt-2" value="Add new Movie" />
+            </div>
+
+        </EditForm>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group ">
-        <input type="submit" class="btn btn-primary mt-2" value="Add new Movie" />
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Movie Section Form
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <CinemaProject.Components.Pages.Components.MovieList/>
+            </div>
+        </div>
     </div>
-
-</EditForm>
-
-<main>
-    <CinemaProject.Components.Pages.Components.MovieList/>
-</main>
-
+</div>
 
 
 
 @code {
     // Form related stuff
     [SupplyParameterFromForm]
-    public MovieInput? FormData { get; set; }
+    public MovieInput FormData { get; set; }
     public string PosterFileErrorMessage { get; set; }
     protected override void OnInitialized()
     {
         FormData ??= new();
         PosterFileErrorMessage ??= string.Empty;
     }
-
     private void HandleNewFile(InputFileChangeEventArgs e)
     {
         if (e.FileCount == 1)
@@ -82,7 +104,7 @@
             // Handle Poster Data change.
             if (!e.File.ContentType.Contains("image")) { return; }
             if (e.File.Size > maxFileSize) { PosterFileErrorMessage = "Image is bigger than 25MB."; return; }
-            
+
             FormData.PosterImage = e.File;
         }
         else
@@ -96,16 +118,16 @@
 
     private async Task SubmitHandler()
     {
+        Movie ResultMovie = new()
+            {
+                Title = FormData.Title,
+                Description = FormData.Description,
+                Categories = FormData.Categories,
+                ReleaseDate = FormData.ReleaseDate.Ticks,
+                PosterImage = await AttachmentService.UploadFile(FormData.PosterImage)
+            };
 
-        Movie ResultMovie = new() {
-            Title = FormData.Title,
-            Description = FormData.Description,
-            Categories = FormData.Categories,
-            ReleaseDate = FormData.ReleaseDate,
-            PosterImage = await AttachmentService.UploadFile(FormData.PosterImage)
-        };
         var newMovie = await MovieService.CreateMovie(ResultMovie);
-        NavigationManager.NavigateTo("/movies",true);
-        
+        NavigationManager.NavigateTo("/movies", true);
     }
 }

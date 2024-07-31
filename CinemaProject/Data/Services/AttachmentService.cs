@@ -7,6 +7,7 @@ namespace CinemaProject.Data.Services
     {
         public Task<Attachment> UploadFile(IBrowserFile file);
         public Task<Boolean> DeleteFile(Attachment file);
+        public Task<Attachment?> GetAttachmentById(int id);
     }
 
     public class AttachmentService(ApplicationDbContext context, ILogger<AttachmentService> logger) : IAttachmentService
@@ -24,8 +25,7 @@ namespace CinemaProject.Data.Services
             //
             string fileDirectory = Path.Combine(baseDirectory, file.ContentType.Split("/")[0]);
             string filePath = Path.Combine(fileDirectory, fileName);
-            
-            _logger.LogError(filePath);
+
             //
             // Saves file to wwwRoot directory.
             Directory.CreateDirectory(fileDirectory);
@@ -48,6 +48,7 @@ namespace CinemaProject.Data.Services
         }
 
         public async Task<Boolean> DeleteFile(Attachment movieAttachment)
+
         {
 
             var entry = await _context.Movies.FindAsync(movieAttachment.Id);
@@ -64,6 +65,10 @@ namespace CinemaProject.Data.Services
             _context.Remove(entry);
             await _context.SaveChangesAsync();
             return true;
+        }
+    
+        public async Task<Attachment?> GetAttachmentById(int id) {
+            return await _context.Attachments.FindAsync(id);
         }
     }
 }

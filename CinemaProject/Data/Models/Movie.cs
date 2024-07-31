@@ -1,30 +1,18 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using CinemaProject.Data.Models.FormModels;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaProject.Data.Models
 {
+    [Table("Movies")]
     public class Movie
     {
-    [Key]
-    public int Id {get; private set;}
-
-    public bool Active { get; set;} = true;
-
-    [DefaultValue("Not provided.")]
-    public string? Title {get; set; }
-
-    [DefaultValue("Not provided.")]
-    public string? Description {get; set;} 
-
-    [Timestamp]
-    public DateTime? ReleaseDate { get; set; } = DateTime.UtcNow;
-
-    [DefaultValue("Not provided.")]
-    public string?/*List<string>*/ Categories {get; set;}
-    public Attachment? PosterImage {get; set;}
-    //public List<Attachment> MovieExtras { get; set; } = [];
-
-    //public List<Review> MovieReviews {get;set;} = [];
+        [Key] public long Id { get; private set; }
+        public bool Active { get; set; } = true;
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public long ReleaseDate { get; set; } = DateTime.Today.Ticks;
+        public string Categories { get; set; } = string.Empty;
+        public ICollection<Attachment>? MovieExtras { get; set; } = [];
+        public Attachment PosterImage { get; set; } = new Attachment();
     }
 }

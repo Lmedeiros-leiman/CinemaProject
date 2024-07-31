@@ -9,14 +9,12 @@ namespace CinemaProject.Data.Models.FormModels
 {
     public class MovieInput {
         [Required]
-        public string? Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         [Required]
-        public string? Description { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public string?/*List<string>*/ Categories { get; set; }
+        public string Description { get; set; } = string.Empty;
+        [Required]
+        public DateTime ReleaseDate { get; set; } = DateTime.FromBinary(0);
+        public string Categories { get; set; } = string.Empty;
         public IBrowserFile? PosterImage { get; set; }
-        //public List<Attachment> MovieExtras { get; set; } = [];
-
-        //public List<Review> MovieReviews {get;set;} = [];
     }
 }
