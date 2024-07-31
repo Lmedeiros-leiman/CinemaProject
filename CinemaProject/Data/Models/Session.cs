@@ -13,7 +13,7 @@ namespace CinemaProject.Data.Models
         [Key] public int Id {get; set;}
         public required Movie TargetMovie {get; set;}
         public long SessionDate {get;set;}
-        public string SessionTime {get;set} = string.Empty;
+        public string SessionTime {get;set;} = string.Empty;
         public long SessionPrice {get;set;}
     }
 }

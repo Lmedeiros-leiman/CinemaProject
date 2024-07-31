@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\CinemaProject.csproj": {}
+    "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject\\CinemaProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\CinemaProject.Client.csproj": {
+    "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\CinemaProject.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\CinemaProject.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\CinemaProject.Client.csproj",
         "projectName": "CinemaProject.Client",
-        "projectPath": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\CinemaProject.Client.csproj",
-        "packagesPath": "C:\\Users\\lmede\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\obj\\",
+        "projectPath": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\CinemaProject.Client.csproj",
+        "packagesPath": "C:\\Users\\Curso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lmede\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Curso\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -89,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Curso\\AppData\\Local\\Microsoft\\Dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -98,33 +95,30 @@
         }
       }
     },
-    "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\CinemaProject.csproj": {
+    "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject\\CinemaProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\CinemaProject.csproj",
+        "projectUniqueName": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject\\CinemaProject.csproj",
         "projectName": "CinemaProject",
-        "projectPath": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\CinemaProject.csproj",
-        "packagesPath": "C:\\Users\\lmede\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\obj\\",
+        "projectPath": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject\\CinemaProject.csproj",
+        "packagesPath": "C:\\Users\\Curso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lmede\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Curso\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\CinemaProject.Client.csproj": {
-                "projectPath": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\CinemaProject.Client.csproj"
+              "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\CinemaProject.Client.csproj": {
+                "projectPath": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\CinemaProject.Client.csproj"
               }
             }
           }
@@ -196,7 +190,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Curso\\AppData\\Local\\Microsoft\\Dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

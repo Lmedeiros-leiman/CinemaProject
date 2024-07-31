@@ -7,13 +7,12 @@ using CinemaProject.Data.Models;
 
 namespace CinemaProject.Components.Pages.Models
 {
-    public class SectionInput
-    {
+    public class SectionInput {
         [Key] public long Id {get; set;}
         public Movie TargetMovie {get; set;} = new();
-        public long selectedMovieIndex = 0;
+        public int selectedMovieIndex = 0;
         public DateTime SectionDate {get;set;}
-        public int SectionTurn {get;set;}
+        public string SectionTurn {get;set;} = string.Empty;
         public long SectionPrice {get;set;}
     }
 }

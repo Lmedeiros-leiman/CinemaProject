@@ -5,6 +5,8 @@
 @using System.Text.Json
 
 @inject ISessionService SessionService
+@inject IMovieService MovieService
+@inject NavigationManager NavigationManager
 
 <h2>Movie List</h2>
 
@@ -31,9 +33,9 @@
             <div>
                 <label>Time</label>
                 <InputSelect @bind-Value="formData.SectionTurn">
-                    <option value="1">Morning</option>
-                    <option value="2">afternoon</option>
-                    <option value="3">Night</option>
+                    <option value="Morning">Morning</option>
+                    <option value="afternoon">afternoon</option>
+                    <option value="Night">Night</option>
                 </InputSelect>
             </div>
             <div>
@@ -71,7 +73,7 @@
         fetchingData = false;
     }
 
-    private async Task HandleSectionSubmit() private async Task SubmitHandler()
+    private void HandleSectionSubmit()
     {
         Session ResultSession = new()
             {
@@ -81,7 +83,7 @@
                 SessionPrice = formData.SectionPrice
             };
 
-        var newSession = await SessionService.CreateSession(ResultSession);
+        var newSession = SessionService.CreateSession(ResultSession);
         NavigationManager.NavigateTo("/sessions", true);
     }
 
