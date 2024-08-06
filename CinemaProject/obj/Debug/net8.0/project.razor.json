@@ -901,43 +901,6 @@
         }
       },
       {
-        "HashCode": -2012147924,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Register",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Register"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
-          "Common.TypeNameIdentifier": "Register",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 923531089,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Register",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Register"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
-          "Common.TypeNameIdentifier": "Register",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": 1004439198,
         "Kind": "Components.Component",
         "Name": "CinemaProject.Components.Account.Pages.RegisterConfirmation",
@@ -1080,6 +1043,43 @@
         "Metadata": {
           "Common.TypeName": "CinemaProject.Components.Account.Pages.ResetPasswordConfirmation",
           "Common.TypeNameIdentifier": "ResetPasswordConfirmation",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -2012147924,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Register",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Register"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
+          "Common.TypeNameIdentifier": "Register",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 923531089,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Register",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Register"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
+          "Common.TypeNameIdentifier": "Register",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"

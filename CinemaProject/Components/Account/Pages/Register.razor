@@ -42,6 +42,14 @@
                 <label for="confirm-password">Confirm Password</label>
                 <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
             </div>
+            <div class="form-floating mb-3">
+                <InputSelect @bind-Value="Input.InputRole" class="form-control" >
+                    <option value="member">Member</option>
+                    <option value="admin">Administrator</option>
+                </InputSelect>
+                <label for="user-role">User Role</label>
+
+            </div>
             <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </EditForm>
     </div>
@@ -81,6 +89,13 @@
         }
 
         Logger.LogInformation("User created a new account with password.");
+
+        
+        if ( !Input.InputRole.Contains("admin") || !Input.InputRole.Contains("member") ||  ) {
+            Input.InputRole = "member";
+        }
+        var roleResult = await UserManager.AddToRoleAsync(user, Input.InputRole );
+
 
         var userId = await UserManager.GetUserIdAsync(user);
         var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
@@ -141,5 +156,8 @@
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; } = "";
+
+        [Display(Name = "Set the user role")]
+        public string InputRole {get; set;} = "member";
     }
 }
