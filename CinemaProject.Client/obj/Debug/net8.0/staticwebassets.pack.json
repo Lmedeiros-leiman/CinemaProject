@@ -1,19 +1,19 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\obj\\Debug\\net8.0\\compressed\\3dqsmyq63b.gz",
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\obj\\Debug\\net8.0\\compressed\\r7fm8pgzbn.gz",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\wwwroot\\appsettings.Development.json",
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\wwwroot\\appsettings.Development.json",
       "PackagePath": "staticwebassets\\appsettings.Development.json"
     },
     {
-      "Id": "C:\\Users\\Curso\\Documents\\leonardo\\CinemaProject.Client\\wwwroot\\appsettings.json",
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject.Client\\wwwroot\\appsettings.json",
       "PackagePath": "staticwebassets\\appsettings.json"
     },
     {

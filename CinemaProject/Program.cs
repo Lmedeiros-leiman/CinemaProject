@@ -36,6 +36,7 @@ builder.Services.AddAuthentication(options =>
 
 // expands authentication to support authorization to the app.
 builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
