@@ -1,7 +1,23 @@
 ﻿@page "/"
+@rendermode InteractiveAuto
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<AuthorizeView>
+    
+
+<PageTitle>Auth</PageTitle>
+
+<h1>You are authenticated</h1>
+
+
+    Hello @context.User.Identity?.Name!
+
+    @context.User.IsInRole("admin");
+
+
+</AuthorizeView>

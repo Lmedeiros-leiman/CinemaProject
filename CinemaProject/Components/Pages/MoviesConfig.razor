@@ -3,7 +3,7 @@
 @attribute [StreamRendering]
 
 @using Microsoft.AspNetCore.Authorization
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = "admin")]
 <PageTitle>Movies Config</PageTitle>
 
 
@@ -113,9 +113,6 @@
         {
             // Handle Extras data change.
         }
-
-
-
     }
 
     private async Task SubmitHandler()
@@ -128,7 +125,6 @@
                 ReleaseDate = FormData.ReleaseDate.Ticks,
                 PosterImage = await AttachmentService.UploadFile(FormData.PosterImage)
             };
-
         var newMovie = await MovieService.CreateMovie(ResultMovie);
         NavigationManager.NavigateTo("/movies", true);
     }

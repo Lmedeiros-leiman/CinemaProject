@@ -6,6 +6,9 @@
 # dotenv files
 .env
 
+/CinemaProject/bin/*
+/CinemaProject.Client/bin/*
+
 # User-specific files
 *.rsuser
 *.suo

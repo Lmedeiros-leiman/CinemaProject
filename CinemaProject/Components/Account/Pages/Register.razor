@@ -90,10 +90,6 @@
 
         Logger.LogInformation("User created a new account with password.");
 
-        
-        if ( !Input.InputRole.Contains("admin") || !Input.InputRole.Contains("member") ||  ) {
-            Input.InputRole = "member";
-        }
         var roleResult = await UserManager.AddToRoleAsync(user, Input.InputRole );
 
 
@@ -103,6 +99,7 @@
         var callbackUrl = NavigationManager.GetUriWithQueryParameters(
             NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
             new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code, ["returnUrl"] = ReturnUrl });
+
 
         await EmailSender.SendConfirmationLinkAsync(user, Input.Email, HtmlEncoder.Default.Encode(callbackUrl));
 
