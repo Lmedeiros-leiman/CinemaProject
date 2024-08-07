@@ -8253,6 +8253,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\wwwroot\\popper\\popper.js",
+      "PackagePath": "staticwebassets\\popper\\popper.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CinemaProject.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

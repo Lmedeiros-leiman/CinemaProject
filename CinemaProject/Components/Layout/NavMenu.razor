@@ -12,9 +12,12 @@
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
+        <div class="text-center text-white">
+            Pages
+        </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Main Page
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -28,7 +31,11 @@
             </NavLink>
         </div>
 
+        <div class=" text-white text-center">
+            Account Specifics
+        </div>
         <AuthorizeView>
+            
             <Authorized>
                 <div class="nav-item px-3">
                     <form action="Account/Logout" method="post">
@@ -39,11 +46,7 @@
                         </button>
                     </form>
                 </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="/moviesConfig">
-                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Configure WebPage
-                    </NavLink>
-                </div>
+                
             </Authorized>
             <NotAuthorized>
                 <div class="nav-item px-3">
@@ -60,9 +63,14 @@
         </AuthorizeView>
 
         <AuthorizeView Roles="admin">
-            <NavLink class="nav-link" href="moviesConfig" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Configure Movies
-            </NavLink>
+            <div class="text-center text-white">
+                Admin Section
+            </div>
+            <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/moviesConfig">
+                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Configure Movies
+                    </NavLink>
+                </div>
         </AuthorizeView>
     </nav>
 </div>

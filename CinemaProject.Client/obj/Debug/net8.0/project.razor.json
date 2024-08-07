@@ -9,43 +9,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 1130802018,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Client.RedirectToLogin",
-        "AssemblyName": "CinemaProject.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RedirectToLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
-          "Common.TypeNameIdentifier": "RedirectToLogin",
-          "Common.TypeNamespace": "CinemaProject.Client",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1675144978,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Client.RedirectToLogin",
-        "AssemblyName": "CinemaProject.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Client.RedirectToLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
-          "Common.TypeNameIdentifier": "RedirectToLogin",
-          "Common.TypeNamespace": "CinemaProject.Client",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": -1884180353,
         "Kind": "Components.Component",
         "Name": "CinemaProject.Client.Pages.Auth",
@@ -78,6 +41,43 @@
           "Common.TypeName": "CinemaProject.Client.Pages.Auth",
           "Common.TypeNameIdentifier": "Auth",
           "Common.TypeNamespace": "CinemaProject.Client.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1130802018,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Client.RedirectToLogin",
+        "AssemblyName": "CinemaProject.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RedirectToLogin"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
+          "Common.TypeNameIdentifier": "RedirectToLogin",
+          "Common.TypeNamespace": "CinemaProject.Client",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1675144978,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Client.RedirectToLogin",
+        "AssemblyName": "CinemaProject.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Client.RedirectToLogin"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
+          "Common.TypeNameIdentifier": "RedirectToLogin",
+          "Common.TypeNamespace": "CinemaProject.Client",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }

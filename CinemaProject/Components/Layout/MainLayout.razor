@@ -6,9 +6,35 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class=" top-row p-0">
+                    <div class="dropdown ">
+                        <div class="dropdown-toggle" style="display: flex; align-items: center;"
+                            data-bs-toggle="dropdown">
+                            <div class=""></div>
+                            <img width="24" height="24" /><span class="mx-1">
+                                @context.User.Identity?.Name
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+
+
+            </Authorized>
+            <NotAuthorized>
+                <div class="top-row px-4">
+                    <picture><img width="24" height="24" /></picture><span> Guest </span>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+
+
 
         <article class="content px-4">
             @Body

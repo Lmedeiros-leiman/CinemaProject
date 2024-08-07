@@ -13,445 +13,75 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1978127955,
+        "HashCode": 2102150118,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.AccessDenied",
+        "Name": "CinemaProject.Components.Account.Pages.Register",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "AccessDenied"
+            "TagName": "Register"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.AccessDenied",
-          "Common.TypeNameIdentifier": "AccessDenied",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
+          "Common.TypeNameIdentifier": "Register",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1713816010,
+        "HashCode": 2000625758,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.AccessDenied",
+        "Name": "CinemaProject.Components.Account.Pages.Register",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.AccessDenied"
+            "TagName": "CinemaProject.Components.Account.Pages.Register"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.AccessDenied",
-          "Common.TypeNameIdentifier": "AccessDenied",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
+          "Common.TypeNameIdentifier": "Register",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": -1774465651,
+        "HashCode": 2008852366,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmail",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ConfirmEmail"
+            "TagName": "TwoFactorAuthentication"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmail",
-          "Common.TypeNameIdentifier": "ConfirmEmail",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
+          "Common.TypeNameIdentifier": "TwoFactorAuthentication",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1591419995,
+        "HashCode": 1695670590,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmail",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.ConfirmEmail"
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmail",
-          "Common.TypeNameIdentifier": "ConfirmEmail",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -900109886,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ConfirmEmailChange"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
-          "Common.TypeNameIdentifier": "ConfirmEmailChange",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1274497247,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
-          "Common.TypeNameIdentifier": "ConfirmEmailChange",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 182191026,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ExternalLogin",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ExternalLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ExternalLogin",
-          "Common.TypeNameIdentifier": "ExternalLogin",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -461690335,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ExternalLogin",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.ExternalLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ExternalLogin",
-          "Common.TypeNameIdentifier": "ExternalLogin",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1454855222,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ForgotPassword",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ForgotPassword"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPassword",
-          "Common.TypeNameIdentifier": "ForgotPassword",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1653276832,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ForgotPassword",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.ForgotPassword"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPassword",
-          "Common.TypeNameIdentifier": "ForgotPassword",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 844555586,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ForgotPasswordConfirmation"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
-          "Common.TypeNameIdentifier": "ForgotPasswordConfirmation",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1260438837,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
-          "Common.TypeNameIdentifier": "ForgotPasswordConfirmation",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1462448214,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "InvalidPasswordReset"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
-          "Common.TypeNameIdentifier": "InvalidPasswordReset",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 715527935,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
-          "Common.TypeNameIdentifier": "InvalidPasswordReset",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1820769969,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.InvalidUser",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "InvalidUser"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidUser",
-          "Common.TypeNameIdentifier": "InvalidUser",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1870739643,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.InvalidUser",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.InvalidUser"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidUser",
-          "Common.TypeNameIdentifier": "InvalidUser",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -526277380,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Lockout",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Lockout"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Lockout",
-          "Common.TypeNameIdentifier": "Lockout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -821095142,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Lockout",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Lockout"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Lockout",
-          "Common.TypeNameIdentifier": "Lockout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1429947859,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Login",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Login"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Login",
-          "Common.TypeNameIdentifier": "Login",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -564236871,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Login",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Login"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Login",
-          "Common.TypeNameIdentifier": "Login",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1977173584,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.LoginWith2fa",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LoginWith2fa"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWith2fa",
-          "Common.TypeNameIdentifier": "LoginWith2fa",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1730360404,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.LoginWith2fa",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.LoginWith2fa"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWith2fa",
-          "Common.TypeNameIdentifier": "LoginWith2fa",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1159655971,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LoginWithRecoveryCode"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
-          "Common.TypeNameIdentifier": "LoginWithRecoveryCode",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 263049811,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
-          "Common.TypeNameIdentifier": "LoginWithRecoveryCode",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
+          "Common.TypeNameIdentifier": "TwoFactorAuthentication",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
@@ -531,37 +161,111 @@
         }
       },
       {
-        "HashCode": 974642236,
+        "HashCode": 1083572279,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Disable2fa"
+            "TagName": "ExternalLogins"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
-          "Common.TypeNameIdentifier": "Disable2fa",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
+          "Common.TypeNameIdentifier": "ExternalLogins",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1290431057,
+        "HashCode": 1308072470,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa"
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
-          "Common.TypeNameIdentifier": "Disable2fa",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
+          "Common.TypeNameIdentifier": "ExternalLogins",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -743144010,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SetPassword"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
+          "Common.TypeNameIdentifier": "SetPassword",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1877341999,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.SetPassword"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
+          "Common.TypeNameIdentifier": "SetPassword",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -206688132,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ResetAuthenticator"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
+          "Common.TypeNameIdentifier": "ResetAuthenticator",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1618609359,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
+          "Common.TypeNameIdentifier": "ResetAuthenticator",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
@@ -605,6 +309,80 @@
         }
       },
       {
+        "HashCode": 1619380214,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PersonalData"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+          "Common.TypeNameIdentifier": "PersonalData",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -2108037436,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.PersonalData"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+          "Common.TypeNameIdentifier": "PersonalData",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 974642236,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Disable2fa"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+          "Common.TypeNameIdentifier": "Disable2fa",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1290431057,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.Disable2fa",
+          "Common.TypeNameIdentifier": "Disable2fa",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
         "HashCode": 1531757032,
         "Kind": "Components.Component",
         "Name": "CinemaProject.Components.Account.Pages.Manage.EnableAuthenticator",
@@ -636,43 +414,6 @@
         "Metadata": {
           "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.EnableAuthenticator",
           "Common.TypeNameIdentifier": "EnableAuthenticator",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1083572279,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ExternalLogins"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
-          "Common.TypeNameIdentifier": "ExternalLogins",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1308072470,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ExternalLogins",
-          "Common.TypeNameIdentifier": "ExternalLogins",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
@@ -753,149 +494,38 @@
         }
       },
       {
-        "HashCode": 1619380214,
+        "HashCode": -1774465651,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmail",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "PersonalData"
+            "TagName": "ConfirmEmail"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
-          "Common.TypeNameIdentifier": "PersonalData",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmail",
+          "Common.TypeNameIdentifier": "ConfirmEmail",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": -2108037436,
+        "HashCode": 1591419995,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
+        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmail",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.PersonalData"
+            "TagName": "CinemaProject.Components.Account.Pages.ConfirmEmail"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.PersonalData",
-          "Common.TypeNameIdentifier": "PersonalData",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -206688132,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ResetAuthenticator"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
-          "Common.TypeNameIdentifier": "ResetAuthenticator",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1618609359,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.ResetAuthenticator",
-          "Common.TypeNameIdentifier": "ResetAuthenticator",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -743144010,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "SetPassword"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
-          "Common.TypeNameIdentifier": "SetPassword",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1877341999,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.SetPassword"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.SetPassword",
-          "Common.TypeNameIdentifier": "SetPassword",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 2008852366,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "TwoFactorAuthentication"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
-          "Common.TypeNameIdentifier": "TwoFactorAuthentication",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1695670590,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Manage.TwoFactorAuthentication",
-          "Common.TypeNameIdentifier": "TwoFactorAuthentication",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages.Manage",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmail",
+          "Common.TypeNameIdentifier": "ConfirmEmail",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
@@ -938,37 +568,74 @@
         }
       },
       {
-        "HashCode": -733242956,
+        "HashCode": 844555586,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+        "Name": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ResendEmailConfirmation"
+            "TagName": "ForgotPasswordConfirmation"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
-          "Common.TypeNameIdentifier": "ResendEmailConfirmation",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
+          "Common.TypeNameIdentifier": "ForgotPasswordConfirmation",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": -705057298,
+        "HashCode": -1260438837,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+        "Name": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation"
+            "TagName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
-          "Common.TypeNameIdentifier": "ResendEmailConfirmation",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPasswordConfirmation",
+          "Common.TypeNameIdentifier": "ForgotPasswordConfirmation",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1462448214,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "InvalidPasswordReset"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
+          "Common.TypeNameIdentifier": "InvalidPasswordReset",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 715527935,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidPasswordReset",
+          "Common.TypeNameIdentifier": "InvalidPasswordReset",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
@@ -1012,6 +679,117 @@
         }
       },
       {
+        "HashCode": -1978127955,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.AccessDenied",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AccessDenied"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.AccessDenied",
+          "Common.TypeNameIdentifier": "AccessDenied",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1713816010,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.AccessDenied",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.AccessDenied"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.AccessDenied",
+          "Common.TypeNameIdentifier": "AccessDenied",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1429947859,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Login",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Login"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Login",
+          "Common.TypeNameIdentifier": "Login",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -564236871,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Login",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Login"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Login",
+          "Common.TypeNameIdentifier": "Login",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -733242956,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ResendEmailConfirmation"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+          "Common.TypeNameIdentifier": "ResendEmailConfirmation",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -705057298,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ResendEmailConfirmation",
+          "Common.TypeNameIdentifier": "ResendEmailConfirmation",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
         "HashCode": -360422482,
         "Kind": "Components.Component",
         "Name": "CinemaProject.Components.Account.Pages.ResetPasswordConfirmation",
@@ -1049,38 +827,539 @@
         }
       },
       {
-        "HashCode": 2102150118,
+        "HashCode": 182191026,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Register",
+        "Name": "CinemaProject.Components.Account.Pages.ExternalLogin",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Register"
+            "TagName": "ExternalLogin"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
-          "Common.TypeNameIdentifier": "Register",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ExternalLogin",
+          "Common.TypeNameIdentifier": "ExternalLogin",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 2000625758,
+        "HashCode": -461690335,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Pages.Register",
+        "Name": "CinemaProject.Components.Account.Pages.ExternalLogin",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Pages.Register"
+            "TagName": "CinemaProject.Components.Account.Pages.ExternalLogin"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Pages.Register",
-          "Common.TypeNameIdentifier": "Register",
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ExternalLogin",
+          "Common.TypeNameIdentifier": "ExternalLogin",
           "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -526277380,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Lockout",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Lockout"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Lockout",
+          "Common.TypeNameIdentifier": "Lockout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -821095142,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.Lockout",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.Lockout"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.Lockout",
+          "Common.TypeNameIdentifier": "Lockout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1977173584,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.LoginWith2fa",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginWith2fa"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWith2fa",
+          "Common.TypeNameIdentifier": "LoginWith2fa",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1730360404,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.LoginWith2fa",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.LoginWith2fa"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWith2fa",
+          "Common.TypeNameIdentifier": "LoginWith2fa",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1820769969,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.InvalidUser",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "InvalidUser"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidUser",
+          "Common.TypeNameIdentifier": "InvalidUser",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1870739643,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.InvalidUser",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.InvalidUser"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.InvalidUser",
+          "Common.TypeNameIdentifier": "InvalidUser",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -900109886,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ConfirmEmailChange"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
+          "Common.TypeNameIdentifier": "ConfirmEmailChange",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1274497247,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ConfirmEmailChange",
+          "Common.TypeNameIdentifier": "ConfirmEmailChange",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1159655971,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginWithRecoveryCode"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
+          "Common.TypeNameIdentifier": "LoginWithRecoveryCode",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 263049811,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.LoginWithRecoveryCode",
+          "Common.TypeNameIdentifier": "LoginWithRecoveryCode",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1454855222,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ForgotPassword",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ForgotPassword"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPassword",
+          "Common.TypeNameIdentifier": "ForgotPassword",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1653276832,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Pages.ForgotPassword",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Pages.ForgotPassword"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Pages.ForgotPassword",
+          "Common.TypeNameIdentifier": "ForgotPassword",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 2090821858,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ManageLayout",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ManageLayout"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Common.GloballyQualifiedTypeName": "global::Microsoft.AspNetCore.Components.RenderFragment",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout",
+          "Common.TypeNameIdentifier": "ManageLayout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 13039453,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ManageLayout",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Shared.ManageLayout"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Common.GloballyQualifiedTypeName": "global::Microsoft.AspNetCore.Components.RenderFragment",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout",
+          "Common.TypeNameIdentifier": "ManageLayout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -539343090,
+        "Kind": "Components.ChildContent",
+        "Name": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
+        "AssemblyName": "CinemaProject",
+        "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "ManageLayout"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
+          "Common.TypeNameIdentifier": "ManageLayout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Runtime.Name": "Components.None"
+        }
+      },
+      {
+        "HashCode": 1972813640,
+        "Kind": "Components.ChildContent",
+        "Name": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
+        "AssemblyName": "CinemaProject",
+        "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "CinemaProject.Components.Account.Shared.ManageLayout"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
+          "Common.TypeNameIdentifier": "ManageLayout",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.None"
+        }
+      },
+      {
+        "HashCode": -1704972768,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ManageNavMenu"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+          "Common.TypeNameIdentifier": "ManageNavMenu",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1019009418,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Shared.ManageNavMenu"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+          "Common.TypeNameIdentifier": "ManageNavMenu",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1166135545,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.StatusMessage",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "StatusMessage"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Message",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Message",
+              "Common.GloballyQualifiedTypeName": "global::System.String"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.StatusMessage",
+          "Common.TypeNameIdentifier": "StatusMessage",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 810131193,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.StatusMessage",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Shared.StatusMessage"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Message",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Message",
+              "Common.GloballyQualifiedTypeName": "global::System.String"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.StatusMessage",
+          "Common.TypeNameIdentifier": "StatusMessage",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1674943246,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ShowRecoveryCodes"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "RecoveryCodes",
+            "TypeName": "System.String[]",
+            "Metadata": {
+              "Common.PropertyName": "RecoveryCodes",
+              "Common.GloballyQualifiedTypeName": "global::System.String[]"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "StatusMessage",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "StatusMessage",
+              "Common.GloballyQualifiedTypeName": "global::System.String"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+          "Common.TypeNameIdentifier": "ShowRecoveryCodes",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 552493705,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "RecoveryCodes",
+            "TypeName": "System.String[]",
+            "Metadata": {
+              "Common.PropertyName": "RecoveryCodes",
+              "Common.GloballyQualifiedTypeName": "global::System.String[]"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "StatusMessage",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "StatusMessage",
+              "Common.GloballyQualifiedTypeName": "global::System.String"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+          "Common.TypeNameIdentifier": "ShowRecoveryCodes",
+          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
@@ -1229,282 +1508,77 @@
         }
       },
       {
-        "HashCode": -1704972768,
+        "HashCode": -1336909098,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+        "Name": "CinemaProject.Components.Pages.MoviesConfig",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ManageNavMenu"
+            "TagName": "MoviesConfig"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageNavMenu",
-          "Common.TypeNameIdentifier": "ManageNavMenu",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Common.TypeName": "CinemaProject.Components.Pages.MoviesConfig",
+          "Common.TypeNameIdentifier": "MoviesConfig",
+          "Common.TypeNamespace": "CinemaProject.Components.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1019009418,
+        "HashCode": -2076409757,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ManageNavMenu",
+        "Name": "CinemaProject.Components.Pages.MoviesConfig",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Shared.ManageNavMenu"
+            "TagName": "CinemaProject.Components.Pages.MoviesConfig"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageNavMenu",
-          "Common.TypeNameIdentifier": "ManageNavMenu",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Common.TypeName": "CinemaProject.Components.Pages.MoviesConfig",
+          "Common.TypeNameIdentifier": "MoviesConfig",
+          "Common.TypeNamespace": "CinemaProject.Components.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1674943246,
+        "HashCode": 1462957557,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+        "Name": "CinemaProject.Components.Pages.Home",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ShowRecoveryCodes"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "RecoveryCodes",
-            "TypeName": "System.String[]",
-            "Metadata": {
-              "Common.PropertyName": "RecoveryCodes",
-              "Common.GloballyQualifiedTypeName": "global::System.String[]"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "StatusMessage",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "StatusMessage",
-              "Common.GloballyQualifiedTypeName": "global::System.String"
-            }
+            "TagName": "Home"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
-          "Common.TypeNameIdentifier": "ShowRecoveryCodes",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Common.TypeName": "CinemaProject.Components.Pages.Home",
+          "Common.TypeNameIdentifier": "Home",
+          "Common.TypeNamespace": "CinemaProject.Components.Pages",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 552493705,
+        "HashCode": 1624797949,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
+        "Name": "CinemaProject.Components.Pages.Home",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "RecoveryCodes",
-            "TypeName": "System.String[]",
-            "Metadata": {
-              "Common.PropertyName": "RecoveryCodes",
-              "Common.GloballyQualifiedTypeName": "global::System.String[]"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "StatusMessage",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "StatusMessage",
-              "Common.GloballyQualifiedTypeName": "global::System.String"
-            }
+            "TagName": "CinemaProject.Components.Pages.Home"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ShowRecoveryCodes",
-          "Common.TypeNameIdentifier": "ShowRecoveryCodes",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
+          "Common.TypeName": "CinemaProject.Components.Pages.Home",
+          "Common.TypeNameIdentifier": "Home",
+          "Common.TypeNamespace": "CinemaProject.Components.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1166135545,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.StatusMessage",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "StatusMessage"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Message",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Message",
-              "Common.GloballyQualifiedTypeName": "global::System.String"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.StatusMessage",
-          "Common.TypeNameIdentifier": "StatusMessage",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 810131193,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.StatusMessage",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Shared.StatusMessage"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Message",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Message",
-              "Common.GloballyQualifiedTypeName": "global::System.String"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.StatusMessage",
-          "Common.TypeNameIdentifier": "StatusMessage",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 2090821858,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ManageLayout",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ManageLayout"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Body",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
-            "Metadata": {
-              "Common.PropertyName": "Body",
-              "Common.GloballyQualifiedTypeName": "global::Microsoft.AspNetCore.Components.RenderFragment",
-              "Components.ChildContent": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout",
-          "Common.TypeNameIdentifier": "ManageLayout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 13039453,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Account.Shared.ManageLayout",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Account.Shared.ManageLayout"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Body",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
-            "Metadata": {
-              "Common.PropertyName": "Body",
-              "Common.GloballyQualifiedTypeName": "global::Microsoft.AspNetCore.Components.RenderFragment",
-              "Components.ChildContent": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout",
-          "Common.TypeNameIdentifier": "ManageLayout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -539343090,
-        "Kind": "Components.ChildContent",
-        "Name": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
-        "AssemblyName": "CinemaProject",
-        "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Body",
-            "ParentTag": "ManageLayout"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
-          "Common.TypeNameIdentifier": "ManageLayout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Components.IsSpecialKind": "Components.ChildContent",
-          "Runtime.Name": "Components.None"
-        }
-      },
-      {
-        "HashCode": 1972813640,
-        "Kind": "Components.ChildContent",
-        "Name": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
-        "AssemblyName": "CinemaProject",
-        "Documentation": "<member name=\"P:Microsoft.AspNetCore.Components.LayoutComponentBase.Body\">\r\n            <summary>\r\n            Gets the content to be rendered inside the layout.\r\n            </summary>\r\n        </member>",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Body",
-            "ParentTag": "CinemaProject.Components.Account.Shared.ManageLayout"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Account.Shared.ManageLayout.Body",
-          "Common.TypeNameIdentifier": "ManageLayout",
-          "Common.TypeNamespace": "CinemaProject.Components.Account.Shared",
-          "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.None"
         }
       },
       {
@@ -1656,112 +1730,75 @@
         }
       },
       {
-        "HashCode": -1336909098,
+        "HashCode": 2122932358,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Pages.MoviesConfig",
+        "Name": "CinemaProject.Components.Routes",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "MoviesConfig"
+            "TagName": "Routes"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Pages.MoviesConfig",
-          "Common.TypeNameIdentifier": "MoviesConfig",
-          "Common.TypeNamespace": "CinemaProject.Components.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -2076409757,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Pages.MoviesConfig",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Pages.MoviesConfig"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Pages.MoviesConfig",
-          "Common.TypeNameIdentifier": "MoviesConfig",
-          "Common.TypeNamespace": "CinemaProject.Components.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1462957557,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Pages.Home",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Home"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Pages.Home",
-          "Common.TypeNameIdentifier": "Home",
-          "Common.TypeNamespace": "CinemaProject.Components.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1624797949,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Pages.Home",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Pages.Home"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Pages.Home",
-          "Common.TypeNameIdentifier": "Home",
-          "Common.TypeNamespace": "CinemaProject.Components.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1831253308,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.App",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.App",
-          "Common.TypeNameIdentifier": "App",
+          "Common.TypeName": "CinemaProject.Components.Routes",
+          "Common.TypeNameIdentifier": "Routes",
           "Common.TypeNamespace": "CinemaProject.Components",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": -1825333182,
+        "HashCode": 1964847505,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.App",
+        "Name": "CinemaProject.Components.Routes",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.App"
+            "TagName": "CinemaProject.Components.Routes"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.App",
-          "Common.TypeNameIdentifier": "App",
+          "Common.TypeName": "CinemaProject.Components.Routes",
+          "Common.TypeNameIdentifier": "Routes",
           "Common.TypeNamespace": "CinemaProject.Components",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 304473750,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Layout.NavMenu",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Layout.NavMenu",
+          "Common.TypeNameIdentifier": "NavMenu",
+          "Common.TypeNamespace": "CinemaProject.Components.Layout",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1493796341,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Components.Layout.NavMenu",
+        "AssemblyName": "CinemaProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Components.Layout.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Components.Layout.NavMenu",
+          "Common.TypeNameIdentifier": "NavMenu",
+          "Common.TypeNamespace": "CinemaProject.Components.Layout",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
@@ -1873,74 +1910,37 @@
         }
       },
       {
-        "HashCode": 304473750,
+        "HashCode": -1831253308,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Layout.NavMenu",
+        "Name": "CinemaProject.Components.App",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "App"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Layout.NavMenu",
-          "Common.TypeNameIdentifier": "NavMenu",
-          "Common.TypeNamespace": "CinemaProject.Components.Layout",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1493796341,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Layout.NavMenu",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Components.Layout.NavMenu"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Layout.NavMenu",
-          "Common.TypeNameIdentifier": "NavMenu",
-          "Common.TypeNamespace": "CinemaProject.Components.Layout",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 2122932358,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Routes",
-        "AssemblyName": "CinemaProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Routes"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Routes",
-          "Common.TypeNameIdentifier": "Routes",
+          "Common.TypeName": "CinemaProject.Components.App",
+          "Common.TypeNameIdentifier": "App",
           "Common.TypeNamespace": "CinemaProject.Components",
           "Runtime.Name": "Components.IComponent"
         }
       },
       {
-        "HashCode": 1964847505,
+        "HashCode": -1825333182,
         "Kind": "Components.Component",
-        "Name": "CinemaProject.Components.Routes",
+        "Name": "CinemaProject.Components.App",
         "AssemblyName": "CinemaProject",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "CinemaProject.Components.Routes"
+            "TagName": "CinemaProject.Components.App"
           }
         ],
         "Metadata": {
-          "Common.TypeName": "CinemaProject.Components.Routes",
-          "Common.TypeNameIdentifier": "Routes",
+          "Common.TypeName": "CinemaProject.Components.App",
+          "Common.TypeNameIdentifier": "App",
           "Common.TypeNamespace": "CinemaProject.Components",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
@@ -9194,43 +9194,6 @@
         }
       },
       {
-        "HashCode": 1130802018,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Client.RedirectToLogin",
-        "AssemblyName": "CinemaProject.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RedirectToLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
-          "Common.TypeNameIdentifier": "RedirectToLogin",
-          "Common.TypeNamespace": "CinemaProject.Client",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1675144978,
-        "Kind": "Components.Component",
-        "Name": "CinemaProject.Client.RedirectToLogin",
-        "AssemblyName": "CinemaProject.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CinemaProject.Client.RedirectToLogin"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
-          "Common.TypeNameIdentifier": "RedirectToLogin",
-          "Common.TypeNamespace": "CinemaProject.Client",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": -1884180353,
         "Kind": "Components.Component",
         "Name": "CinemaProject.Client.Pages.Auth",
@@ -9263,6 +9226,43 @@
           "Common.TypeName": "CinemaProject.Client.Pages.Auth",
           "Common.TypeNameIdentifier": "Auth",
           "Common.TypeNamespace": "CinemaProject.Client.Pages",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1130802018,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Client.RedirectToLogin",
+        "AssemblyName": "CinemaProject.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RedirectToLogin"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
+          "Common.TypeNameIdentifier": "RedirectToLogin",
+          "Common.TypeNamespace": "CinemaProject.Client",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1675144978,
+        "Kind": "Components.Component",
+        "Name": "CinemaProject.Client.RedirectToLogin",
+        "AssemblyName": "CinemaProject.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CinemaProject.Client.RedirectToLogin"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "CinemaProject.Client.RedirectToLogin",
+          "Common.TypeNameIdentifier": "RedirectToLogin",
+          "Common.TypeNamespace": "CinemaProject.Client",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }

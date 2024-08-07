@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CWMgUhHyANsRcbsjmZGPnPuQsDzf6N4WSHSHcdtXOAk=",
+  "Hash": "gNbB4N0e2/xyADP8DDsOJw67Dj7wtJXwafAsFSBXfKk=",
   "Source": "CinemaProject",
   "BasePath": "_content/CinemaProject",
   "Mode": "Default",
@@ -47135,6 +47135,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\wwwroot\\popper\\popper.js",
+      "SourceId": "CinemaProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lmede\\source\\repos\\WebApp\\CinemaProject\\CinemaProject\\wwwroot\\",
+      "BasePath": "_content/CinemaProject",
+      "RelativePath": "popper/popper.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\popper\\popper.js"
     }
   ]
 }
