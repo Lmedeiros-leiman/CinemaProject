@@ -6,8 +6,8 @@
 # dotenv files
 .env
 
-/CinemaProject/bin/*
-/CinemaProject.Client/bin/*
+*/bin
+*/obj
 
 # User-specific files
 *.rsuser

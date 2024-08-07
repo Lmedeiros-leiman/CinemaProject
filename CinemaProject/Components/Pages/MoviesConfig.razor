@@ -53,10 +53,6 @@
             <div class="form-group custom-file">
                 <label class="custom-file-label">Input poster image</label>
 
-                @code {
-        private long maxFileSize = 1024 * 1024 * 25; // represents 25 MB
-        private int maxAmmountFiles = 10;
-                }
                 <InputFile @bind-Value="FormData.PosterImage" OnChange="@HandleNewFile" accept="image/*" />
                 @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
                 {
@@ -101,6 +97,9 @@
     }
     private void HandleNewFile(InputFileChangeEventArgs e)
     {
+        long maxFileSize = 1024 * 1024 * 25; // represents 25 MB
+        //int maxAmmountFiles = 10;
+
         if (e.FileCount == 1)
         {
             // Handle Poster Data change.
