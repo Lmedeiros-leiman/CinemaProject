@@ -6,20 +6,53 @@
     </div>
 
     <main>
-        <AuthorizeView>
-            <Authorized>
-                
+        <nav class="navbar  navbar-light bg-light flex-row">
+            <div>
+                yay
+            </div>
 
 
 
+            <div class="nav-item px-3">
 
-            </Authorized>
-            <NotAuthorized>
-                <div class="top-row px-4">
-                    <picture><img width="24" height="24" /></picture><span> Not logged in </span>
-                </div>
-            </NotAuthorized>
-        </AuthorizeView>
+            </div>
+
+
+            <AuthorizeView>
+                <Authorized>
+                    <div class="dropdown " style="justify-self: end;">
+                        <div class=" dropdown-toggle text-black" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img width="24" height="24" /> <span
+                                class=" text-decoration-underline">@context.User.Identity?.Name!</span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">Dropdown item</button></li>
+                            <li><button class="dropdown-item" type="button">Dropdown item</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form class="dropdown-item" action="Account/Logout" method="post">
+                                    <AntiforgeryToken />
+                                    <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                                    <button type="submit" class="nav-link">
+                                        <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span>Sign Out
+                                    </button>
+                                </form>
+                            </li>
+
+                        </ul>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <div class="top-row px-4">
+                        <picture><img width="24" height="24" /></picture><span> Not logged in </span>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeView>
+        </nav>
+
 
 
 
