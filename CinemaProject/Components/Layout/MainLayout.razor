@@ -1,9 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-@implements IDisposable
 @inject NavigationManager NavigationManager
-
-
 
 <div class="page">
     <div class="sidebar">
@@ -11,48 +8,47 @@
     </div>
 
     <main>
-        <nav class="navbar  navbar-light bg-light flex-row">
-            <div>
-                yay
-            </div>
-
-            <div class="nav-item px-3">
-
-            </div>
-
-            <AuthorizeView>
-                <Authorized>
-                    <div class="dropdown " style="justify-self: end;">
-                        <div class=" dropdown-toggle text-black" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img width="24" height="24" /> <span
-                                class=" text-decoration-underline">@context.User.Identity?.Name!</span>
+        <nav class="navbar navbar-light bg-dark justify-content-end ">
+            <div class="nav-item px-1 " style="order: 999;">
+                <AuthorizeView>
+                    <Authorized>
+                        <div class="dropdown">
+                            <div class=" dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img width="24" height="24" /> <span
+                                    class=" text-decoration-underline">@context.User.Identity?.Name!</span>
+                            </div>
+                            <ul class="dropdown-menu">
+                                <AuthorizeView Roles="admin">
+                                    <Authorized>
+                                        <li>
+                                            <p class=" text-warning text-center">Admin Actions</p>
+                                            <a href="/moviesConfig" class="dropdown-item" type="button">Configure
+                                                Movies</a>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    </Authorized>
+                                </AuthorizeView>
+                                <li>
+                                    <form class="dropdown-item" action="Account/Logout" method="post">
+                                        <AntiforgeryToken />
+                                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                                        <button type="submit" class="nav-link">
+                                            <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span>Sign
+                                            Out
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="dropdown-menu">
-                            <li><button class="dropdown-item" type="button">Dropdown item</button></li>
-                            <li><button class="dropdown-item" type="button">Dropdown item</button></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <form class="dropdown-item" action="Account/Logout" method="post">
-                                    <AntiforgeryToken />
-                                    <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                                    <button type="submit" class="nav-link">
-                                        <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span>Sign Out
-                                    </button>
-                                </form>
-                            </li>
+                    </Authorized>
+                    <NotAuthorized>
+                        <a href="/Account/Login" class="text-light px-1">Not logged in</a>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </div>
 
-                        </ul>
-                    </div>
-                </Authorized>
-                <NotAuthorized>
-                    <div class="top-row px-4">
-                        <picture><img width="24" height="24" /></picture><span> Not logged in </span>
-                    </div>
-                </NotAuthorized>
-            </AuthorizeView>
+
         </nav>
 
 
