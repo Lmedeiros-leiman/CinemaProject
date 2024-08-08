@@ -9,203 +9,203 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CinemaProject
 build_property.RootNamespace = CinemaProject
-build_property.ProjectDir = C:\Users\Curso\Documents\leonardo\CinemaProject\
+build_property.ProjectDir = c:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Curso\Documents\leonardo\CinemaProject
+build_property.MSBuildProjectDirectory = c:\Users\lmede\source\repos\WebApp\CinemaProject\CinemaProject
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/AccessDenied.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/AccessDenied.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEFjY2Vzc0RlbmllZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ConfirmEmail.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ConfirmEmail.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ConfirmEmailChange.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ConfirmEmailChange.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbENoYW5nZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ExternalLogin.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ExternalLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEV4dGVybmFsTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ForgotPassword.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ForgotPassword.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ForgotPasswordConfirmation.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ForgotPasswordConfirmation.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkQ29uZmlybWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/InvalidPasswordReset.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/InvalidPasswordReset.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRQYXNzd29yZFJlc2V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/InvalidUser.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/InvalidUser.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRVc2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Lockout.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Lockout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvY2tvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Login.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/LoginWith2fa.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/LoginWith2fa.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aDJmYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/LoginWithRecoveryCode.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/LoginWithRecoveryCode.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aFJlY292ZXJ5Q29kZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/ChangePassword.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/ChangePassword.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxDaGFuZ2VQYXNzd29yZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/DeletePersonalData.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/DeletePersonalData.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEZWxldGVQZXJzb25hbERhdGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/Disable2fa.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/Disable2fa.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEaXNhYmxlMmZhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/Email.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/Email.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbWFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/EnableAuthenticator.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/EnableAuthenticator.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbmFibGVBdXRoZW50aWNhdG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/ExternalLogins.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/ExternalLogins.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFeHRlcm5hbExvZ2lucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/GenerateRecoveryCodes.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/GenerateRecoveryCodes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxHZW5lcmF0ZVJlY292ZXJ5Q29kZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/Index.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/PersonalData.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/PersonalData.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxQZXJzb25hbERhdGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/ResetAuthenticator.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/ResetAuthenticator.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxSZXNldEF1dGhlbnRpY2F0b3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/SetPassword.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/SetPassword.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxTZXRQYXNzd29yZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/TwoFactorAuthentication.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/TwoFactorAuthentication.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxUd29GYWN0b3JBdXRoZW50aWNhdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Manage/_Imports.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Manage/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/Register.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/RegisterConfirmation.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/RegisterConfirmation.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyQ29uZmlybWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ResendEmailConfirmation.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ResendEmailConfirmation.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2VuZEVtYWlsQ29uZmlybWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ResetPassword.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ResetPassword.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/ResetPasswordConfirmation.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/ResetPasswordConfirmation.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmRDb25maXJtYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Pages/_Imports.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Pages/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXF9JbXBvcnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/AccountLayout.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/AccountLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxBY2NvdW50TGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/ExternalLoginPicker.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/ExternalLoginPicker.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxFeHRlcm5hbExvZ2luUGlja2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/ManageLayout.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/ManageLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/ManageNavMenu.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/ManageNavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VOYXZNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/ShowRecoveryCodes.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/ShowRecoveryCodes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTaG93UmVjb3ZlcnlDb2Rlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Account/Shared/StatusMessage.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Account/Shared/StatusMessage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTdGF0dXNNZXNzYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/App.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/Components/MovieList.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/Components/MovieList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21wb25lbnRzXE1vdmllTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/Components/SectionsList.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/Components/SectionsList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21wb25lbnRzXFNlY3Rpb25zTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/Error.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/Home.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/MoviesConfig.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/MoviesConfig.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZXNDb25maWcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Pages/TicketPurchace.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Pages/TicketPurchace.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUaWNrZXRQdXJjaGFjZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Routes.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/_Imports.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Layout/MainLayout.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-j3qufjy9wc
 
-[C:/Users/Curso/Documents/leonardo/CinemaProject/Components/Layout/NavMenu.razor]
+[c:/Users/lmede/source/repos/WebApp/CinemaProject/CinemaProject/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-a5737mqih0
