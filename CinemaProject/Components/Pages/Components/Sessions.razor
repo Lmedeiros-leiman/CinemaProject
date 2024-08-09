@@ -1,0 +1,25 @@
+
+@inject ISessionService sessionService
+
+
+<div class="row">
+    <div class="card">
+        <div >
+            <h2 >Our current sessions</h2>
+        </div>
+        
+        Sessions That the user will visualize
+    </div>
+</div>
+
+
+
+@code {
+    private List<Session> movieSessions;
+
+        protected override Task OnInitializedAsync()
+        {
+            movieSessions = sessionService.get
+        }
+}
+
