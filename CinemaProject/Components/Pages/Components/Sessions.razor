@@ -1,5 +1,8 @@
 
-@inject ISessionService sessionService
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Services;
+
+@inject ISessionService SessionService
 
 
 <div class="row">
@@ -8,6 +11,10 @@
             <h2 >Our current sessions</h2>
         </div>
         
+        @if (movieSessions.Count <= 0) {
+            <p>No sessions found, come back later.</p>
+        }
+
         Sessions That the user will visualize
     </div>
 </div>
@@ -15,11 +22,15 @@
 
 
 @code {
-    private List<Session> movieSessions;
+    private List<Session> movieSessions {get;set;}
 
-        protected override Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            movieSessions = sessionService.get
+            movieSessions ??= new(); // []
+        }
+        protected override async Task OnInitializedAsync()
+        {
+            //movieSessions = SessionService.GetSessions();
         }
 }
 

@@ -1,0 +1,196 @@
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Models.FormModels;
+@using CinemaProject.Data.Services;
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+
+@inject NavigationManager NavigationManager
+@inject IMovieService MovieService
+@inject IAttachmentService AttachmentService
+@inject ILogger<MovieForm> logger
+
+<EditForm OnValidSubmit="SubmitHandler" Model="@newMovie" FormName="MovieInput">
+    <DataAnnotationsValidator />
+
+    <div class="row">
+        <div class="col">
+            <div class="form-floating mb-1">
+                <InputText @bind-Value="newMovie.Tittle" id="Movietitle" class="form-control" aria-required="true"
+                    placeholder="" />
+                <label for="Movietitle">Movie Title</label>
+                <ValidationMessage For="() => newMovie.Tittle" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-floating mb-1">
+                
+                <InputDate @bind-Value="newMovie.ReleaseDate" id="MovieRelease" class="form-control" aria-required="true" />
+                <label for="MovieRelease">Movie Release Date</label>
+                <ValidationMessage For="() => newMovie.ReleaseDate" class="text-danger" />
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col">
+            <div class="form-floating mb-2">
+                
+                <InputText @bind-Value="newMovie.Categories" id="MovieCategories" class="form-control" aria-required="true" placeholder="" />
+                <label for="MovieCategories">Movie Categories</label>
+                <ValidationMessage For="() => newMovie.Categories" class="text-danger" />
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form mb-3">
+
+                <label for="MovieDescription">Movie description</label>
+                <InputTextArea @bind-Value="newMovie.Description" aria-required="true"
+                    id="MovieDescription" class="form-control" rows="3" placeholder=""/>
+                <ValidationMessage For="() => newMovie.Description" class="text-danger" />
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3">
+                <label for="moviePoster">Movie poster media</label>
+                <InputFile class="form-control" id="moviePoster" required
+                    OnChange="HandleNewFile" accept="video/*,image/*" />
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+                <label for="movieExtras">Movie Extras</label>
+                <InputFile class="form-control" id="movieExtras" multiple
+                    OnChange="HandleNewFile" accept="video/*,image/*" />
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <input type="submit" class=" btn btn-lg col-6 col-lg-3 btn-outline-primary" value="Add new movie" />
+    </div>
+
+
+    <!--
+
+    <div class="form-group custom-file">
+        <label class="custom-file-label">Input poster image</label>
+
+        <InputFile @bind-Value="newMovie.PosterImage" OnChange="@HandleNewFile" accept="image/*" />
+    @if (!string.IsNullOrEmpty(PosterFileErrorMessage))
+    {
+            <p class="text-danger">@PosterFileErrorMessage</p>
+    }
+    </div>
+
+    
+    -->
+
+</EditForm>
+
+
+@code {
+    // Form related stuff
+    [SupplyParameterFromForm]
+    private MovieInputModel newMovie { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        newMovie ??= new();
+    }
+
+
+
+    private void HandleNewFile(InputFileChangeEventArgs e)
+    {
+        long maxFileSize = 1024 * 1024 * 30; // represents 30 MB
+        int maxFileAmmount = 10;             // int maxAmmountFiles = 10;
+
+        /*
+        if (e.FileCount == 1)
+        {
+            // Handle Poster Data change.
+            if (!e.File.ContentType.Contains("image")) { return; }
+            if (e.File.Size > maxFileSize) { return; }
+
+            newMovie.PosterImage = e.File;
+        }
+        else
+        {
+            // Handle Extras data change.
+        }
+        */
+    }
+    private async Task SubmitHandler()
+    {
+        /*
+        Movie ResultMovie = new()
+        {
+        Title = newMovie.Title,
+        Description = newMovie.Description,
+        Categories = newMovie.Categories,
+        ReleaseDate = newMovie.ReleaseDate.Ticks,
+        PosterImage = await AttachmentService.UploadFile(newMovie.PosterImage)
+        };
+        var newMovie = await MovieService.CreateMovie(ResultMovie);
+        */
+        NavigationManager.NavigateTo("/movies", true);
+    }
+
+    private sealed class MovieInputModel
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Tittle")]
+        public string Tittle { get; set; } = String.Empty;
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Description")]
+        public string Description { get; set; } = String.Empty;
+
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Movie release date")]
+        public DateOnly? ReleaseDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Categories")]
+        public string Categories { get; set; } = String.Empty;
+
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Movie poster image")]
+        public IBrowserFile? PosterImage { get; set; }
+
+
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Movie extra content")]
+        public IBrowserFile? ExtraContent { get; set; }
+
+
+
+    }
+}
+
+
+

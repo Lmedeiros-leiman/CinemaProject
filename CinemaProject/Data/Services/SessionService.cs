@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CinemaProject.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +8,8 @@ namespace CinemaProject.Data.Services
         public Task CreateSession(Session newSession);
         public Task<List<Session>> GetSessions();
     }
+
+
     public class SessionService(ApplicationDbContext context) : ISessionService
     {
         public readonly ApplicationDbContext _context = context;
