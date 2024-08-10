@@ -40,7 +40,7 @@ namespace CinemaProject.Data.Services;
             // sets the visibility to false.
             var entry = await _context.Movies.FindAsync(id);
             if (entry == null) { return null;}
-            entry.Active = false;
+            entry.SetActive(false);
             await _context.SaveChangesAsync();
 
             return entry;
