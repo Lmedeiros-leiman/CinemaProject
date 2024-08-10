@@ -1,6 +1,4 @@
 @page "/moviesConfig"
-@rendermode InteractiveServer
-@attribute [StreamRendering]
 
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "admin")]
@@ -42,7 +40,7 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#InputForms">
             <div class="accordion-body">
-                <CinemaProject.Components.Pages.Components.Forms.SessionForm />
+                
             </div>
         </div>
     </div>
