@@ -1,3 +1,6 @@
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
 @using CinemaProject.Data.Models;
 @using CinemaProject.Data.Services;
 @using System.ComponentModel.DataAnnotations;
@@ -27,9 +30,9 @@
         <div class="col">
             <div class="form-floating mb-1">
 
-                <InputDate @bind-Value="newMovie.ReleaseDate" id="MovieRelease" class="form-control"
+                <InputDate @bind-Value="newMovie.ReleaseDate" id="MovieReleaseDate" class="form-control"
                     aria-required="true" />
-                <label for="MovieRelease">Movie Release Date</label>
+                <label for="MovieReleaseDate">Movie Release Date</label>
                 <ValidationMessage For="() => newMovie.ReleaseDate" class="text-danger" />
 
             </div>
@@ -66,18 +69,15 @@
         <div class="row">
             <div class="col mb-3">
                 <label for="moviePoster">Movie poster media</label>
-                <InputFile class="form-control" id="moviePoster" OnChange="HandlePosterFile" accept="video/*,image/*" />
+                <InputFile class="form-control" id="moviePoster" required OnChange="HandlePosterFile" accept="video/*,image/*"  />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="movieExtras">Movie Extras</label>
-                <InputFile class="form-control" id="movieExtras" multiple OnChange="HandleExtraFiles"
-                    accept="video/*,image/*" />
+                <InputFile class="form-control" id="movieExtras" multiple OnChange="HandleExtraFiles" accept="video/*,image/*" />
             </div>
         </div>
-
-
     </div>
 
     <div class="row justify-content-end shadow shadow-lg">
@@ -89,72 +89,61 @@
 
 @code {
     [SupplyParameterFromForm]
-    private MovieInputModel newMovie { get; set; }
+    private MovieInputModel newMovie { get; set; } = new();
 
     // file config
     public long maxFileSize { get; } = 1024 * 1024 * 30; // represents 30 MB
     public int maxFileAmmount { get; } = 10; // int maxAmmountFiles = 10;
 
-    protected override void OnInitialized()
-    {
+    protected override void OnInitialized() {
         newMovie ??= new();
     }
 
-
-    private void HandleExtraFiles(InputFileChangeEventArgs e)
-    {
-        newMovie.ExtraContent = new();
-        foreach (var file in e.GetMultipleFiles(maxFileAmmount))
-        {
-            if (file.ContentType.Contains("image") || file.ContentType.Contains("video"))
-            {
-                newMovie.ExtraContent.Append(file);
+    private void HandleExtraFiles(InputFileChangeEventArgs e) {
+        List<IBrowserFile> resultList = [];
+        foreach (IBrowserFile file in e.GetMultipleFiles(maxFileAmmount)) {
+            if ( file.ContentType.Contains("image") 
+                    || file.ContentType.Contains("video") 
+                    || file.Size < maxFileSize ) {
+                resultList.Add(file);
             }
         }
+        newMovie.ExtraContent = resultList;
     }
-
-    private void HandlePosterFile(InputFileChangeEventArgs e)
-    {
-
+    private void HandlePosterFile(InputFileChangeEventArgs e) {
         if (e.File.ContentType.Contains("image")
         || e.File.ContentType.Contains("video")
-        || e.File.Size < maxFileAmmount)
-        {
+        || e.File.Size < maxFileSize ) {
             newMovie.PosterImage = e.File;
         }
     }
 
+    private async Task<List<Attachment>> UploadMultipleFiles(List<IBrowserFile> files) {
+        List<Attachment> result = new();
+        
+        foreach(IBrowserFile file in files) {
+            var attachment = await AttachmentService.UploadFile(file);
+            result.Add(attachment);
+        }
+        return result;
+    }
+    private async Task AddNewMovie(EditContext editContext) {
 
-    private async Task AddNewMovie(EditContext editContext)
-    {
+        Movie resultMovie = new() { 
+            Title = newMovie.Tittle,
+            Description = newMovie.Description,
+            Categories  = newMovie.Categories,
+            ReleaseDate = newMovie.ReleaseDate?.Ticks,
+            PosterImage = await AttachmentService.UploadFile(newMovie.PosterImage),
+            MovieExtras = await UploadMultipleFiles( newMovie.ExtraContent )
+        };
 
-        Console.WriteLine(JsonSerializer.Serialize(editContext,
-        new JsonSerializerOptions
-            {
-                WriteIndented = true
-            }));
-
+        var createdMovie = await MovieService.CreateMovie(resultMovie);
+        NavigationManager.NavigateTo("/", true);
         return;
     }
-    public async Task SubmitHandler(EditContext editContext)
-    {
 
-        /*
-        Movie ResultMovie = new()
-        {
-        Title = newMovie.Title,
-        Description = newMovie.Description,
-        Categories = newMovie.Categories,
-        ReleaseDate = newMovie.ReleaseDate.Ticks,
-        PosterImage = await AttachmentService.UploadFile(newMovie.PosterImage)
-        };
-        var newMovie = await MovieService.CreateMovie(ResultMovie);
-        */
-        //NavigationManager.NavigateTo("/", true);
-    }
-
-    private sealed class MovieInputModel
-    {
+    private sealed class MovieInputModel {
         [Required]
         [DataType(DataType.Text)]
         [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -167,11 +156,9 @@
         [Display(Name = "Movie Description")]
         public string Description { get; set; } = String.Empty;
 
-        [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Movie release date")]
-        public DateOnly? ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
 
         [Required]
         [DataType(DataType.Text)]
@@ -181,7 +168,7 @@
 
         [DataType(DataType.Upload)]
         [Display(Name = "Movie poster image")]
-        public IBrowserFile? PosterImage { get; set; }
+        public IBrowserFile PosterImage { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "Movie extra content")]
@@ -190,6 +177,3 @@
 
     }
 }
-
-
-

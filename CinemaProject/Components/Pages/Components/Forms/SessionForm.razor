@@ -13,7 +13,7 @@
 @if (!fetchingData) {
     <table>
         <thead>
-            Movie count: @movies.Count
+            Movie count: @movies?.Count
         </thead>
     </table>
     <div class="container ">
@@ -59,7 +59,7 @@
 
 @code {
     public List<Movie>? movies {get; set;}
-    public SectionInput formData {get; set;}
+    public SectionInput formData {get; set;} = new();
     public bool fetchingData {get; set;}
     protected override void OnInitialized()
     {

@@ -16,7 +16,7 @@ namespace CinemaProject.Data.Services
         private readonly ILogger _logger = logger;
         //
         private class FilePath {
-            private readonly string baseDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets");
+            public static string BaseDirectory {get;} = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets");
             public string Uid {get;}
             public string FileInputDate {get;}
             public string FileName {get;} 
@@ -26,9 +26,11 @@ namespace CinemaProject.Data.Services
             public FilePath(IBrowserFile file) {
                 this.Uid = Guid.NewGuid().ToString();
                 this.FileInputDate = DateTime.UtcNow.ToString("yyyyMMddHHmmss");
-                this.FileName = (this.FileInputDate + this.Uid + file.Name);
-                this.FileDirectory = Path.Combine(baseDirectory, file.ContentType.Split("/")[0]);
-                this.FileFullPath = Path.Combine(this.FileDirectory, this.FileName);
+                string tempFileName = (this.FileInputDate + this.Uid + file.Name);
+                this.FileName = tempFileName;
+                string tempFileDir = Path.Combine(BaseDirectory, file.ContentType.Split("/")[0]);
+                this.FileDirectory = tempFileDir;
+                this.FileFullPath = Path.Combine( FileDirectory, tempFileName );
             }
         }
 
@@ -36,10 +38,11 @@ namespace CinemaProject.Data.Services
             // turns a file input into an Attachment object.
             // returns an attachment object with incomplete data (since it has not been uploaded.)
             //
+            var fileDetails = new FilePath(file);
             return new Attachment {
-                Name = "",
-                ContentType = "",
-                URLPath = new FilePath(file).FileFullPath
+                Name = fileDetails.FileName,
+                ContentType = file.ContentType,
+                URLPath = fileDetails.FileFullPath
             };
         }
         public async Task<Attachment> UploadFile(IBrowserFile file) {
@@ -70,26 +73,20 @@ namespace CinemaProject.Data.Services
         }
         
         
-        public async Task<Boolean> DeleteFile(Attachment movieAttachment)
-
-        {
-
+        public async Task<Boolean> DeleteFile(Attachment movieAttachment) {
             var entry = await _context.Movies.FindAsync(movieAttachment.Id);
             if (entry == null) { return false;}
             // deletes fisical file
-            string filePath = Path.Combine(baseDirectory,movieAttachment.URLPath);
+            string filePath = Path.Combine(FilePath.BaseDirectory,movieAttachment.URLPath);
 
-            if (File.Exists(filePath) ) 
-            {
+            if (File.Exists(filePath) ) {
                 File.Delete(filePath);
             }
-
             //
             _context.Remove(entry);
             await _context.SaveChangesAsync();
             return true;
         }
-    
         public async Task<Attachment?> GetAttachmentById(int id) {
             return await _context.Attachments.FindAsync(id);
         }
