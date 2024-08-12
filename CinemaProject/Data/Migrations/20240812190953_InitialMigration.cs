@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CinemaProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -181,7 +181,8 @@ namespace CinemaProject.Migrations
                     Active = table.Column<bool>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    ReleaseDate = table.Column<long>(type: "INTEGER", nullable: false),
+                    ReleaseDate = table.Column<long>(type: "INTEGER", nullable: true),
+                    InputedDate = table.Column<long>(type: "INTEGER", nullable: true),
                     Categories = table.Column<string>(type: "TEXT", nullable: false),
                     PosterImageId = table.Column<long>(type: "INTEGER", nullable: false)
                 },
@@ -192,6 +193,28 @@ namespace CinemaProject.Migrations
                         name: "FK_Movies_Attachments_PosterImageId",
                         column: x => x.PosterImageId,
                         principalTable: "Attachments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sessions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    TargetMovieId = table.Column<long>(type: "INTEGER", nullable: false),
+                    SessionDate = table.Column<long>(type: "INTEGER", nullable: false),
+                    SessionTime = table.Column<string>(type: "TEXT", nullable: false),
+                    SessionPrice = table.Column<long>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sessions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sessions_Movies_TargetMovieId",
+                        column: x => x.TargetMovieId,
+                        principalTable: "Movies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -243,6 +266,11 @@ namespace CinemaProject.Migrations
                 table: "Movies",
                 column: "PosterImageId");
 
+            migrationBuilder.CreateIndex(
+                name: "IX_Sessions_TargetMovieId",
+                table: "Sessions",
+                column: "TargetMovieId");
+
             migrationBuilder.AddForeignKey(
                 name: "FK_Attachments_Movies_MovieId",
                 table: "Attachments",
@@ -272,6 +300,9 @@ namespace CinemaProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Sessions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

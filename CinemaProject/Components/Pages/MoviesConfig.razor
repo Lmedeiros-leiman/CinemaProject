@@ -45,12 +45,33 @@
             </div>
           </div>
         </div>
-        
+
       </th>
 
     </tr>
   </thead>
   <tbody>
+    @if (registeredMovies.Count <= 0) {
+      // no movies found or still searching...
+    } else {
+      // show the movies!
+      foreach(Movie listMovie in registeredMovies) {
+        <tr>
+          <th scope="row">
+            <img width="128px" height="128px" alt="Poster image" src=".\assets\@listMovie.PosterImage.URLPath"/>
+          </th>
+          <td>
+            @listMovie.Id
+          </td>
+          <td>
+            @listMovie.Title
+          </td>
+          <td>
+            @listMovie.InputedDate
+          </td>
+        </tr>
+      }
+    }
     <tr>
       <th scope="row">1</th>
       <td>Mark</td>
@@ -70,6 +91,37 @@
     </tr>
   </tbody>
 </table>
+
+<div>
+
+  <pre>
+    @JsonSerializer.Serialize(registeredMovies, new JsonSerializerOptions() {WriteIndented = true})
+  </pre>
+</div>
+
+
+
+
+@code {
+  public List<Movie> registeredMovies { get; set; } = new();
+
+
+  protected override void OnInitialized()
+  {
+    registeredMovies ??= new(); // [];
+
+    return;
+  }
+  protected override async Task OnInitializedAsync()
+  {
+    registeredMovies = await MovieService.GetAllMovies();
+
+    
+  }
+
+}
+
+
 
 
 

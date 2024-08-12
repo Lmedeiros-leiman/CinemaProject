@@ -126,10 +126,13 @@ namespace CinemaProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<long?>("InputedDate")
+                        .HasColumnType("INTEGER");
+
                     b.Property<long>("PosterImageId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("ReleaseDate")
+                    b.Property<long?>("ReleaseDate")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -141,6 +144,32 @@ namespace CinemaProject.Migrations
                     b.HasIndex("PosterImageId");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("CinemaProject.Data.Models.Session", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("SessionDate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("SessionPrice")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SessionTime")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("TargetMovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TargetMovieId");
+
+                    b.ToTable("Sessions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -287,6 +316,17 @@ namespace CinemaProject.Migrations
                         .IsRequired();
 
                     b.Navigation("PosterImage");
+                });
+
+            modelBuilder.Entity("CinemaProject.Data.Models.Session", b =>
+                {
+                    b.HasOne("CinemaProject.Data.Models.Movie", "TargetMovie")
+                        .WithMany()
+                        .HasForeignKey("TargetMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TargetMovie");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -31,10 +31,12 @@ namespace CinemaProject.Data.Services;
 
         // CRUD movies.
         public  async Task<Movie> CreateMovie(Movie newMovie) {
+            newMovie.InputedDate = DateTime.UtcNow.Ticks;
+
+            // insert it into the database
             var newEntry = await _context.Movies.AddAsync(newMovie);
             await _context.SaveChangesAsync();
             return newEntry.Entity;
-            
         }
         public async Task<Movie?> RemoveMovie(int id) {
             // sets the visibility to false.

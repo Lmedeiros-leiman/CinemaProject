@@ -22,6 +22,7 @@ namespace CinemaProject.Data.Services
             public string FileName {get;} 
             public string FileDirectory {get;}
             public string FileFullPath {get;}
+            public string FilePublicPath {get;}
 
             public FilePath(IBrowserFile file) {
                 this.Uid = Guid.NewGuid().ToString();
@@ -31,6 +32,7 @@ namespace CinemaProject.Data.Services
                 string tempFileDir = Path.Combine(BaseDirectory, file.ContentType.Split("/")[0]);
                 this.FileDirectory = tempFileDir;
                 this.FileFullPath = Path.Combine( FileDirectory, tempFileName );
+                this.FilePublicPath = Path.Combine(file.ContentType.Split("/")[0], FileName );
             }
         }
 
@@ -42,7 +44,7 @@ namespace CinemaProject.Data.Services
             return new Attachment {
                 Name = fileDetails.FileName,
                 ContentType = file.ContentType,
-                URLPath = fileDetails.FileFullPath
+                URLPath = fileDetails.FilePublicPath
             };
         }
         public async Task<Attachment> UploadFile(IBrowserFile file) {
@@ -63,7 +65,7 @@ namespace CinemaProject.Data.Services
             Attachment tempAttachment = new()
             {
                 Name = filePath.FileName,
-                URLPath = filePath.FileFullPath,
+                URLPath = filePath.FilePublicPath,
                 ContentType = file.ContentType
             };
 
