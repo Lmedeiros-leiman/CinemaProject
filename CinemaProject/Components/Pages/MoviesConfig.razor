@@ -3,6 +3,9 @@
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "admin")]
 
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
 <PageTitle>Movies Config</PageTitle>
 
 
@@ -14,9 +17,9 @@
 @using CinemaProject.Components.MovieComponents;
 
 @inject NavigationManager NavigationManager
+@inject ILogger<MoviesConfig> Logger
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
-
 
 <table class="table table-striped">
   <thead>
@@ -45,20 +48,23 @@
             </div>
           </div>
         </div>
-
       </th>
-
     </tr>
   </thead>
   <tbody>
-    @if (registeredMovies.Count <= 0) {
+    @if (registeredMovies.Count <= 0)
+    {
       // no movies found or still searching...
-    } else {
+      <p>Searching...</p>
+    }
+    else
+    {
       // show the movies!
-      foreach(Movie listMovie in registeredMovies) {
+      foreach (Movie listMovie in registeredMovies)
+      {
         <tr>
           <th scope="row">
-            <img width="128px" height="128px" alt="Poster image" src=".\assets\@listMovie.PosterImage.URLPath"/>
+            <img width="128px" height="128px" alt="Poster image" src=".\assets\@listMovie.PosterImage.URLPath" />
           </th>
           <td>
             @listMovie.Id
@@ -67,7 +73,66 @@
             @listMovie.Title
           </td>
           <td>
-            @listMovie.InputedDate
+            @DateTime.FromBinary(listMovie.InputedDate).ToUniversalTime()
+          </td>
+          <td>
+            <div class="row">
+              <div class="col">
+                <!-- Modal button -->
+                <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
+                  data-bs-target="#modifyMovieModal">
+                  Modify
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="modifyMovieModal" data-bs-keyboard="false" tabindex="-1"
+                  aria-labelledby="modifyMovieModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg my-1">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel"> Modifying <span
+                            class="text-warning-emphasis">@listMovie.Title</span></h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        A FAZER!!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal button -->
+                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal" data-bs-target="#DeleteMovieModal">
+                  Delete
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="DeleteMovieModal" data-bs-keyboard="false" tabindex="-1"
+                  aria-labelledby="DeleteMovieModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-danger" id="DeleteMovieModalLabel">Deleting <span
+                            class="text-danger-emphasis">@listMovie.Title</span></h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <h3>You are about to delete a movie.</h3>
+                          <p>Do you want to proceed?</p>
+                          <div class="row">
+                            <div class="col">
+                              <button class="btn btn-danger" @onclick="(e) => DeleteMovie(listMovie)" >Yes</button>
+                              <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </td>
         </tr>
       }
@@ -92,19 +157,9 @@
   </tbody>
 </table>
 
-<div>
-
-  <pre>
-    @JsonSerializer.Serialize(registeredMovies, new JsonSerializerOptions() {WriteIndented = true})
-  </pre>
-</div>
-
-
-
 
 @code {
   public List<Movie> registeredMovies { get; set; } = new();
-
 
   protected override void OnInitialized()
   {
@@ -116,13 +171,17 @@
   {
     registeredMovies = await MovieService.GetAllMovies();
 
-    
   }
 
+  public async Task DeleteMovie(Movie targetMovie) {
+    
+    Logger.LogInformation("Deleting movie...");
+    if (await MovieService.DeleteMovie(targetMovie)) {
+      Logger.LogInformation("Movie deleted from the database");
+    }
+    NavigationManager.NavigateTo("/moviesconfig",true);
+
+  }
+
+
 }
-
-
-
-
-
-

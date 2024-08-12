@@ -154,7 +154,7 @@
         var createdMovie = await MovieService.CreateMovie(resultMovie);
 
         Logger.LogInformation("Added new Movie to the database:" + createdMovie.Id.ToString());
-        NavigationManager.NavigateTo("/", true);
+        NavigationManager.NavigateTo("/moviesConfig", true);
         return;
     }
 

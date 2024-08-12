@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 
+using Microsoft.EntityFrameworkCore;
 using CinemaProject.Data.Models;
-using System.Text.Json;
 
 namespace CinemaProject.Data.Services;
 
@@ -14,11 +13,12 @@ namespace CinemaProject.Data.Services;
         public Task<Movie> CreateMovie(Movie newMovie);
         public  Task<Movie?> RemoveMovie(int id);
         public  Task<Movie?> ModifyMovie(int id, Movie modifiedMovie);
-        public  Task<bool> DeleteMovie(int id);
+        public  Task<bool> DeleteMovie(Movie targetMovie);
     }
 
-    public class MovieService(ApplicationDbContext context, ILogger<MovieService> logger) : IMovieService   {
+    public class MovieService(ApplicationDbContext context, IAttachmentService attachment ,ILogger<MovieService> logger) : IMovieService   {
         private readonly ApplicationDbContext _context = context;
+        private readonly IAttachmentService _attachment = attachment;
         private readonly ILogger _logger = logger;
 
         public async Task<List<Movie>> GetAllMovies() {
@@ -56,13 +56,27 @@ namespace CinemaProject.Data.Services;
             await _context.SaveChangesAsync();
             return entry;
         }
-        public async Task<bool> DeleteMovie(int id) {
-            var entry = await _context.Movies.FindAsync(id);
-            if (entry == null) { return false;}
+        public async Task<bool> DeleteMovie(Movie targetMovie) {
+            
+            var databaseEntry = await _context.Movies.FindAsync(targetMovie.Id);
+            if (databaseEntry == null) { return false;}
 
-            _context.Remove(entry);
+            _context.Remove(databaseEntry);
+
+            try
+            {
+                await _attachment.DeleteFile(databaseEntry.PosterImage);
+                foreach(Attachment extra in databaseEntry.MovieExtras) {
+                    await _attachment.DeleteFile(extra);
+                }
+                
+            } 
+            catch (Exception)
+            {
+                _logger.LogInformation("Error when trying to delete movie files");
+            }
+
             await _context.SaveChangesAsync();
             return true;
-            
         }
     }

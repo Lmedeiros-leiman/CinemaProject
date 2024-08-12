@@ -11,7 +11,7 @@ namespace CinemaProject.Data.Models
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public long? ReleaseDate { get; set; } = null;
-        public long? InputedDate {get; set;} = null;
+        public long InputedDate {get; set;}
         public string Categories { get; set; } = string.Empty;
         public List<Attachment> MovieExtras { get; set; } = [];
         public Attachment PosterImage { get; set; } = new Attachment();
