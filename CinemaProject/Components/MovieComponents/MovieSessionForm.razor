@@ -1,0 +1,49 @@
+
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Components.Pages.Models;
+@using CinemaProject.Data.Services;
+@using System.Text.Json
+
+@inject ISessionService SessionService
+@inject IMovieService MovieService
+@inject NavigationManager NavigationManager
+
+<h2>Movie List</h2>
+
+
+
+
+@code {
+    /*
+    public List<Movie>? movies {get; set;}
+    public SectionInput formData {get; set;} = new();
+    public bool fetchingData {get; set;}
+    protected override void OnInitialized()
+    {
+        formData ??= new();
+        movies ??= [];
+        fetchingData = true;
+    }
+    protected async override Task OnInitializedAsync() {
+
+        movies = await MovieService.GetAllMovies();
+        fetchingData = false;
+    }
+
+    private void HandleSectionSubmit()
+    {
+        Session ResultSession = new()
+            {
+                TargetMovie = movies[formData.selectedMovieIndex],
+                SessionDate = formData.SectionDate.Ticks,
+                SessionTime = formData.SectionTurn,
+                SessionPrice = formData.SectionPrice
+            };
+
+        var newSession = SessionService.CreateSession(ResultSession);
+        NavigationManager.NavigateTo("/sessions", true);
+    }
+    */
+
+}

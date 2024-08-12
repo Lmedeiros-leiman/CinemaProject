@@ -11,39 +11,66 @@
 @using CinemaProject.Data.Services;
 @using System.Text.Json;
 
+@using CinemaProject.Components.MovieComponents;
+
 @inject NavigationManager NavigationManager
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
 
 
-<div class="accordion" id="InputForms">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                Movie Register Form
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#InputForms">
-            <div class="accordion-body">
-                <CinemaProject.Components.Pages.Components.Forms.MovieInput.MovieInput/>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Poster</th>
+      <th scope="col">UId</th>
+      <th scope="col">Tittle</th>
+      <th scope="col">Inputed Date</th>
+      <th scope="col">
+        <!-- Modal button -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
+          Add new movie
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg my-1">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5 text-primary" id="movieInputStaticModalLabel">Inserting a new movie.</h2>
+                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <MovieInputForm />
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+        
+      </th>
 
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Manage registered movies
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#InputForms">
-            <div class="accordion-body">
-                <CinemaProject.Components.Pages.Components.ManageMovies/>
-            </div>
-        </div>
-    </div>
-</div>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 
