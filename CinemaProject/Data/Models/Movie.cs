@@ -10,7 +10,7 @@ namespace CinemaProject.Data.Models
         public bool Active { get; set; } = true;
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public long? ReleaseDate { get; set; } = null;
+        public long ReleaseDate { get; set; }
         public long InputedDate {get; set;}
         public string Categories { get; set; } = string.Empty;
         public List<Attachment> MovieExtras { get; set; } = [];
@@ -19,6 +19,9 @@ namespace CinemaProject.Data.Models
         public Boolean SetActive(Boolean newState ) {
             this.Active = newState;
             return !this.Active;
+        }
+        public DateTime GetReleaseDate() {
+            return DateTime.FromBinary(this.ReleaseDate);
         }
     }
 }
