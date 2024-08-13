@@ -11,8 +11,8 @@ namespace CinemaProject.Data.Services;
         //
         // Crud Operations
         public Task<Movie> CreateMovie(Movie newMovie);
-        public  Task<Movie?> RemoveMovie(int id);
-        public  Task<Movie?> ModifyMovie(int id, Movie modifiedMovie);
+        public  Task<Movie?> RemoveMovie(long id);
+        public  Task<Movie?> ModifyMovie(long id, Movie modifiedMovie);
         public  Task<bool> DeleteMovie(Movie targetMovie);
     }
 
@@ -38,7 +38,7 @@ namespace CinemaProject.Data.Services;
             await _context.SaveChangesAsync();
             return newEntry.Entity;
         }
-        public async Task<Movie?> RemoveMovie(int id) {
+        public async Task<Movie?> RemoveMovie(long id) {
             // sets the visibility to false.
             var entry = await _context.Movies.FindAsync(id);
             if (entry == null) { return null;}
@@ -47,11 +47,21 @@ namespace CinemaProject.Data.Services;
 
             return entry;
         }
-        public async Task<Movie?> ModifyMovie(int id,Movie updatedMovie) {
+
+        /* 
+            entry.Title = updatedMovie.Title;
+            entry.Description = updatedMovie.Description;
+            entry.Categories = updatedMovie.Categories;
+            entry.ReleaseDate = updatedMovie.ReleaseDate;
+            entry.PosterImage = updatedMovie.PosterImage;
+            entry.MovieExtras = updatedMovie.MovieExtras;
+            */
+        public async Task<Movie?> ModifyMovie(long id,Movie updatedMovie) {
             var entry = await _context.Movies.FindAsync(id);
-            if (entry == null) { return null;}
+            if (entry == null) { return null; }
 
             entry = updatedMovie;
+            
 
             await _context.SaveChangesAsync();
             return entry;

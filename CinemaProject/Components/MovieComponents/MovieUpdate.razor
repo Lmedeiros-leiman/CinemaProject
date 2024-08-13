@@ -85,7 +85,17 @@
 
     private async Task UpdateMovie(EditContext editContext)
     {
+        Movie tempNewMovie = new() {
+            Title = formMovie.Tittle,
+            Description = formMovie.Description,
+            Categories = formMovie.Categories,
+            ReleaseDate = formMovie.ReleaseDate.Ticks,
+            PosterImage = formMovie.oldPosterImage,
+            MovieExtras = formMovie.oldExtraContent
+        };
+        var result = await MovieService.ModifyMovie(targetMovie.Id, tempNewMovie);
 
+        NavigationManager.NavigateTo("/moviesConfig",true);
     }
 
     protected override void OnInitialized()
