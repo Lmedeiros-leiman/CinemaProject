@@ -1,0 +1,159 @@
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Services;
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+
+@inject NavigationManager NavigationManager
+@inject IMovieService MovieService
+@inject IAttachmentService AttachmentService
+@inject ILogger<MovieInputForm> Logger
+
+
+<div class="container">
+    <EditForm Model="formMovie" FormName="movieUpdateForm" OnValidSubmit="UpdateMovie">
+        <DataAnnotationsValidator />
+
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-1">
+                    <InputText @bind-Value="newMovie.Tittle" id="Movietitle" class="form-control" aria-required="true"
+                        placeholder="" />
+                    <label for="Movietitle">Movie Title</label>
+                    <ValidationMessage For="() => newMovie.Tittle" class="text-danger" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-1">
+
+                    <InputDate @bind-Value="newMovie.ReleaseDate" id="MovieReleaseDate" class="form-control"
+                        aria-required="true" />
+                    <label for="MovieReleaseDate">Movie Release Date</label>
+                    <ValidationMessage For="() => newMovie.ReleaseDate" class="text-danger" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-2">
+
+                    <InputText @bind-Value="newMovie.Categories" id="MovieCategories" class="form-control"
+                        aria-required="true" placeholder="" />
+                    <label for="MovieCategories">Movie Categories</label>
+                    <ValidationMessage For="() => newMovie.Categories" class="text-danger" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form mb-3">
+
+                    <label for="MovieDescription">Movie description</label>
+                    <InputTextArea @bind-Value="newMovie.Description" aria-required="true" id="MovieDescription"
+                        class="form-control" rows="3" placeholder="" />
+                    <ValidationMessage For="() => newMovie.Description" class="text-danger" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-2 mb-3">
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="moviePoster">Movie poster media</label>
+                    <InputFile class="form-control" id="moviePoster" required OnChange="HandlePosterFile"
+                        accept="video/*,image/*" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="movieExtras">Movie Extras</label>
+                    <InputFile class="form-control" id="movieExtras" multiple OnChange="HandleExtraFiles"
+                        accept="video/*,image/*" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col ">
+                <button type="submit" class="btn btn-lg  float-end btn-outline-primary"> Update movie </button>
+            </div>
+        </div>
+    </EditForm>
+</div>
+
+<EditForm OnValidSubmit="AddNewMovie" Model="newMovie" FormName="movieInput">
+
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public Movie targetMovie { get; set; }
+    private ModifiedMovieModel formMovie { get; set; }
+
+    private async Task UpdateMovie(Movie newMovie)
+    {
+
+    }
+
+    protected override void OnInitialized()
+    {
+        formMovie = new(targetMovie);
+    }
+
+
+
+
+
+    private sealed class ModifiedMovieModel(Movie targetMovie)
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Tittle")]
+        public string Tittle { get; set; } = targetMovie.Title;
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Description")]
+        public string Description { get; set; } = targetMovie.Description;
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Movie release date")]
+        public DateTime? ReleaseDate { get; set; } = targetMovie.ReleaseDate;
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Movie Categories")]
+        public string Categories { get; set; } = targetMovie.Categories;
+
+        public Attachment oldPosterImage { get; set; } = targetMovie.PosterImage;
+#pragma warning disable CS8618
+        // since the file will be a requirement.
+        [DataType(DataType.Upload)]
+        [Display(Name = "Movie poster image")]
+        public IBrowserFile PosterImage { get; set; }
+#pragma warning restore CS8618
+
+        public List<Attachment> oldExtraContent { get; set; } = targetMovie.MovieExtras;
+        [DataType(DataType.Upload)]
+        [Display(Name = "Movie extra content")]
+        public List<IBrowserFile> ExtraContent { get; set; } = new(); // []
+
+
+    }
+}
+
+
