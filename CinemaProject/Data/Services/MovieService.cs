@@ -10,7 +10,6 @@ namespace CinemaProject.Data.Services;
 
         // sesions related
         public Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails);
-        public Task<List<Session>> GetMovieSessions(Movie targetMovie);
         //
         // Crud Operations
         public Task<Movie> CreateMovie(Movie newMovie);
@@ -116,10 +115,6 @@ namespace CinemaProject.Data.Services;
             return true;
         }
 
-        public async Task<List<Session>> GetMovieSessions(Movie targetMovie) {
-            var sessions = await _context.Sessions.Where(p => p.TargetMovie.Id == targetMovie.Id).ToListAsync();
-            return sessions;
-        }
     
     
     }

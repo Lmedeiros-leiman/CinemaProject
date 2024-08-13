@@ -19,7 +19,7 @@ namespace CinemaProject.Data.Services
             await _context.SaveChangesAsync();
         }
         public async Task<List<Session>> GetSessions() {
-            return await _context.Sessions.Include(m => m.TargetMovie ).ToListAsync();
+            return await _context.Sessions.ToListAsync();
         }
 
         

@@ -186,7 +186,7 @@
 
 @if (registeredMovies.Count > 0) {
   <pre>
-    @JsonSerializer.Serialize(registeredMovies[0], new JsonSerializerOptions() {WriteIndented = true})
+    @JsonSerializer.Serialize(registeredMovies[0].Sessions, new JsonSerializerOptions() {WriteIndented = true})
   </pre>
 }
 
