@@ -80,12 +80,13 @@
 
 @code {
     [Parameter]
-    public Movie targetMovie { get; set; }
+    public Movie targetMovie { get; set; } = new();
     private ModifiedMovieModel formMovie { get; set; }
 
     private async Task UpdateMovie(EditContext editContext)
     {
         Movie tempNewMovie = new() {
+            Id = targetMovie.Id,
             Title = formMovie.Tittle,
             Description = formMovie.Description,
             Categories = formMovie.Categories,
@@ -136,7 +137,7 @@
         // since the file will be a requirement.
         [DataType(DataType.Upload)]
         [Display(Name = "Movie poster image")]
-        public IBrowserFile PosterImage { get; set; }
+        public IBrowserFile? PosterImage { get; set; } = null;
 #pragma warning restore CS8618
 
         public List<Attachment> oldExtraContent { get; set; } = targetMovie.MovieExtras;

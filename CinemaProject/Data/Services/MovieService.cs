@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using CinemaProject.Data.Models;
+using Microsoft.AspNetCore.Authentication;
 
 namespace CinemaProject.Data.Services;
 
@@ -23,7 +24,7 @@ namespace CinemaProject.Data.Services;
 
         public async Task<List<Movie>> GetAllMovies() {
             return await _context.Movies
-                            .Include(s => s.movieSessions)
+                            //.Include(s => s.movieSessions)
                             .Include(p => p.PosterImage)
                             .ToListAsync();
 
@@ -53,28 +54,31 @@ namespace CinemaProject.Data.Services;
             return entry;
         }
 
-        /* 
+        public async Task<Movie?> ModifyMovie(long id,Movie updatedMovie) {
+            var entry = await _context.Movies.FindAsync(updatedMovie.Id);
+            if (entry == null) { 
+                _logger.LogInformation("Failure modifying movie. ID not found: " + updatedMovie.Id.ToString() );
+                return null; 
+            }
+            
             entry.Title = updatedMovie.Title;
             entry.Description = updatedMovie.Description;
             entry.Categories = updatedMovie.Categories;
             entry.ReleaseDate = updatedMovie.ReleaseDate;
             entry.PosterImage = updatedMovie.PosterImage;
             entry.MovieExtras = updatedMovie.MovieExtras;
-            */
-        public async Task<Movie?> ModifyMovie(long id,Movie updatedMovie) {
-            var entry = await _context.Movies.FindAsync(id);
-            if (entry == null) { return null; }
-
-            entry = updatedMovie;
             
-
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Sucessfully modified movie.");
             return entry;
         }
         public async Task<bool> DeleteMovie(Movie targetMovie) {
             
             var databaseEntry = await _context.Movies.FindAsync(targetMovie.Id);
-            if (databaseEntry == null) { return false;}
+            if (databaseEntry == null) { 
+                _logger.LogInformation("Failure attempting to delete movie, not found ID. " + targetMovie.Id.ToString());
+                return false;
+            }
 
             _context.Remove(databaseEntry);
 
@@ -91,7 +95,9 @@ namespace CinemaProject.Data.Services;
                 _logger.LogInformation("Error when trying to delete movie files");
             }
 
+            
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Sucessfully delete movie from database.");
             return true;
         }
     }
