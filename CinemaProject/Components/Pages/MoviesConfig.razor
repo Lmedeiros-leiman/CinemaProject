@@ -10,7 +10,6 @@
 
 
 @using CinemaProject.Data.Models;
-@using CinemaProject.Data.Models.FormModels;
 @using CinemaProject.Data.Services;
 @using System.Text.Json;
 
@@ -60,8 +59,9 @@
     else
     {
       // show the movies!
-      foreach (Movie listMovie in registeredMovies)
+      foreach( Movie listMovie in registeredMovies)
       {
+        
         <tr>
           <th scope="row">
             <img width="128px" height="128px" alt="Poster image" src=".\assets\@listMovie.PosterImage.URLPath" />
@@ -89,14 +89,14 @@
                   <div class="modal-dialog modal-lg my-1">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-warning" id="CreateSessionModalLabel"> Modifying <span
-                            class="text-warning-emphasis">@listMovie.Title</span></h2>
+                        <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel"> Creating session <span
+                            class="text-primary-emphasis">@listMovie.Title</span></h2>
                             
                         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
                           aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <MovieUpdate targetMovie=@listMovie/>
+                        <CreateSessionForm targetMovie=@listMovie/>
                       </div>
                     </div>
                   </div>
@@ -159,6 +159,19 @@
 
           </td>
         </tr>
+        <td>
+          <th scope="row">Sessions</th>
+          <td>
+            <table>
+              <th scope="row">
+              </th>
+              <td>
+                
+              </td>
+            </table>
+          </td>
+        </td>
+        
       }
     }
     <!-- 
@@ -171,15 +184,19 @@
   </tbody>
 </table>
 
+@if (registeredMovies.Count > 0) {
+  <pre>
+    @JsonSerializer.Serialize(registeredMovies[0], new JsonSerializerOptions() {WriteIndented = true})
+  </pre>
+}
+
 
 @code {
   public List<Movie> registeredMovies { get; set; } = new();
 
-  protected override void OnInitialized()
-  {
+  protected override void OnInitialized() {
     registeredMovies ??= new(); // [];
 
-    return;
   }
   protected override async Task OnInitializedAsync()
   {

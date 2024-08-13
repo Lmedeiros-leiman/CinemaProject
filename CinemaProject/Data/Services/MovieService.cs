@@ -1,14 +1,16 @@
 
 using Microsoft.EntityFrameworkCore;
 using CinemaProject.Data.Models;
-using Microsoft.AspNetCore.Authentication;
-
 namespace CinemaProject.Data.Services;
 
     public interface IMovieService
     {
         public Task<List<Movie>> GetAllMovies();
-        public Task<Movie?> GetMovieByiD(int id);
+        public Task<Movie?> GetMovieById(long id);
+
+        // sesions related
+        public Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails);
+        public Task<List<Session>> GetMovieSessions(Movie targetMovie);
         //
         // Crud Operations
         public Task<Movie> CreateMovie(Movie newMovie);
@@ -17,7 +19,7 @@ namespace CinemaProject.Data.Services;
         public  Task<bool> DeleteMovie(Movie targetMovie);
     }
 
-    public class MovieService(ApplicationDbContext context, IAttachmentService attachment ,ILogger<MovieService> logger) : IMovieService   {
+    public class MovieService(ApplicationDbContext context, IAttachmentService attachment,ILogger<MovieService> logger) : IMovieService   {
         private readonly ApplicationDbContext _context = context;
         private readonly IAttachmentService _attachment = attachment;
         private readonly ILogger _logger = logger;
@@ -26,12 +28,12 @@ namespace CinemaProject.Data.Services;
             return await _context.Movies
                             //.Include(s => s.movieSessions)
                             .Include(p => p.PosterImage)
+                            .Include(p => p.Sessions)
+                            .Include(p => p.MovieExtras)
                             .ToListAsync();
-
-                            
         }
 
-        public async Task<Movie?> GetMovieByiD(int id) {
+        public async Task<Movie?> GetMovieById(long id) {
             return await _context.Movies.FindAsync(id);
         }
 
@@ -53,7 +55,6 @@ namespace CinemaProject.Data.Services;
 
             return entry;
         }
-
         public async Task<Movie?> ModifyMovie(long id,Movie updatedMovie) {
             var entry = await _context.Movies.FindAsync(updatedMovie.Id);
             if (entry == null) { 
@@ -100,4 +101,25 @@ namespace CinemaProject.Data.Services;
             _logger.LogInformation("Sucessfully delete movie from database.");
             return true;
         }
+    
+        
+        // session Related
+        public async Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails) {
+            if (targetMovie.Id == 0) return false;
+
+            var databaseMovie = await GetMovieById(targetMovie.Id);
+            if (databaseMovie == null) return false;
+
+            databaseMovie.Sessions.Add(sessionDetails);
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<Session>> GetMovieSessions(Movie targetMovie) {
+            var sessions = await _context.Sessions.Where(p => p.TargetMovie.Id == targetMovie.Id).ToListAsync();
+            return sessions;
+        }
+    
+    
     }

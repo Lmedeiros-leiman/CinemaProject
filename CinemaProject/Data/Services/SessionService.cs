@@ -14,10 +14,14 @@ namespace CinemaProject.Data.Services
     {
         public readonly ApplicationDbContext _context = context;
         public async Task CreateSession(Session newSession) {
-            await _context.AddAsync(newSession);
+            var newEntry = await _context.AddAsync(newSession);
+            
+            await _context.SaveChangesAsync();
         }
         public async Task<List<Session>> GetSessions() {
             return await _context.Sessions.Include(m => m.TargetMovie ).ToListAsync();
         }
+
+        
     }
 }

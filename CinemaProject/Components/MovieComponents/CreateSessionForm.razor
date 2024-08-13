@@ -1,0 +1,63 @@
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Services;
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+
+@inject NavigationManager NavigationManager
+@inject IMovieService MovieService
+@inject ILogger<CreateSessionForm> Logger
+
+<EditForm Model="sessionFormData" OnValidSubmit="CreateSession" FormName="sessionInputForm" >
+    
+    <InputDate @bind-Value="sessionFormData.Date" />
+    <InputSelect @bind-Value="sessionFormData.Time">
+        <option value="Morning" >Morning</option>
+        <option value="Evening" >Evening</option>
+        <option value="Night"   >Night</option>
+    </InputSelect>
+    <InputNumber @bind-Value="sessionFormData.Price" />
+
+    <button type="submit">Add Session</button>
+</EditForm>
+
+
+
+@code {
+    [Parameter]
+    public Movie targetMovie { get; set; }
+    private SessionInput sessionFormData {get;set;}
+
+    protected override void OnInitialized() {
+            sessionFormData ??= new(targetMovie);
+    }
+
+    private async Task CreateSession(EditContext editContext) {
+        Logger.LogWarning("FUNFANDO!");
+        
+        Session tempSession =  new() {
+            TargetMovie = targetMovie,
+            SessionDate = sessionFormData.Date.Ticks,
+            SessionPrice = sessionFormData.Price,
+            SessionTime = sessionFormData.Time
+        };
+
+        await MovieService.CreateMovieSession(targetMovie, tempSession);
+
+        NavigationManager.NavigateTo("/moviesConfig", true);
+    }
+    
+
+    private sealed class SessionInput(Movie targetMovie) {
+        public Movie targetMovie {get;set;} = targetMovie;
+        public string Room {get;set;} = string.Empty;
+        public string Time = "Morning";
+        public DateTime Date {get;set;} = DateTime.MinValue;
+        public long Price {get;set;} = 0;
+    }
+
+}
+
+
