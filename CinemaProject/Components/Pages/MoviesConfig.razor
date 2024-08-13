@@ -166,7 +166,12 @@
               <th scope="row">
               </th>
               <td>
-                
+                @foreach (Session session in listMovie.Sessions)
+                {
+                  <div class="container">
+                    <h2>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate))</h2>
+                  </div>
+                }
               </td>
             </table>
           </td>
@@ -186,7 +191,7 @@
 
 @if (registeredMovies.Count > 0) {
   <pre>
-    @JsonSerializer.Serialize(registeredMovies[0].Sessions, new JsonSerializerOptions() {WriteIndented = true})
+    @JsonSerializer.Serialize(registeredMovies, new JsonSerializerOptions() {WriteIndented = true})
   </pre>
 }
 
