@@ -78,12 +78,12 @@
           <td>
             <div class="row">
               <div class="col">
-                <!-- Modal button -->
+                <!-- Create Session Modal button -->
                 <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
                   data-bs-target="#modifyMovieModal">
-                  Modify
+                  Create Session
                 </button>
-                <!-- Modal -->
+                <!-- Create Session Modal -->
                 <div class="modal fade" id="modifyMovieModal" data-bs-keyboard="false" tabindex="-1"
                   aria-labelledby="modifyMovieModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg my-1">
@@ -100,11 +100,34 @@
                     </div>
                   </div>
                 </div>
-                <!-- Modal button -->
+                
+                <!-- Modify Modal button -->
+                <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
+                  data-bs-target="#modifyMovieModal">
+                  Modify
+                </button>
+                <!-- Modify Modal -->
+                <div class="modal fade" id="modifyMovieModal" data-bs-keyboard="false" tabindex="-1"
+                  aria-labelledby="modifyMovieModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg my-1">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel"> Modifying <span
+                            class="text-warning-emphasis">@listMovie.Title</span></h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <MovieUpdate targetMovie=@listMovie/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Delete Movie Modal button -->
                 <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal" data-bs-target="#DeleteMovieModal">
                   Delete
                 </button>
-                <!-- Modal -->
+                <!-- Delete Movie Modal -->
                 <div class="modal fade" id="DeleteMovieModal" data-bs-keyboard="false" tabindex="-1"
                   aria-labelledby="DeleteMovieModalLabel" aria-hidden="true">
                   <div class="modal-dialog">

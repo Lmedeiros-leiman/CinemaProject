@@ -126,13 +126,13 @@ namespace CinemaProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("InputedDate")
+                    b.Property<long>("InputedDate")
                         .HasColumnType("INTEGER");
 
                     b.Property<long>("PosterImageId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("ReleaseDate")
+                    b.Property<long>("ReleaseDate")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")

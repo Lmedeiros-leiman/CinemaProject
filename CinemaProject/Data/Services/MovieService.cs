@@ -22,7 +22,12 @@ namespace CinemaProject.Data.Services;
         private readonly ILogger _logger = logger;
 
         public async Task<List<Movie>> GetAllMovies() {
-            return await _context.Movies.Include(p => p.PosterImage).ToListAsync();
+            return await _context.Movies
+                            .Include(s => s.movieSessions)
+                            .Include(p => p.PosterImage)
+                            .ToListAsync();
+
+                            
         }
 
         public async Task<Movie?> GetMovieByiD(int id) {

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240812190953_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240813185344_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,13 +129,13 @@ namespace CinemaProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("InputedDate")
+                    b.Property<long>("InputedDate")
                         .HasColumnType("INTEGER");
 
                     b.Property<long>("PosterImageId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("ReleaseDate")
+                    b.Property<long>("ReleaseDate")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")

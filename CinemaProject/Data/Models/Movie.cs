@@ -13,6 +13,7 @@ namespace CinemaProject.Data.Models
         public long ReleaseDate { get; set; }
         public long InputedDate {get; set;}
         public string Categories { get; set; } = string.Empty;
+        public List<Session> movieSessions = [];
         public List<Attachment> MovieExtras { get; set; } = [];
         public Attachment PosterImage { get; set; } = new Attachment();
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CinemaProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -181,8 +181,8 @@ namespace CinemaProject.Migrations
                     Active = table.Column<bool>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    ReleaseDate = table.Column<long>(type: "INTEGER", nullable: true),
-                    InputedDate = table.Column<long>(type: "INTEGER", nullable: true),
+                    ReleaseDate = table.Column<long>(type: "INTEGER", nullable: false),
+                    InputedDate = table.Column<long>(type: "INTEGER", nullable: false),
                     Categories = table.Column<string>(type: "TEXT", nullable: false),
                     PosterImageId = table.Column<long>(type: "INTEGER", nullable: false)
                 },
