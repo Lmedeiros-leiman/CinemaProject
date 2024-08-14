@@ -11,7 +11,7 @@ namespace CinemaProject.Data.Services;
         // sesions related
         public Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails);
 
-        public async Task<List<Movie>> GetMoviesWithSessions();
+        public Task<List<Movie>> GetMoviesWithSessions();
         //
         // Crud Operations
         public Task<Movie> CreateMovie(Movie newMovie);
