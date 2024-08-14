@@ -36,7 +36,11 @@ namespace CinemaProject.Data.Services;
 
         
         public async Task<List<Movie>> GetMoviesWithSessions() {
-            return await _context.Movies.Where(m => m.Sessions.Count > 0).ToListAsync();
+            return await _context.Movies.Where(m => m.Sessions.Count > 0)
+                            .Include(p => p.PosterImage)
+                            .Include(p => p.Sessions)
+                            .Include(p => p.MovieExtras)
+                            .ToListAsync();
         }
         
         public async Task<Movie?> GetMovieById(long id) {
