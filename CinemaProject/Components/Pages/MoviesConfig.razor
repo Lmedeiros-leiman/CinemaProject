@@ -149,6 +149,7 @@
             </div>
           </td>
         </tr>
+        @if(movie.Sessions.Count > 0) {
         <tr >
           <td colspan="12">
             <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
@@ -173,10 +174,18 @@
                     </thead>
                     <tbody>
                       @foreach (Session session in movie.Sessions) {
-                        
-                        <div class="container">
-                          <h2>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate))</h2>
-                        </div>
+                        <tr>
+                          <td>@session.Id</td>
+                          <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</td>
+                          <td>@session.SessionTime</td>
+                          <td>@session.SessionPrice R$</td>
+                          <td class="btn-group w-100 justify-content-end" >
+                                <div class="btn-group" role="group">
+                                  <button class="btn btn-warning ">Modify</button>
+                                  <button class="btn btn-danger ">Delete</button>
+                                </div>
+                          </td>
+                        </tr>
                       }
                     </tbody>
                   </table>
@@ -185,6 +194,7 @@
             </div>
           </td>
         </tr>
+        }
       }
     }
     else
