@@ -61,10 +61,9 @@
       // show the movies!
       foreach( Movie listMovie in registeredMovies)
       {
-        
         <tr>
           <th scope="row">
-            <img width="128px" height="128px" alt="Poster image" src=".\assets\@listMovie.PosterImage.URLPath" />
+            <img width="128px" height="128px" alt="Poster image" src=".\assets\@(listMovie.PosterImage.URLPath)" />
           </th>
           <td>
             @listMovie.Id
@@ -96,7 +95,7 @@
                           aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <CreateSessionForm targetMovie=@listMovie/>
+                        <CreateSessionForm targetMovie=listMovie/>
                       </div>
                     </div>
                   </div>
@@ -156,7 +155,6 @@
                 </div>
               </div>
             </div>
-
           </td>
         </tr>
         <td>
@@ -179,22 +177,8 @@
         
       }
     }
-    <!-- 
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>twitter</td>
-    </tr>
-    -->
   </tbody>
 </table>
-
-@if (registeredMovies.Count > 0) {
-  <pre>
-    @JsonSerializer.Serialize(registeredMovies, new JsonSerializerOptions() {WriteIndented = true})
-  </pre>
-}
-
 
 @code {
   public List<Movie> registeredMovies { get; set; } = new();
