@@ -14,7 +14,7 @@
 <div class="container-fluid">
 <EditForm OnValidSubmit="AddNewMovie" Model="newMovie" FormName="movieInput">
     <DataAnnotationsValidator />
-    
+    <AntiforgeryToken/>
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-1">

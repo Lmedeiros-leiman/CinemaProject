@@ -1,11 +1,6 @@
 ﻿@page "/"
 
-@using CinemaProject.Data.Models;
-@using CinemaProject.Data.Services;
-
-@using System.Text.Json;
-
-@inject IMovieService MovieService
+@using CinemaProject.Components.MovieComponents;
 
 
 <PageTitle>Super Movies!</PageTitle>
@@ -16,17 +11,11 @@
         <h2>Welcome!</h2>
     </section>
 
-    @JsonSerializer.Serialize(Sessions);
-        
+    <main class="container">
+        <ShowSessionsWithMovie />
+    </main>
+    
     
 </div>
 
-
-@code {
-    public List<Movie> Sessions {get; set;} = [];
-
-        protected override Task OnInitializedAsync() {
-            Sessions = MovieService.GetMoviesWithSessions();
-        }
-}
 

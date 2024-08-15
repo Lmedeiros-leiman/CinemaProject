@@ -3,6 +3,12 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+#THE SQLITEDATABASE!!
+SQLitedatabase.*
+
+#assets from public folder.
+*/wwwroot/assets/*
+
 # dotenv files
 .env
 
@@ -482,3 +488,4 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
