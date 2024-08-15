@@ -28,6 +28,7 @@
       <th scope="col">Tittle</th>
       <th scope="col">Inputed Date</th>
       <th scope="col">
+        <span class="px-2">Actions</span>
         <!-- Modal button -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
           Add new movie
@@ -51,8 +52,10 @@
     </tr>
   </thead>
   <tbody>
-    @if (registeredMovies.Count > 0) {
-      foreach (Movie movie in registeredMovies) {
+    @if (registeredMovies.Count > 0)
+    {
+      foreach (Movie movie in registeredMovies)
+      {
         <tr>
           <th scope="row">
             <img width="128px" height="128px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
@@ -74,8 +77,9 @@
                   <div class="modal-dialog modal-lg my-1">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel@(movie.Id)"> Creating session <span
-                            class="text-primary-emphasis">@movie.Title</span></h2>
+                        <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel@(movie.Id)"> Creating session
+                          <span class="text-primary-emphasis">@movie.Title</span>
+                        </h2>
 
                         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
                           aria-label="Close"></button>
@@ -111,7 +115,8 @@
                   </div>
                 </div>
                 <!-- Delete Movie Modal button -->
-                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal" data-bs-target="#DeleteMovieModal@(movie.Id)">
+                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
+                  data-bs-target="#DeleteMovieModal@(movie.Id)">
                   Delete
                 </button>
                 <!-- Delete Movie Modal -->
@@ -144,25 +149,48 @@
             </div>
           </td>
         </tr>
-        <td>
-        <th scope="row">Sessions</th>
-        <td>
-          <table>
-            <th scope="row">
-            </th>
-            <td>
-                @foreach (Session session in  movie.Sessions)
-                {
-                <div class="container">
-                  <h2>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate))</h2>
-                </div>
-                }
-            </td>
-          </table>
-        </td>
-        </td>
+        <tr >
+          <td colspan="12">
+            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                    aria-controls="movieSessions@(movie.Id)">
+                    @(movie.Title) Movie sessions
+                  </button>
+                </h2>
+                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                  aria-labelledby="MovieSessionsHeading@(movie.Id)" data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                  <table class="table table-bordered">
+                    <thead>
+                      <th scope="col">ID</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Actions</th>
+                    </thead>
+                    <tbody>
+                      @foreach (Session session in movie.Sessions) {
+                        
+                        <div class="container">
+                          <h2>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate))</h2>
+                        </div>
+                      }
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </td>
+        </tr>
       }
-    } else { <p>Loading...</p> }
+    }
+    else
+    {
+      <p>Loading...</p>
+    }
   </tbody>
 </table>
 
