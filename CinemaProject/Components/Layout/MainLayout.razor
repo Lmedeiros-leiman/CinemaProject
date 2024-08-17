@@ -3,28 +3,28 @@
 @inject NavigationManager NavigationManager
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
     <main>
-        <nav class="navbar navbar-light bg-dark justify-content-end ">
+        <nav class="navbar navbar-light bg-dark  ">
+            
+            <div class="nav-item px-2">
+                <a class="navbar-brand text-warning fw-bold" href="/">CinemaProject</a>
+            </div>
+            
             <div class="nav-item px-1 " style="order: 999;">
+                
+                
                 <AuthorizeView>
                     <Authorized>
                         <div class="dropdown">
-                            <div class=" dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img width="24" height="24" /> <span
-                                    class=" text-decoration-underline">@context.User.Identity?.Name!</span>
+                            <div class=" dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class=" text-decoration-underline">@context.User.Identity?.Name!</span>
                             </div>
                             <ul class="dropdown-menu">
                                 <AuthorizeView Roles="admin">
                                     <Authorized Context="adminUser">
                                         <li>
                                             <p class=" text-warning text-center">Admin Actions</p>
-                                            <a href="/moviesConfig" class="dropdown-item" type="button">Configure
-                                                Movies</a>
+                                            <a href="/moviesConfig" class="dropdown-item" type="button">Configure Movies</a>
                                             <hr class="dropdown-divider">
                                         </li>
                                     </Authorized>
@@ -47,14 +47,12 @@
                     </NotAuthorized>
                 </AuthorizeView>
             </div>
-
-
         </nav>
 
 
 
 
-        <article class="container-fluid px-2 py-2">
+        <article class="container-fluid">
             @Body
         </article>
     </main>

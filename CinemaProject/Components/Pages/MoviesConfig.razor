@@ -21,216 +21,225 @@
 @inject IAttachmentService AttachmentService
 
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Poster</th>
-      <th scope="col">UId</th>
-      <th scope="col">Tittle</th>
-      <th scope="col">Inputed Date</th>
-      <th scope="col">
-        <span class="px-2">Actions</span>
-        <!-- Modal button -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
-          Add new movie
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
-          tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg my-1">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title fs-5 text-primary" id="movieInputStaticModalLabel">Inserting a new movie.</h2>
-                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <MovieInputForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    @if (registeredMovies.Count > 0)
-    {
-      foreach (Movie movie in registeredMovies)
-      {
+    <thead>
         <tr>
-          <th scope="row">
-            <img width="128px" height="128px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
-          </th>
-          <td> @movie.Id </td>
-          <td> @movie.Title </td>
-          <td> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </td>
-          <td>
-            <div class="row">
-              <div class="col">
-                <!-- Create Session Modal button -->
-                <button class="btn btn-primary text-light fw-bold" data-bs-toggle="modal"
-                  data-bs-target="#CreateSessionModal@(movie.Id)">
-                  Create Session
+            <th scope="col">Poster</th>
+            <th scope="col">UId</th>
+            <th scope="col">Tittle</th>
+            <th scope="col">Inputed Date</th>
+            <th scope="col">
+                <span class="px-2">Actions</span>
+                <!-- Modal button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#movieInputStaticModal">
+                    Add new movie
                 </button>
-                <!-- Create Session Modal -->
-                <div class="modal fade" id="CreateSessionModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                  aria-labelledby="CreateSessionModalLabel@(movie.Id)" aria-hidden="true">
-                  <div class="modal-dialog modal-lg my-1">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel@(movie.Id)"> Creating session
-                          <span class="text-primary-emphasis">@movie.Title</span>
-                        </h2>
-
-                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                          aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        @movie.Title
-                        <CreateSessionForm targetMovie=@(movie) />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Modify Modal button -->
-                <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
-                  data-bs-target="#modifyMovieModal@(movie.Id)">
-                  Modify
-                </button>
-                <!-- Modify Modal -->
-                <div class="modal fade" id="modifyMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                  aria-labelledby="modifyMovieModalLabel@(movie.Id)" aria-hidden="true">
-                  <div class="modal-dialog modal-lg my-1">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel@(movie.Id)"> Modifying <span
-                            class="text-warning-emphasis">@movie.Title</span></h2>
-                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                          aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <MovieUpdate targetMovie=@(movie) />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Delete Movie Modal button -->
-                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
-                  data-bs-target="#DeleteMovieModal@(movie.Id)">
-                  Delete
-                </button>
-                <!-- Delete Movie Modal -->
-                <div class="modal fade" id="DeleteMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                  aria-labelledby="DeleteMovieModalLabel@(movie.Id)" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-danger" id="DeleteMovieModalLabel@(movie.Id)">Deleting <span
-                            class="text-danger-emphasis">@movie.Title</span></h2>
-                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                          aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="container">
-                          <h3>You are about to delete a movie.</h3>
-                          <p>Do you want to proceed?</p>
-                          <div class="row">
-                            <div class="col">
-                              <button class="btn btn-danger" @onclick="(e) => DeleteMovie(movie)">Yes</button>
-                              <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                <!-- Modal -->
+                <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg my-1">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title fs-5 text-primary" id="movieInputStaticModalLabel">Inserting a
+                                    new movie.</h2>
+                                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
-                          </div>
+                            <div class="modal-body">
+                                <MovieInputForm />
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </td>
+            </th>
         </tr>
-        @if(movie.Sessions.Count > 0) {
-        <tr >
-          <td colspan="12">
-            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+    </thead>
+    <tbody>
+        @if (registeredMovies.Count > 0)
+        {
+            foreach (Movie movie in registeredMovies)
+            {
+                <tr>
+                    <th scope="row">
+                        <img width="128px" height="128px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
+                    </th>
+                    <td> @movie.Id </td>
+                    <td> @movie.Title </td>
+                    <td> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <!-- Create Session Modal button -->
+                                <button class="btn btn-primary text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#CreateSessionModal@(movie.Id)">
+                                    Create Session
+                                </button>
+                                <!-- Create Session Modal -->
+                                <div class="modal fade" id="CreateSessionModal@(movie.Id)" data-bs-keyboard="false"
+                                    tabindex="-1" aria-labelledby="CreateSessionModalLabel@(movie.Id)" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg my-1">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title fs-5 text-primary"
+                                                    id="CreateSessionModalLabel@(movie.Id)"> Creating session
+                                                    <span class="text-primary-emphasis">@movie.Title</span>
+                                                </h2>
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
-                    aria-controls="movieSessions@(movie.Id)">
-                    @(movie.Title) Movie sessions
-                  </button>
-                </h2>
-                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
-                  aria-labelledby="MovieSessionsHeading@(movie.Id)" data-bs-parent="#accordionMovieSessions@(movie.Id)">
-                  <table class="table table-bordered">
-                    <thead>
-                      <th scope="col">ID</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Time</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Actions</th>
-                    </thead>
-                    <tbody>
-                      @foreach (Session session in movie.Sessions) {
-                        <tr>
-                          <td>@session.Id</td>
-                          <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</td>
-                          <td>@session.SessionTime</td>
-                          <td>@session.SessionPrice R$</td>
-                          <td class="btn-group w-100 justify-content-end" >
-                                <div class="btn-group" role="group">
-                                  <button class="btn btn-warning ">Modify</button>
-                                  <button class="btn btn-danger ">Delete</button>
+                                                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @movie.Title
+                                                <CreateSessionForm targetMovie=@(movie) />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                          </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
-                </section>
-              </div>
-            </div>
-          </td>
-        </tr>
+
+                                <!-- Modify Modal button -->
+                                <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#modifyMovieModal@(movie.Id)">
+                                    Modify
+                                </button>
+                                <!-- Modify Modal -->
+                                <div class="modal fade" id="modifyMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="modifyMovieModalLabel@(movie.Id)" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg my-1">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel@(movie.Id)">
+                                                    Modifying <span class="text-warning-emphasis">@movie.Title</span></h2>
+                                                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <MovieUpdate targetMovie=@(movie) />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Delete Movie Modal button -->
+                                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#DeleteMovieModal@(movie.Id)">
+                                    Delete
+                                </button>
+                                <!-- Delete Movie Modal -->
+                                <div class="modal fade" id="DeleteMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="DeleteMovieModalLabel@(movie.Id)" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title fs-5 text-danger" id="DeleteMovieModalLabel@(movie.Id)">
+                                                    Deleting <span class="text-danger-emphasis">@movie.Title</span></h2>
+                                                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <h3>You are about to delete a movie.</h3>
+                                                    <p>Do you want to proceed?</p>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button class="btn btn-danger"
+                                                            @onclick="(e) => DeleteMovie(movie)">Yes</button>
+                                                            <button class="btn btn-primary" data-bs-dismiss="modal"
+                                                                aria-label="Close">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @if (movie.Sessions.Count > 0)
+                {
+                    <tr>
+                        <td colspan="12">
+                            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                                            aria-controls="movieSessions@(movie.Id)">
+                                            @(movie.Title) Movie sessions
+                                        </button>
+                                    </h2>
+                                    <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                                        aria-labelledby="MovieSessionsHeading@(movie.Id)"
+                                        data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Actions</th>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (Session session in movie.Sessions)
+                                                {
+                                                    <tr>
+                                                        <td>@session.Id</td>
+                                                        <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                        </td>
+                                                        <td>@session.SessionTime</td>
+                                                        <td>@session.SessionPrice R$</td>
+                                                        <td class="btn-group w-100 justify-content-end">
+                                                            <div class="btn-group" role="group">
+                                                                <button class="btn btn-warning ">Modify</button>
+                                                                <button class="btn btn-danger ">Delete</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         }
-      }
-    }
-    else
-    {
-      <p>Loading...</p>
-    }
-  </tbody>
+        else
+        {
+            <p>Loading...</p>
+        }
+    </tbody>
 </table>
 
 
 
 @code {
-  public List<Movie> registeredMovies { get; set; } = new();
+    public List<Movie> registeredMovies { get; set; } = new();
 
-  protected override void OnInitialized()
-  {
-    registeredMovies ??= new(); // [];
-
-  }
-  protected override async Task OnInitializedAsync()
-  {
-    registeredMovies = await MovieService.GetAllMovies();
-
-  }
-
-  public async Task DeleteMovie(Movie targetMovie)
-  {
-
-    Logger.LogInformation("Deleting movie...");
-    if (await MovieService.DeleteMovie(targetMovie))
+    protected override void OnInitialized()
     {
-      Logger.LogInformation("Movie deleted from the database");
+        registeredMovies ??= new(); // [];
+
     }
-    NavigationManager.NavigateTo("/moviesconfig", true);
+    protected override async Task OnInitializedAsync()
+    {
+        registeredMovies = await MovieService.GetAllMovies();
 
-  }
+    }
 
+    public async Task DeleteMovie(Movie targetMovie)
+    {
+
+        Logger.LogInformation("Deleting movie...");
+        if (await MovieService.DeleteMovie(targetMovie))
+        {
+            Logger.LogInformation("Movie deleted from the database");
+        }
+        NavigationManager.NavigateTo("/moviesconfig", true);
+
+    }
 
 }
