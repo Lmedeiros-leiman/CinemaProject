@@ -29,12 +29,13 @@
 
 @code {
     [Parameter]
-    public Movie targetMovie { get; set; }
-    private SessionInput sessionFormData {get;set;}
+    public required Movie targetMovie { get; set; }
+    public required SessionInput sessionFormData {get;set;}
 
     protected override void OnInitialized() {
             sessionFormData ??= new(targetMovie);
     }
+
 
     private async Task CreateSession(EditContext editContext) {
         Logger.LogWarning("FUNFANDO!");
@@ -51,7 +52,7 @@
     }
     
 
-    private sealed class SessionInput(Movie targetMovie) {
+    public sealed class SessionInput(Movie targetMovie) {
         public Movie targetMovie {get;set;} = targetMovie;
         public string Room {get;set;} = string.Empty;
         public string Time = "Morning";

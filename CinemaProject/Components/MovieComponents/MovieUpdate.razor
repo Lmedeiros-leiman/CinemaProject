@@ -80,13 +80,13 @@
 
 @code {
     [Parameter]
-    public Movie targetMovie { get; set; } = new();
-    private ModifiedMovieModel formMovie { get; set; }
+    public required Movie targetMovie { get; set; }
+    public required ModifiedMovieModel formMovie { get; set; }
 
-    private async Task UpdateMovie(EditContext editContext)
+    public async Task UpdateMovie(EditContext editContext)
     {
         Movie tempNewMovie = new() {
-            Id = targetMovie.Id,
+            Id = targetMovie.Id, 
             Title = formMovie.Tittle,
             Description = formMovie.Description,
             Categories = formMovie.Categories,
@@ -108,7 +108,7 @@
 
 
 
-    private sealed class ModifiedMovieModel(Movie targetMovie)
+    public sealed class ModifiedMovieModel(Movie targetMovie)
     {
         [Required]
         [DataType(DataType.Text)]
