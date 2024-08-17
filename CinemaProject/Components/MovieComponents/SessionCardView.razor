@@ -3,23 +3,18 @@
 
 
 <section class="col-md-4 mb-5 ">
-    <picture class="card text-white border-dark " style=" min-height: 500px !important;
+    <picture type="button" data-bs-target="#movieSessionsModal@(movie.Id)" data-bs-toggle="modal"
+            class="card text-white border-dark " style=" min-height: 500px !important;
+                background: url(./assets/@(movie.PosterImage.URLPath.Replace("\\","/")));
                 background-size: cover; 
                 background-attachment: scroll; 
-                background-repeat: no-repeat; 
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url(./assets/@(movie.PosterImage.URLPath.Replace("\\","/"))); 
-                min-height: 10rem; 
-                height: auto;">
-        <address class="h-auto card-body pt-5 position-relative  ">
+                background-repeat: no-repeat; ">
+        <address class="h-auto card-body pt-5 m-0 position-relative  sessionAdress">
             <h2 class="card-title">@movie.Title</h2>
             <p class="card-text"> @movie.Description </p>
         </address>
 
-        <footer class="card-footer bg-transparent">
-            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                data-bs-target="#movieSessionsModal@(movie.Id)">
-                Check out sessions
-            </button>
+       
 
             <!-- Modal -->
             <div class="modal fade text-black" id="movieSessionsModal@(movie.Id)" tabindex="-1"
@@ -52,7 +47,7 @@
 
 
 
-        </footer>
+        
 
     </picture>
 
