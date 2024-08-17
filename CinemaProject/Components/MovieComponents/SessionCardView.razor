@@ -1,0 +1,65 @@
+@using CinemaProject.Data.Models;
+
+
+
+<section class="col-md-4 mb-5 ">
+    <picture class="card text-white border-dark " style=" min-height: 500px !important;
+                background-size: cover; 
+                background-attachment: scroll; 
+                background-repeat: no-repeat; 
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url(./assets/@(movie.PosterImage.URLPath.Replace("\\","/"))); 
+                min-height: 10rem; 
+                height: auto;">
+        <address class="h-auto card-body pt-5 position-relative  ">
+            <h2 class="card-title">@movie.Title</h2>
+            <p class="card-text"> @movie.Description </p>
+        </address>
+
+        <footer class="card-footer bg-transparent">
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                data-bs-target="#movieSessionsModal@(movie.Id)">
+                Check out sessions
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade text-black" id="movieSessionsModal@(movie.Id)" tabindex="-1"
+                aria-labelledby="movieSessionsModalLabel@(movie.Id)" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title text-primary fs-5" id="movieSessionsModalLabel@(movie.Id)">
+                                @(movie.Title) </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            @foreach (Session movieSession in movie.Sessions)
+                            {
+                                <div>
+                                    <div>
+                                        @DateTime.FromBinary(movieSession.SessionDate).ToLongDateString() <span>
+                                            @movieSession.SessionTime</span>
+                                    </div>
+                                    <p>
+                                        <span>Session price:</span> @(movieSession.SessionPrice),00 R$
+                                    </p>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </footer>
+
+    </picture>
+
+</section>
+
+
+@code {
+    [Parameter]
+    public required Movie movie { get; set; }
+}
