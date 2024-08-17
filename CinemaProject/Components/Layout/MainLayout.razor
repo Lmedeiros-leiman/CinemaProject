@@ -4,19 +4,18 @@
 
 <div class="page">
     <main>
-        <nav class="navbar navbar-light bg-dark  ">
-            
-            <div class="nav-item px-2">
+        <nav class="navbar position-absolute z-3 w-100">
+
+            <div class="nav-item px-4">
                 <a class="navbar-brand text-warning fw-bold" href="/">CinemaProject</a>
             </div>
-            
-            <div class="nav-item px-1 " style="order: 999;">
-                
-                
+
+            <div class="nav-item px-4 " style="order: 999;">
                 <AuthorizeView>
                     <Authorized>
                         <div class="dropdown">
-                            <div class=" dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class=" dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <span class=" text-decoration-underline">@context.User.Identity?.Name!</span>
                             </div>
                             <ul class="dropdown-menu">
@@ -24,7 +23,8 @@
                                     <Authorized Context="adminUser">
                                         <li>
                                             <p class=" text-warning text-center">Admin Actions</p>
-                                            <a href="/moviesConfig" class="dropdown-item" type="button">Configure Movies</a>
+                                            <a href="/moviesConfig" class="dropdown-item" type="button">Configure
+                                                Movies</a>
                                             <hr class="dropdown-divider">
                                         </li>
                                     </Authorized>
@@ -49,12 +49,9 @@
             </div>
         </nav>
 
-
-
-
-        <article class="container-fluid">
+        <section>
             @Body
-        </article>
+        </section>
     </main>
 </div>
 
