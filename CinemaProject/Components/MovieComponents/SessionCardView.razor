@@ -2,9 +2,8 @@
 
 
 
-<section class="col-md-4 mb-5 ">
-    <picture type="button" data-bs-target="#movieSessionsModal@(movie.Id)" data-bs-toggle="modal"
-        class="card text-white border-dark " style=" min-height: 500px !important;
+<section class="col-md-4 mb-5" data-bs-target="#movieSessionsModal@(movie.Id)" data-bs-toggle="modal">
+    <picture type="button" class="card text-white border-dark " style=" min-height: 500px !important;
                 background: url(./assets/@(movie.PosterImage.URLPath.Replace("\\","/")));
                 background-size: cover; 
                 background-attachment: scroll; 
@@ -13,53 +12,48 @@
             <h2 class="card-title">@movie.Title</h2>
             <p class="card-text"> @movie.Description </p>
         </address>
-
-        <!-- Modal -->
-        <div class="modal fade text-black" id="movieSessionsModal@(movie.Id)" tabindex="-1"
-            aria-labelledby="movieSessionsModalLabel@(movie.Id)" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title text-primary fs-5" id="movieSessionsModalLabel@(movie.Id)">
-                            @(movie.Title) </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <section class="card">
-                            <h2 class="card-title"></h2>
-                            <aside class="card-body">
-
-                            </aside>
-                            <footer class="card-footer">
-                                
-                            </footer>
-                        </section>
-
-                        @foreach (Session movieSession in movie.Sessions)
-                        {
-                            <div>
-                                <div>
-                                    @DateTime.FromBinary(movieSession.SessionDate).ToLongDateString() <span>
-                                        @movieSession.SessionTime</span>
-                                </div>
-                                <p>
-                                    <span>Session price:</span> @(movieSession.SessionPrice),00 R$
-                                </p>
-                            </div>
-                        }
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
     </picture>
-
 </section>
+
+<!-- Modal -->
+<div class="modal fade text-black" id="movieSessionsModal@(movie.Id)" tabindex="-1"
+    aria-labelledby="movieSessionsModalLabel@(movie.Id)" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                <h1 class="modal-title text-primary fs-5" id="movieSessionsModalLabel@(movie.Id)">
+                    @(movie.Title) </h1>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    @movie.Description
+                </div>
+                <hr>
+
+                @foreach(Session session in movie.Sessions) {
+                    <section class="card">
+                        <aside class="card-body">
+                            <h2 class="card-title fs-5"> @DateTime.FromBinary(session.SessionDate).ToLongDateString().Split(",")[1] <span class="text-primary">@session.SessionTime</span> </h2>
+                        </aside>
+                        <footer class="card-footer ">
+                            <span class="float-start fw-bolder">@(session.SessionPrice),00 R$</span>
+                            <button class="float-end btn btn-primary">Buy a ticket</button>
+                        </footer>
+                    </section>
+                }
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 
 @code {
