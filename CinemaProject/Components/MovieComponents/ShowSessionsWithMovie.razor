@@ -23,34 +23,45 @@
 <section class="blackTransition container-fluid pb-3">
     <h1 class="pt-4 text-white text-center text-decoration-underline">Check our current sessions!</h1>
 
+    @if (moviesWithSessions == null) {
+        <p>Sorry, we currently dont have any sessions for you...</p>
+    } else {
+        <main class="row gx-4 gx-lg-5 justify-content-center mt-5">
+        @if (moviesWithSessions.Count > 0) {
+                @foreach (Movie movie in moviesWithSessions)
+                {
+                    <SessionCardView movie="@movie" />
+                }
+        } else {
+                @for (int i = 0; i < 3; i++)
+                {
+                    <section class="col-md-4 mb-5 placeholder-glow">
+                        <div class="card text-white placeholder-glow bg-dark" style="min-height: 500px !important;">
+                            <address class="h-auto card-body pt-5 m-0 position-relative">
+                                <h2 class="card-title placeholder col-12">Tittle</h2>
+                                <p class="card-text mt-3 placeholder col-10">Description</p>
+                                <p class="card-text placeholder col-9">Description</p>
+                                <p class="card-text placeholder col-10">Description</p>
+                            </address>
+                        </div>
+                    </section>
+                }
+        }
+        </main>
+    }
+
     @if (moviesWithSessions.Count > 0)
     {
-        <main class="row gx-4 gx-lg-5 justify-content-center mt-5">
-            @foreach (Movie movie in moviesWithSessions)
-            {
-                <SessionCardView movie="@movie" />
-            }
-        </main>
-        }
-            else
+        
+    }
+    else
+    {
+        else
         {
-        <main class="row gx-4 gx-lg-5 justify-content-center mt-5">
-            @for(int i = 0; i < 3; i++ ) {
-            <section class="col-md-4 mb-5 placeholder-glow">
-                <div class="card text-white placeholder-glow bg-dark" style="min-height: 500px !important;">
-                    <address class="h-auto card-body pt-5 m-0 position-relative">
-                        <h2 class="card-title placeholder col-12">Tittle</h2>
-                        
-                        <p class="card-text mt-3 placeholder col-10">Description</p>
-                        <p class="card-text placeholder col-9">Description</p>
-                        <p class="card-text placeholder col-10">Description</p>
-                        
-                    </address>
-                </div>
-                
-            </section>
-            }
-        </main>
+            
+        }
+
+
     }
 </section>
 
@@ -61,11 +72,14 @@
 
 
 
-    List<Movie> moviesWithSessions = [];
+    List<Movie>? moviesWithSessions = [];
     protected override async Task OnInitializedAsync()
     {
         moviesWithSessions = await MovieService.GetMoviesWithSessions();
-
+        if (moviesWithSessions.Count == 0)
+        {
+            moviesWithSessions = null;
+        }
     }
 
 
