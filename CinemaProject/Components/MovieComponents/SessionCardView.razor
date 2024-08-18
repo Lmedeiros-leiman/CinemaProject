@@ -25,6 +25,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
+                        <section class="card">
+                            <h2 class="card-title"></h2>
+                            <aside class="card-body">
+
+                            </aside>
+                            <footer class="card-footer">
+                                
+                            </footer>
+                        </section>
+
                         @foreach (Session movieSession in movie.Sessions)
                         {
                             <div>
@@ -37,6 +48,9 @@
                                 </p>
                             </div>
                         }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
 
                 </div>
