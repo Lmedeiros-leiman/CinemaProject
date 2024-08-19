@@ -10,6 +10,7 @@ namespace CinemaProject.Data.Services;
 
         // sesions related
         public Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails);
+        public Task<Boolean> ModifySesion(Session targetSession);
 
         public Task<List<Movie>> GetMoviesWithSessions();
         //
@@ -125,6 +126,20 @@ namespace CinemaProject.Data.Services;
             databaseMovie.Sessions.Add(sessionDetails);
 
             await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<Boolean> ModifySesion(Session targetSession) {
+
+            var entry = await _context.Sessions.FindAsync(targetSession.Id);
+            if (entry == null ) { return false;}
+
+            entry.Id = targetSession.Id;
+            entry.SessionDate = targetSession.SessionDate;
+            entry.SessionPrice = targetSession.SessionPrice;
+            entry.SessionTime = targetSession.SessionTime;
+            await _context.SaveChangesAsync();
+
             return true;
         }
 

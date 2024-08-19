@@ -68,11 +68,30 @@
                                                     <td>@session.SessionPrice R$</td>
                                                     <td class="btn-group w-100 justify-content-end">
                                                         <div class="btn-group btn-group-sm p-0 m-0" role="group">
-                                                            <button class="btn btn-warning ">Modify</button>
+                                                            <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#ModifySession@(session.Id)Modal@(movie.Id)" >Modify</button>
                                                             <button class="btn btn-danger ">Delete</button>
+                                                            
                                                         </div>
                                                     </td>
+                                                    
                                                 </tr>
+                                                <!-- Modify Session Modal -->
+                                                    <div class="modal fade" id="ModifySession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                                        aria-labelledby="ModifySession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg my-1">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title fs-5 text-warning" id="ModifySession@(session.Id)ModalLabel@(movie.Id)">
+                                                                        Modifying <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
+                                                                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <SessionUpdate targetSession=@(session) />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <!-- ------------------ -->
                                             }
                                         </tbody>
                                     </table>
@@ -88,26 +107,42 @@
                         data-bs-target="#CreateSessionModal@(movie.Id)">
                         Create Session
                     </button>
-
                     <div class=" btn-group float-end" role="group">
                         <!-- Modify Movie Modal button -->
                         <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
                             data-bs-target="#modifyMovieModal@(movie.Id)">
                             Modify
                         </button>
-
                         <!-- Delete Movie Modal button -->
                         <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
                             data-bs-target="#DeleteMovieModal@(movie.Id)">
                             Delete
                         </button>
                     </div>
-
                 </footer>
             </div>
         </article>
     }
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @code {
     [Parameter]
