@@ -1,0 +1,116 @@
+@using CinemaProject.Data.Models;
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Services;
+@using System.Text.Json;
+
+@using CinemaProject.Components.MovieComponents;
+
+
+@inject ILogger<ViewMoviesAsCards> Logger
+@inject IMovieService MovieService
+@inject IAttachmentService AttachmentService
+
+<section class="row gx-5 gx-lg-6 justify-content-center">
+    @foreach (Movie movie in movieList)
+    {
+        <article class="col-12 col-sm-10 col-md-8 col-lg-6 mb-5">
+            <div class="card">
+                <img src=".\assets\@(movie.PosterImage.URLPath)" width="380px" height="320px" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="card-title"> @movie.Title
+                        <div class="row px-3 text-secondary" style="font-size: 12px;">
+                            Entry created : @DateTime.FromBinary( movie.InputedDate).ToUniversalTime()
+                        </div>
+                    </h2>
+
+                    <div class="row">
+                        <a class="" data-bs-toggle="collapse" href="#movieDescriptionCollapse@(movie.Id)" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Movie Description
+                        </a>
+                        <div class="collapse" id="movieDescriptionCollapse@(movie.Id)">
+                            <div class="card card-body">
+                                @movie.Description
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr class="mt-2" />
+                        <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                                        aria-controls="movieSessions@(movie.Id)">
+                                        @(movie.Title) Movie sessions
+                                    </button>
+                                </h2>
+                                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                                    aria-labelledby="MovieSessionsHeading@(movie.Id)"
+                                    data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                                    <table class="table table-bordered">
+                                        <thead>
+
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Actions</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Session session in movie.Sessions)
+                                            {
+                                                <tr>
+                                                    <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                    </td>
+                                                    <td>@session.SessionTime</td>
+                                                    <td>@session.SessionPrice R$</td>
+                                                    <td class="btn-group w-100 justify-content-end">
+                                                        <div class="btn-group btn-group-sm p-0 m-0" role="group">
+                                                            <button class="btn btn-warning ">Modify</button>
+                                                            <button class="btn btn-danger ">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <footer class="card-footer">
+                    <!-- Create Session Modal button -->
+                    <button class="btn btn-primary text-light fw-bold" data-bs-toggle="modal"
+                        data-bs-target="#CreateSessionModal@(movie.Id)">
+                        Create Session
+                    </button>
+
+                    <div class=" btn-group float-end" role="group">
+                        <!-- Modify Movie Modal button -->
+                        <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#modifyMovieModal@(movie.Id)">
+                            Modify
+                        </button>
+
+                        <!-- Delete Movie Modal button -->
+                        <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#DeleteMovieModal@(movie.Id)">
+                            Delete
+                        </button>
+                    </div>
+
+                </footer>
+            </div>
+        </article>
+    }
+</section>
+
+@code {
+    [Parameter]
+    public required List<Movie> movieList { get; set; }
+
+}
