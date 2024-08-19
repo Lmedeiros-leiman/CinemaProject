@@ -10,94 +10,182 @@
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
 
-
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th scope="col">Poster</th>
-            <th scope="col">UId</th>
-            <th scope="col">Tittle</th>
-            <th scope="col">Inputed Date</th>
-            <th scope="col">
-                <span class="px-2">Actions</span>
-
-            </th>
-        </tr>
+        <th colspan="1" scope="col">Poster</th>
+        <th scope="col">Tittle</th>
+        <th scope="col">Inputed Date</th>
+        <th scope="col" class="text-center">Actions</th>
     </thead>
     <tbody>
-        @if (moviesList.Count > 0)
+        @foreach (Movie movie in moviesList)
         {
-            foreach (Movie movie in moviesList)
+            <tr>
+                <td colspan=1> <img width="248px" height="142px" src=".\assets\@(movie.PosterImage.URLPath)"> </td>
+                <td colspan=1>
+                    <h2>@movie.Title</h2>
+                </td>
+                <td colspan=1>
+                    <div> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </div>
+                </td>
+                <td colspan=1>
+                    <div class="row">
+                        <div class="col mb-2 px-2">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-primary text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#CreateSessionModal@(movie.Id)">
+                                    Create Session
+                                </button>
+
+                                <button class="btn btn-primary text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#ShowSessionsModal@(movie.Id)">
+                                    View sessions
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-warning text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#modifyMovieModal@(movie.Id)">
+                                    Modify
+                                </button>
+                                <button class="btn btn-danger text-light fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#DeleteMovieModal@(movie.Id)">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <div class="modal fade" id="ShowSessionsModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="ShowSessionsModalLabel@(movie.Id)" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-5 text-primary" id="ShowSessionsModalLabel@(movie.Id)">
+                                Viewing sesions for <span class="text-primary-emphasis">@movie.Title</span></h2>
+                            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <table class="table table-bordered">
+                                        <thead>
+
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Actions</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Session session in movie.Sessions)
+                                            {
+                                                <tr>
+                                                    <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                    </td>
+                                                    <td>@session.SessionTime</td>
+                                                    <td>@session.SessionPrice R$</td>
+                                                    <td class="btn-group w-100 justify-content-end">
+                                                        <div class="btn-group btn-group-sm p-0 m-0" role="group">
+                                                            <button class="btn btn-warning ">Modify</button>
+                                                            <button class="btn btn-danger ">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </tbody>
+</table>
+
+<!-- Sessions Modal -->
+
+
+
+
+
+
+
+<table class="table table-striped">
+    <tbody>
+
+        @foreach (Movie movie in moviesList)
+        {
+            <tr>
+                <th scope="row">
+                    <img width="248px" height="142px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
+                </th>
+                <td> @movie.Id </td>
+                <td> @movie.Title </td>
+                <td> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </td>
+                <td>
+                    <div class="row">
+                        <div class="col">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            @if (movie.Sessions.Count > 0)
             {
                 <tr>
-                    <th scope="row">
-                        <img width="248px" height="142px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
-                    </th>
-                    <td> @movie.Id </td>
-                    <td> @movie.Title </td>
-                    <td> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </td>
-                    <td>
-                        <div class="row">
-                            <div class="col">
+                    <td colspan="12">
+                        <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                                        aria-controls="movieSessions@(movie.Id)">
+                                        @(movie.Title) Movie sessions
+                                    </button>
+                                </h2>
+                                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                                    aria-labelledby="MovieSessionsHeading@(movie.Id)"
+                                    data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Actions</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Session session in movie.Sessions)
+                                            {
+                                                <tr>
+                                                    <td>@session.Id</td>
+                                                    <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                    </td>
+                                                    <td>@session.SessionTime</td>
+                                                    <td>@session.SessionPrice R$</td>
+                                                    <td class="btn-group w-100 justify-content-end">
+                                                        <div class="btn-group" role="group">
+                                                            <button class="btn btn-warning ">Modify</button>
+                                                            <button class="btn btn-danger ">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </section>
                             </div>
                         </div>
                     </td>
                 </tr>
-                @if (movie.Sessions.Count > 0)
-                {
-                    <tr>
-                        <td colspan="12">
-                            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
-                                            aria-controls="movieSessions@(movie.Id)">
-                                            @(movie.Title) Movie sessions
-                                        </button>
-                                    </h2>
-                                    <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
-                                        aria-labelledby="MovieSessionsHeading@(movie.Id)"
-                                        data-bs-parent="#accordionMovieSessions@(movie.Id)">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Time</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Actions</th>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (Session session in movie.Sessions)
-                                                {
-                                                    <tr>
-                                                        <td>@session.Id</td>
-                                                        <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
-                                                        </td>
-                                                        <td>@session.SessionTime</td>
-                                                        <td>@session.SessionPrice R$</td>
-                                                        <td class="btn-group w-100 justify-content-end">
-                                                            <div class="btn-group" role="group">
-                                                                <button class="btn btn-warning ">Modify</button>
-                                                                <button class="btn btn-danger ">Delete</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            </tbody>
-                                        </table>
-                                    </section>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                }
             }
         }
-        else
-        {
-            <p>Loading...</p>
         }
+
     </tbody>
 </table>
 

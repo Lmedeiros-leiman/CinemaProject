@@ -22,7 +22,7 @@
 <hr class="pt-3 mt-5 ">
 
 <div class="nav navbar">
-    <button @onclick="ToggleMoviesView" >Toggle View</button>
+    <button @onclick="ToggleMoviesView">Toggle View</button>
 
     <div>
         <!-- Create Movie button -->
@@ -50,86 +50,89 @@
 </div>
 
 <main class="container-fluid pb-3">
-    
-    @if (viewAsCard) {
+
+    @if (viewAsCard)
+    {
         <ViewMoviesAsCards movieList=@(registeredMovies) />
-    } else {
+    }
+    else
+    {
         <ViewMoviesAsTable moviesList=@(registeredMovies) />
     }
-    
+
     @foreach (Movie movie in registeredMovies)
     {
-            <!-- Create Session Modal -->
-            <div class="modal fade" id="CreateSessionModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="CreateSessionModalLabel@(movie.Id)" aria-hidden="true">
-                <div class="modal-dialog modal-lg my-1">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel@(movie.Id)"> Creating
-                                session
-                                <span class="text-primary-emphasis">@movie.Title</span>
-                            </h2>
+        <!-- Create Session Modal -->
+        <div class="modal fade" id="CreateSessionModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="CreateSessionModalLabel@(movie.Id)" aria-hidden="true">
+            <div class="modal-dialog modal-lg my-1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-primary" id="CreateSessionModalLabel@(movie.Id)"> Creating
+                            session
+                            <span class="text-primary-emphasis">@movie.Title</span>
+                        </h2>
 
-                            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            @movie.Title
-                            <CreateSessionForm targetMovie=@(movie) />
-                        </div>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        @movie.Title
+                        <CreateSessionForm targetMovie=@(movie) />
                     </div>
                 </div>
             </div>
-            <!-- ------------------ -->
+        </div>
+        <!-- ------------------ -->
 
-            <!-- Modify Modal -->
-            <div class="modal fade" id="modifyMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="modifyMovieModalLabel@(movie.Id)" aria-hidden="true">
-                <div class="modal-dialog modal-lg my-1">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel@(movie.Id)">
-                                Modifying <span class="text-warning-emphasis">@movie.Title</span></h2>
-                            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <MovieUpdate targetMovie=@(movie) />
-                        </div>
+        <!-- Modify Modal -->
+        <div class="modal fade" id="modifyMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modifyMovieModalLabel@(movie.Id)" aria-hidden="true">
+            <div class="modal-dialog modal-lg my-1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-warning" id="modifyMovieModalLabel@(movie.Id)">
+                            Modifying <span class="text-warning-emphasis">@movie.Title</span></h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <MovieUpdate targetMovie=@(movie) />
                     </div>
                 </div>
             </div>
-            <!-- ------------------ -->
+        </div>
+        <!-- ------------------ -->
 
-            <!-- Delete Movie Modal -->
-            <div class="modal fade" id="DeleteMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="DeleteMovieModalLabel@(movie.Id)" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title fs-5 text-danger" id="DeleteMovieModalLabel@(movie.Id)">
-                                Deleting <span class="text-danger-emphasis">@movie.Title</span></h2>
-                            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container">
-                                <h3>You are about to delete a movie.</h3>
-                                <p>Do you want to proceed?</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <button class="btn btn-danger" @onclick="(e) => DeleteMovie(movie)">Yes</button>
-                                        <button class="btn btn-primary" data-bs-dismiss="modal"
-                                            aria-label="Close">Cancel</button>
-                                    </div>
+        <!-- Delete Movie Modal -->
+        <div class="modal fade" id="DeleteMovieModal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="DeleteMovieModalLabel@(movie.Id)" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-danger" id="DeleteMovieModalLabel@(movie.Id)">
+                            Deleting <span class="text-danger-emphasis">@movie.Title</span></h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <h3>You are about to delete a movie.</h3>
+                            <p>Do you want to proceed?</p>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-danger" @onclick="(e) => DeleteMovie(movie)">Yes</button>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal"
+                                        aria-label="Close">Cancel</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ------------------ -->
-        }
+        </div>
+        <!-- ------------------ -->
+    }
 </main>
 
 
@@ -141,7 +144,8 @@
 
 @code {
     bool viewAsCard = true;
-    public void ToggleMoviesView() {
+    public void ToggleMoviesView()
+    {
         viewAsCard = !viewAsCard;
     }
     //
