@@ -1,0 +1,26 @@
+
+@using CinemaProject.Data.Models;
+@using CinemaProject.Data.Services;
+
+@inject IMovieService MovieService
+@inject NavigationManager NavigationManager
+
+<div>
+    <button class="btn btn-danger" onclick="DeleteSession">Delete</button>
+    <button class="btn btn-primary">Cancel</button>
+</div>
+
+
+
+
+
+
+@code {
+    public required Session targetSession {get; set;}
+
+    public async Task DeleteSession() {
+        await MovieService.DeleteSession(targetSession);
+
+        NavigationManager.NavigateTo("/moviesConfig", true);
+    }
+}

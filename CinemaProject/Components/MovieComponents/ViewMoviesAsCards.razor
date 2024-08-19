@@ -69,7 +69,9 @@
                                                     <td class="btn-group w-100 justify-content-end">
                                                         <div class="btn-group btn-group-sm p-0 m-0" role="group">
                                                             <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#ModifySession@(session.Id)Modal@(movie.Id)" >Modify</button>
-                                                            <button class="btn btn-danger ">Delete</button>
+                                                            
+                                                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#DeleteSession@(session.Id)Modal@(movie.Id)" >Delete</button>
+                                                            
                                                             
                                                         </div>
                                                     </td>
@@ -87,6 +89,24 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <SessionUpdate targetSession=@(session) />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <!-- ------------------ -->
+
+                                                <!-- Delete Session Modal -->
+                                                    <div class="modal fade" id="DeleteSession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                                        aria-labelledby="DeleteSession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg my-1">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title fs-5 text-warning" id="DeleteSession@(session.Id)ModalLabel@(movie.Id)">
+                                                                        Deleting <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
+                                                                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <DeleteSession targetSession=@(session) />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -127,25 +147,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @code {
     [Parameter]
     public required List<Movie> movieList { get; set; }
-
 }

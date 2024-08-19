@@ -11,7 +11,7 @@ namespace CinemaProject.Data.Services;
         // sesions related
         public Task<Boolean> CreateMovieSession(Movie targetMovie, Session sessionDetails);
         public Task<Boolean> ModifySesion(Session targetSession);
-
+        public Task<Boolean> DeleteSession(Session targetSession);
         public Task<List<Movie>> GetMoviesWithSessions();
         //
         // Crud Operations
@@ -143,6 +143,12 @@ namespace CinemaProject.Data.Services;
             return true;
         }
 
-    
+        public async Task<Boolean> DeleteSession(Session targetSession) {
+            var entry = await _context.Sessions.FindAsync(targetSession.Id);
+            if (entry == null) { return false;}
+            _context.Remove(entry);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     
     }
