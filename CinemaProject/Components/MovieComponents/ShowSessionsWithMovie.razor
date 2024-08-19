@@ -24,7 +24,7 @@
     <h1 class="pt-4 text-white text-center text-decoration-underline">Check our current sessions!</h1>
 
     @if (moviesWithSessions == null) {
-        <p>Sorry, we currently dont have any sessions for you...</p>
+        <p class="text-bg-dark">Sorry, we currently dont have any sessions for you...</p>
     } else {
         <main class="row gx-4 gx-lg-5 justify-content-center mt-5">
         @if (moviesWithSessions.Count > 0) {
@@ -56,9 +56,6 @@
 
 
 @code {
-
-
-
     List<Movie>? moviesWithSessions = [];
     protected override async Task OnInitializedAsync()
     {

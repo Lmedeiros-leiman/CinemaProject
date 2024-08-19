@@ -20,6 +20,130 @@
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
 
+<hr class="pt-3 mt-5 ">
+
+
+<main class="container-fluid pb-3">
+    <section class="row gx-5 gx-lg-6 justify-content-center">
+        @foreach (Movie movie in registeredMovies)
+        {
+            <article class="col-md-5 mb-5">
+                <div class="card">
+                    <img src=".\assets\@(movie.PosterImage.URLPath)" width="380px" height="320px" class="card-img-top" />
+                    <div class="card-body">
+                        <h2 class="card-title"> @movie.Title
+                            <div class="row px-3 text-secondary" style="font-size: 12px;">
+                                Entry created : @DateTime.FromBinary( movie.InputedDate).ToUniversalTime()
+                            </div>
+                        </h2>
+
+                        <div class="row">
+                            <a class="" data-bs-toggle="collapse" href="#movieDescriptionCollapse@(movie.Id)" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Movie Description
+                            </a>
+                            <div class="collapse" id="movieDescriptionCollapse@(movie.Id)">
+                                <div class="card card-body">
+                                    @movie.Description
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <hr class="mt-2"/>
+                            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                                            aria-controls="movieSessions@(movie.Id)">
+                                            @(movie.Title) Movie sessions
+                                        </button>
+                                    </h2>
+                                    <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                                        aria-labelledby="MovieSessionsHeading@(movie.Id)"
+                                        data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Actions</th>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (Session session in movie.Sessions)
+                                                {
+                                                    <tr>
+                                                        <td>@session.Id</td>
+                                                        <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                        </td>
+                                                        <td>@session.SessionTime</td>
+                                                        <td>@session.SessionPrice R$</td>
+                                                        <td class="btn-group w-100 justify-content-end">
+                                                            <div class="btn-group" role="group">
+                                                                <button class="btn btn-warning ">Modify</button>
+                                                                <button class="btn btn-danger ">Delete</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <footer class="card-footer">
+                        Modify
+                        Delete
+                        Make Session
+                    </footer>
+                </div>
+            </article>
+        }
+    </section>
+</main>
+
+
+
+
+
+<table class="table table-striped">
+
+    <tbody>
+        @foreach (Movie movie in registeredMovies)
+        {
+            <tr>
+                <table>
+                    <thead>
+                        <th scope="col">Poster</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Tittle</th>
+                        <th scope="col">Inputed Date</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <img width="186px" height="142px" alt="Poster image"
+                                    src=".\assets\@( movie.PosterImage.URLPath)" /></td>
+                            <td> @movie.Id </td>
+                            <td> @movie.Title </td>
+                            <td> @DateTime.FromBinary( movie.InputedDate).ToUniversalTime() </td>
+
+                        </tr>
+                        <tr>
+                            sessions
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -61,7 +185,7 @@
             {
                 <tr>
                     <th scope="row">
-                        <img width="128px" height="128px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
+                        <img width="248px" height="142px" alt="Poster image" src=".\assets\@( movie.PosterImage.URLPath)" />
                     </th>
                     <td> @movie.Id </td>
                     <td> @movie.Title </td>
@@ -160,7 +284,6 @@
                     <tr>
                         <td colspan="12">
                             <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
-
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

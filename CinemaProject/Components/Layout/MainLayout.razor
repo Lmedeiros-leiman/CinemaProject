@@ -4,8 +4,7 @@
 
 <div class="page">
     <main>
-        <nav class="navbar position-absolute z-3 w-100">
-
+        <nav class="navbar @(navStyles) position-absolute z-3 w-100 " >
             <div class="nav-item px-4">
                 <a class="navbar-brand text-warning fw-bold" href="/">CinemaProject</a>
             </div>
@@ -64,11 +63,22 @@
 
 @code {
     private string? currentUrl;
+    private string navStyles = "";
+
+    
+
 
     protected override void OnInitialized()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
         NavigationManager.LocationChanged += OnLocationChanged;
+
+        if (!string.IsNullOrEmpty(currentUrl)) {
+            navStyles = "bg-secondary";
+        }
+
+        
+
     }
 
     private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
