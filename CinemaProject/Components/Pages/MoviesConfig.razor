@@ -21,33 +21,16 @@
 
 
 
-<div class="nav navbar shadow shadow-lg mt-5 bg-warning mb-3 w-100">
-    <div class="nav-item">
-        <!-- Create Movie button -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
-            Add new movie
-        </button>
-        <!-- Create Movie Modal -->
-        <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg my-1">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title fs-5 text-primary" id="movieInputStaticModalLabel">Inserting a
-                            new movie.</h2>
-                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <MovieInputForm />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<main class="container-fluid pb-3">
+<main class="container-fluid pb-3 mt-2">
+        <div class="navbar nav border border-2  shadow-lg shadow rounded-2 my-2">
+                <!-- Create Movie button -->
+                <button type="button" class="nav-item mx-2 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
+                    Add new movie
+                </button>
+
+            
+        </div>
 
         <ViewMoviesAsCards movieList=@(registeredMovies) />
 
@@ -127,9 +110,24 @@
         <!-- Delete Session Modal -->
 
         <!-- ------------------ -->
-
-        
     }
+        <!-- Create Movie Modal -->
+        <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg my-1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5 text-primary" id="movieInputStaticModalLabel">Inserting a
+                            new movie.</h2>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <MovieInputForm />
+                    </div>
+                </div>
+            </div>
+        </div>
 </main>
 
 

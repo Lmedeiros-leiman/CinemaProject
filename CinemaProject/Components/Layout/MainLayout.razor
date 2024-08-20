@@ -4,11 +4,10 @@
 
 <div class="page">
     <main>
-        <nav class="navbar @(navStyles) position-absolute z-3 w-100 " >
+        <nav class="navbar @(navStyles)  z-3 w-100 " >
             <div class="nav-item px-4">
                 <a class="navbar-brand text-warning fw-bold" href="/">CinemaProject</a>
             </div>
-
             <div class="nav-item px-4 " style="order: 999;">
                 <AuthorizeView>
                     <Authorized>
@@ -63,9 +62,7 @@
 
 @code {
     private string? currentUrl;
-    private string navStyles = "";
-
-    
+    private string navStyles = "position-absolute";
 
 
     protected override void OnInitialized()
@@ -74,7 +71,7 @@
         NavigationManager.LocationChanged += OnLocationChanged;
 
         if (!string.IsNullOrEmpty(currentUrl)) {
-            navStyles = "bg-secondary";
+            navStyles = "bg-secondary position-relative";
         }
 
         

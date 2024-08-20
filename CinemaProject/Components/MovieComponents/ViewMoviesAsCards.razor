@@ -11,14 +11,14 @@
 @inject IMovieService MovieService
 @inject IAttachmentService AttachmentService
 
-<section class="row gx-5 gx-lg-6 justify-content-center">
+<section class="row gx-4 gx-lg-6 justify-content-center">
     @foreach (Movie movie in movieList)
     {
         <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5">
-            <div class="card shadow-lg shadow">
+            <div class="card shadow-sm shadow border border-2">
                 <img src=".\assets\@(movie.PosterImage.URLPath)" width="380px" height="320px" class="card-img-top" />
                 <div class="card-body">
-                    <h2 class="card-title"> @movie.Title
+                    <h2 class="card-title fs-4"> @movie.Title
                         <div class="row px-3 text-secondary" style="font-size: 12px;">
                             Entry created : @DateTime.FromBinary( movie.InputedDate).ToUniversalTime()
                         </div>
@@ -36,89 +36,126 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <hr class="mt-2" />
-                        <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
-                                        aria-controls="movieSessions@(movie.Id)">
-                                        @(movie.Title) Movie sessions
-                                    </button>
-                                </h2>
-                                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse "
-                                    aria-labelledby="MovieSessionsHeading@(movie.Id)"
-                                    data-bs-parent="#accordionMovieSessions@(movie.Id)">
-                                    <table class="table-sm mx-auto table-striped">
-                                        <thead class="">
+                    @if (movie.Sessions.Count > 0) {
+                        <div class="row">
+                            <hr class="mt-2" />
+                            <div class="accordion mb-1" id="accordionMovieSessions@(movie.Id)">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="MovieSessionsHeading@(movie.Id)">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#movieSessions@(movie.Id)" aria-expanded="false"
+                                            aria-controls="movieSessions@(movie.Id)">
+                                            @(movie.Title) Movie sessions
+                                        </button>
+                                    </h2>
+                                    <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse "
+                                        aria-labelledby="MovieSessionsHeading@(movie.Id)"
+                                        data-bs-parent="#accordionMovieSessions@(movie.Id)">
+                                        <table class="table-sm mx-auto table-striped">
+                                            <thead >
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Price</th>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                @foreach (Session session in movie.Sessions)
+                                                {
+                                                    <tr>
+                                                        <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
+                                                        </td>
+                                                        <td>@session.SessionTime</td>
+                                                        <td>@session.SessionPrice</td>
+                                                        <td>
+                                                            <table class="table-sm table-bordered">
+                                                                <tr>
+                                                                    <button class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#SessionTickets@(session.Id)Modal@(movie.Id)">Tickets</button>
+                                                                </tr>
+                                                                <tr>
+                                                                    <div class="btn-group" role="group">
+                                                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#ModifySession@(session.Id)Modal@(movie.Id)" >Modify</button>
+                                                                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteSession@(session.Id)Modal@(movie.Id)" >Delete</button>
+                                                                    </div>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
 
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Actions</th>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (Session session in movie.Sessions)
-                                            {
-                                                <tr>
-                                                    <td>@DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())
-                                                    </td>
-                                                    <td>@session.SessionTime</td>
-                                                    <td>@session.SessionPrice R$</td>
-                                                    <td class="btn-group w-100 justify-content-end">
-                                                        <div class="btn-group btn-group-sm p-0 m-0" role="group">
-                                                            <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#ModifySession@(session.Id)Modal@(movie.Id)" >Modify</button>
-                                                            
-                                                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#DeleteSession@(session.Id)Modal@(movie.Id)" >Delete</button>
-                                                            
-                                                            
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <!-- Modify Session Modal -->
-                                                    <div class="modal fade" id="ModifySession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                                                        aria-labelledby="ModifySession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg my-1">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h2 class="modal-title fs-5 text-warning" id="ModifySession@(session.Id)ModalLabel@(movie.Id)">
-                                                                        Modifying <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
-                                                                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <SessionUpdate targetSession=@(session) />
+                                                    <!-- Session Tickets Modal -->
+                                                        <div class="modal fade" id="SessionTickets@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="SessionTickets@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg my-1">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title fs-5 text-warning" id="SessionTickets@(session.Id)ModalLabel@(movie.Id)">
+                                                                            Viewing Tickets for @movie.Title
+                                                                            <div class="text-black fs-6">
+                                                                                Session @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime()) at @(session.SessionTime)
+                                                                            </div>
+                                                                            
+                                                                            <span class="text-warning-emphasis">  </span></h2>
+                                                                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                <!-- ------------------ -->
+                                                    <!-- ------------------ -->
 
-                                                <!-- Delete Session Modal -->
-                                                    <div class="modal fade" id="DeleteSession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
-                                                        aria-labelledby="DeleteSession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg my-1">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h2 class="modal-title fs-5 text-warning" id="DeleteSession@(session.Id)ModalLabel@(movie.Id)">
-                                                                        Deleting <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
-                                                                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <DeleteSession targetSession=@(session) />
+                                                    <!-- Modify Session Modal -->
+                                                        <div class="modal fade" id="ModifySession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="ModifySession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg my-1">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title fs-5 text-warning" id="ModifySession@(session.Id)ModalLabel@(movie.Id)">
+                                                                            Modifying <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
+                                                                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <SessionUpdate targetSession=@(session) />
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                <!-- ------------------ -->
-                                            }
-                                        </tbody>
-                                    </table>
-                                </section>
+                                                    <!-- ------------------ -->
+
+                                                    <!-- Delete Session Modal -->
+                                                        <div class="modal fade" id="DeleteSession@(session.Id)Modal@(movie.Id)" data-bs-keyboard="false" tabindex="-1"
+                                                            aria-labelledby="DeleteSession@(session.Id)ModalLabel@(movie.Id)" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg my-1">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title fs-5 text-warning" id="DeleteSession@(session.Id)ModalLabel@(movie.Id)">
+                                                                            Deleting <span class="text-warning-emphasis">@movie.Title | @DateOnly.FromDateTime(DateTime.FromBinary(session.SessionDate).ToLocalTime())</span></h2>
+                                                                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <DeleteSession targetSession=@(session) />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <!-- ------------------ -->
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    } else {
+                        <div class="row">
+                            <hr class="mt-2" />
+                            <div class="container border border-1 rounded-1 shadow-sm ">
+                                <div class=" text-center fw-bold py-3">
+                                    This movie does <span class="text-danger">NOT</span> have sessions.
+                                </div>
+                            </div>
+                        </div>
+                    }
 
                 </div>
                 <footer class="card-footer">
