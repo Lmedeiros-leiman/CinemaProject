@@ -94,6 +94,7 @@
             // the login page if we get here some other way.
             RedirectManager.RedirectTo("Account/Login");
         }
+
     }
 
     private async Task OnLoginCallbackAsync()
@@ -118,10 +119,11 @@
             RedirectManager.RedirectTo("Account/Lockout");
         }
 
-        // If the user does not have an account, then ask the user to create an account.
+        // If the user does not have an account, create one with the current mail response.
         if (externalLoginInfo.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
         {
             Input.Email = externalLoginInfo.Principal.FindFirstValue(ClaimTypes.Email) ?? "";
+            await OnValidSubmitAsync();
         }
     }
 
@@ -153,7 +155,9 @@
                 // If account confirmation is required, we need to show the link if we don't have a real email sender
                 if (UserManager.Options.SignIn.RequireConfirmedAccount)
                 {
-                    RedirectManager.RedirectTo("Account/RegisterConfirmation", new() { ["email"] = Input.Email });
+                    // modified until Twillio aproves my account.
+                    RedirectManager.RedirectTo("/");
+                    //RedirectManager.RedirectTo("Account/RegisterConfirmation", new() { ["email"] = Input.Email });
                 }
 
                 await SignInManager.SignInAsync(user, isPersistent: false, externalLoginInfo.LoginProvider);

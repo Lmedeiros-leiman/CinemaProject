@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CinemaProject.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -203,18 +203,42 @@ namespace CinemaProject.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    TargetMovieId = table.Column<long>(type: "INTEGER", nullable: false),
                     SessionDate = table.Column<long>(type: "INTEGER", nullable: false),
                     SessionTime = table.Column<string>(type: "TEXT", nullable: false),
-                    SessionPrice = table.Column<long>(type: "INTEGER", nullable: false)
+                    SessionPrice = table.Column<long>(type: "INTEGER", nullable: false),
+                    MovieId = table.Column<long>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sessions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Sessions_Movies_TargetMovieId",
-                        column: x => x.TargetMovieId,
+                        name: "FK_Sessions_Movies_MovieId",
+                        column: x => x.MovieId,
                         principalTable: "Movies",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<string>(type: "TEXT", nullable: true),
+                    SessionId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tickets_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Tickets_Sessions_SessionId",
+                        column: x => x.SessionId,
+                        principalTable: "Sessions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -267,9 +291,19 @@ namespace CinemaProject.Migrations
                 column: "PosterImageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sessions_TargetMovieId",
+                name: "IX_Sessions_MovieId",
                 table: "Sessions",
-                column: "TargetMovieId");
+                column: "MovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_SessionId",
+                table: "Tickets",
+                column: "SessionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_UserId",
+                table: "Tickets",
+                column: "UserId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Attachments_Movies_MovieId",
@@ -302,13 +336,16 @@ namespace CinemaProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Sessions");
+                name: "Tickets");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Sessions");
 
             migrationBuilder.DropTable(
                 name: "Movies");

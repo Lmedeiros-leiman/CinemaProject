@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240813211717_removedSessioTargetMovie")]
-    partial class removedSessioTargetMovie
+    [Migration("20240820221651_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -175,6 +175,27 @@ namespace CinemaProject.Migrations
                     b.ToTable("Sessions");
                 });
 
+            modelBuilder.Entity("CinemaProject.Data.Models.Ticket", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SessionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SessionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tickets");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -328,6 +349,23 @@ namespace CinemaProject.Migrations
                         .HasForeignKey("MovieId");
                 });
 
+            modelBuilder.Entity("CinemaProject.Data.Models.Ticket", b =>
+                {
+                    b.HasOne("CinemaProject.Data.Models.Session", "Session")
+                        .WithMany("Tickets")
+                        .HasForeignKey("SessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CinemaProject.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Session");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -384,6 +422,11 @@ namespace CinemaProject.Migrations
                     b.Navigation("MovieExtras");
 
                     b.Navigation("Sessions");
+                });
+
+            modelBuilder.Entity("CinemaProject.Data.Models.Session", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

@@ -23,16 +23,34 @@
 <section class="blackTransition container-fluid pb-3">
     <h1 class="pt-4 text-white text-center text-decoration-underline">Check our current sessions!</h1>
 
-    @if (moviesWithSessions == null) {
-        <p class="text-bg-dark">Sorry, we currently dont have any sessions for you...</p>
-    } else {
+    @if (moviesWithSessions == null)
+    {
+        <div class="row justify-content-center">
+            <div class="col-5 mt-3 mb-5">
+                <div class="card bg-light border border-3 text-center fw-bold py-4" style="box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.295);">
+                    <div class="card-body">
+                        <h2 class="card-title">The worst has happened!</h2>
+                        <p>We do not have any sessions... yet.</p>
+                        <p>Check again later!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    else
+    {
         <main class="row gx-4 gx-lg-5 justify-content-center mt-5">
-        @if (moviesWithSessions.Count > 0) {
+            @if (moviesWithSessions.Count > 0)
+            {
                 @foreach (Movie movie in moviesWithSessions)
                 {
                     <SessionCardView movie="@movie" />
                 }
-        } else {
+            }
+            else
+            {
                 @for (int i = 0; i < 3; i++)
                 {
                     <section class="col-md-4 mb-5 placeholder-glow">
@@ -46,7 +64,7 @@
                         </div>
                     </section>
                 }
-        }
+            }
         </main>
     }
 

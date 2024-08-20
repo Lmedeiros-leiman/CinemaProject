@@ -1,11 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CinemaProject.Data.Models
 {
-    public class Ticket(ApplicationUser user, Session session)
+    [Table("Tickets")]
+    public class Ticket()
     {
         [Key]
         public long Id { get; set; }
-        public required ApplicationUser User { get; set; } = user;
-        public required Session Session { get; set; } = session;
+        public ApplicationUser User { get; set; }
+        public  Session Session { get; set; }
     }
 }
