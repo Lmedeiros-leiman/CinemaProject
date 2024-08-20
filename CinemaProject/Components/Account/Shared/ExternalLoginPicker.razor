@@ -23,7 +23,11 @@ else
             <p>
                 @foreach (var provider in externalLogins)
                 {
-                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                    @if (provider.DisplayName == "Google") {
+                        <button type="submit" class="btn btn-outline-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                            <img width="32" height="32" src="./pageAssets/googleIcon.svg" />
+                            @provider.DisplayName</button>
+                    }
                 }
             </p>
         </div>
