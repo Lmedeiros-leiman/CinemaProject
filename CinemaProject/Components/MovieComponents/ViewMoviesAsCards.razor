@@ -14,8 +14,8 @@
 <section class="row gx-5 gx-lg-6 justify-content-center">
     @foreach (Movie movie in movieList)
     {
-        <article class="col-12 col-sm-10 col-md-8 col-lg-6 mb-5">
-            <div class="card">
+        <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5">
+            <div class="card shadow-lg shadow">
                 <img src=".\assets\@(movie.PosterImage.URLPath)" width="380px" height="320px" class="card-img-top" />
                 <div class="card-body">
                     <h2 class="card-title"> @movie.Title
@@ -47,11 +47,11 @@
                                         @(movie.Title) Movie sessions
                                     </button>
                                 </h2>
-                                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse"
+                                <section id="movieSessions@(movie.Id)" class="accordion-collapse collapse "
                                     aria-labelledby="MovieSessionsHeading@(movie.Id)"
                                     data-bs-parent="#accordionMovieSessions@(movie.Id)">
-                                    <table class="table table-bordered">
-                                        <thead>
+                                    <table class="table-sm mx-auto table-striped">
+                                        <thead class="">
 
                                             <th scope="col">Date</th>
                                             <th scope="col">Time</th>

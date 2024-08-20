@@ -19,12 +19,10 @@
 @inject IMovieService MovieService
 @inject ILogger<MoviesConfig> Logger
 
-<hr class="pt-3 mt-5 ">
 
-<div class="nav navbar">
-    <button @onclick="ToggleMoviesView">Toggle View</button>
 
-    <div>
+<div class="nav navbar shadow shadow-lg mt-5 bg-warning mb-3 w-100">
+    <div class="nav-item">
         <!-- Create Movie button -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
             Add new movie
@@ -51,14 +49,7 @@
 
 <main class="container-fluid pb-3">
 
-    @if (viewAsCard)
-    {
         <ViewMoviesAsCards movieList=@(registeredMovies) />
-    }
-    else
-    {
-        <ViewMoviesAsTable moviesList=@(registeredMovies) />
-    }
 
     @foreach (Movie movie in registeredMovies)
     {
@@ -149,12 +140,7 @@
 
 
 @code {
-    bool viewAsCard = true;
-    public void ToggleMoviesView()
-    {
-        viewAsCard = !viewAsCard;
-    }
-    //
+    
     public List<Movie> registeredMovies { get; set; } = new();
 
     protected override void OnInitialized()

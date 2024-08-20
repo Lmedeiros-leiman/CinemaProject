@@ -6,7 +6,7 @@
 @inject NavigationManager NavigationManager
 
 <div>
-    <button class="btn btn-danger" onclick="DeleteSession">Delete</button>
+    <button class="btn btn-danger" onclick="DeleteTargetSession">Delete</button>
     <button class="btn btn-primary">Cancel</button>
 </div>
 
@@ -16,9 +16,10 @@
 
 
 @code {
+    [Parameter]
     public required Session targetSession {get; set;}
 
-    public async Task DeleteSession() {
+    public async Task DeleteTargetSession() {
         await MovieService.DeleteSession(targetSession);
 
         NavigationManager.NavigateTo("/moviesConfig", true);
