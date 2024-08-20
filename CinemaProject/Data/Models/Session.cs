@@ -13,5 +13,6 @@ namespace CinemaProject.Data.Models
         public long SessionDate {get;set;}
         public string SessionTime {get;set;} = string.Empty;
         public long SessionPrice {get;set;}
+        public List<Ticket> Tickets {get; set;} = [];
     }
 }

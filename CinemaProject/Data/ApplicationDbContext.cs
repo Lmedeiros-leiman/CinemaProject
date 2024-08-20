@@ -10,8 +10,8 @@ namespace CinemaProject.Data;
         public  required DbSet<Movie> Movies {get; set;}
         public required DbSet<Attachment> Attachments {get; set;}
         public required DbSet<Session> Sessions {get;set;}
+        public required DbSet<Ticket> Tickets {get; set;}
         //public required DbSet<MovieSession> MovieSessions {get; set;}
-        //public required DbSet<MovieSessionTicket> MovieSessionTickets {get; set;}
         //public required DbSet<Review> Reviews {get; set;}
         
     }
