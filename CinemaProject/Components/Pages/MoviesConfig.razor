@@ -23,7 +23,7 @@
 
 
 <main class="container-fluid pb-3 mt-2">
-        <div class="navbar nav border border-2  shadow-lg shadow rounded-2 my-2">
+        <div class="navbar nav border border-2  shadow-sm shadow rounded-2 my-2">
                 <!-- Create Movie button -->
                 <button type="button" class="nav-item mx-2 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
                     Add new movie
@@ -31,7 +31,7 @@
 
             
         </div>
-
+    @if (registeredMovies.Count > 0 ) {
         <ViewMoviesAsCards movieList=@(registeredMovies) />
 
     @foreach (Movie movie in registeredMovies)
@@ -107,11 +107,22 @@
         </div>
         <!-- ------------------ -->
 
-        <!-- Delete Session Modal -->
-
-        <!-- ------------------ -->
     }
-        <!-- Create Movie Modal -->
+        
+        } else {
+            <div class="text-center mt-5">
+                <p>
+                    There are currently no movies registered.
+                </p>
+                <button type="button" class="mx-2 btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#movieInputStaticModal">
+                    Add new movie
+                </button>
+            </div>
+        }
+</main>
+
+
+<!-- Create Movie Modal -->
         <div class="modal fade" id="movieInputStaticModal" data-bs-backdrop="static" data-bs-keyboard="false"
             tabindex="-1" aria-labelledby="movieInputStaticModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg my-1">
@@ -128,10 +139,6 @@
                 </div>
             </div>
         </div>
-</main>
-
-
-
 
 
 
