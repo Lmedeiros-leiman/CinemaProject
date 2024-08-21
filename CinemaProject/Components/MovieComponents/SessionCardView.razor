@@ -1,6 +1,11 @@
 @using CinemaProject.Data.Models;
+@using CinemaProject.Components.Account
+@using CinemaProject.Data
 
+@inject IdentityRedirectManager RedirectManager
 
+@rendermode InteractiveServer
+@attribute [StreamRendering]
 
 <section class="col-md-4 mb-5" data-bs-target="#movieSessionsModal@(movie.Id)" data-bs-toggle="modal">
     <picture type="button" class="card text-white border-dark " style=" min-height: 500px !important;
@@ -41,7 +46,7 @@
                         </aside>
                         <footer class="card-footer ">
                             <span class="float-start fw-bolder">@(session.SessionPrice),00 R$</span>
-                            <button class="float-end btn btn-primary">Buy a ticket</button>
+                            <button class="float-end btn btn-primary" @onclick="e => RedirectToPurchase(movie,session)" >Buy a ticket</button>
                         </footer>
                     </section>
                 }
@@ -63,4 +68,10 @@
 @code {
     [Parameter]
     public required Movie movie { get; set; }
+
+    private async Task RedirectToPurchase(Movie targetMovie, Session targetSession) {
+        RedirectManager.RedirectTo(
+                "/PurchaseTicket",
+                new() { ["movie"] = targetMovie, ["session"] = targetSession });
+    }
 }

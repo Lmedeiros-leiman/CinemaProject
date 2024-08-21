@@ -8,7 +8,7 @@ namespace CinemaProject.Data.Models
     {
         [Key]
         public long Id { get; set; }
-        public ApplicationUser User { get; set; }
-        public  Session Session { get; set; }
+        public required ApplicationUser User { get; set; }
+        public required  Session Session { get; set; }
     }
 }

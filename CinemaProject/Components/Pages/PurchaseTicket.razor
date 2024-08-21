@@ -1,0 +1,34 @@
+@page "/PurchaseTicket"
+
+@using System.Text
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+@using CinemaProject.Data.Models
+
+@inject NavigationManager NavigationManager
+
+
+
+
+
+
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    private string? movie { get; set; }
+
+    [SupplyParameterFromQuery]
+    private string? session { get; set; }
+
+        protected override void OnInitialized() {
+            if (movie == null || session == null) { NavigationManager.NavigateTo("/"); }
+
+
+
+
+        }
+}
+
+
