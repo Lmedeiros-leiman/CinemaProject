@@ -1,34 +1,88 @@
 @page "/PurchaseTicket"
 
-@using System.Text
-@using Microsoft.AspNetCore.Identity
-@using Microsoft.AspNetCore.WebUtilities
+@using CinemaProject.Data
 @using CinemaProject.Data.Models
+@using CinemaProject.Data.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
 
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject ApplicationDbContext context
+
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+
+<div class="row mt-5 justify-content-center">
+    @if (movie != null) {
+    <div class="col-5 px-0 bg-warning">
+        
+        <div class="card">
+            <div class="card-header text-center mt-1">
+                <h2 class="fs-4">You are about to purchase a ticket!</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        @(movie.Title)
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
+            <footer class="card-footer ">
+                <div class="row gap-2 justify-content-end">
+                    <a class="w-auto btn btn-outline-warning" href="/">Go back</a>
+                    <button class="w-auto btn btn-primary" @onclick="HandlePurchase" >Confirm</button>
+                </div>
+                
+            </footer>
+        </div>
+    </div>
+    }
+</div>
 
 
 
+@using System.Text.Json
+<pre>
+@JsonSerializer.Serialize(movie, new JsonSerializerOptions() { WriteIndented = true})
+</pre>
 
 
-
-
-
+<script>
+    function showAlert(message) {
+        alert(message);
+    }
+</script>
 
 @code {
     [SupplyParameterFromQuery]
-    private string? movie { get; set; }
+    string? SessionID {get; set;}
+    Movie? movie {get; set;}
 
-    [SupplyParameterFromQuery]
-    private string? session { get; set; }
-
-        protected override void OnInitialized() {
-            if (movie == null || session == null) { NavigationManager.NavigateTo("/"); }
-
-
+    private void RedirectHome() {
+        NavigationManager.NavigateTo("/",true);
+    }
+    private async Task HandlePurchase() {
+        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe, in fact this entire Page could be cutted off. The ticket is now validated.");
 
 
-        }
+        NavigationManager.NavigateTo("/",true);
+    }
+
+    protected override async Task OnInitializedAsync() {
+        if (string.IsNullOrEmpty(SessionID)) { RedirectHome(); return;}
+
+        var movieEntry = await context.Movies.Where(m => m.Sessions.Any(s => s.Id == Int64.Parse(SessionID) ))
+        .Include(m => m.PosterImage)
+        .Include(m => m.Sessions.Where(s => s.Id == Int64.Parse(SessionID) ))
+        .FirstOrDefaultAsync();
+        if (movieEntry == null) { RedirectHome(); return;}
+        movie = movieEntry;
+    }
+
 }
-
-
+    using System.Text.Json;
