@@ -67,7 +67,7 @@
         NavigationManager.NavigateTo("/",true);
     }
     private async Task HandlePurchase() {
-        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe, in fact this entire Page could be cutted off. The ticket is now validated.");
+        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation. in fact this entire Page could be cutted off. \n The ticket is now validated.");
 
 
         NavigationManager.NavigateTo("/",true);
