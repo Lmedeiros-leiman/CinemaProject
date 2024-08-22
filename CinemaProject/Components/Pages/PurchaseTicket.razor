@@ -1,18 +1,23 @@
 @page "/PurchaseTicket"
 
+@using System.Text.Json
 @using CinemaProject.Data
 @using CinemaProject.Data.Models
 @using CinemaProject.Data.Services
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
 @using Microsoft.EntityFrameworkCore
 
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
-@inject ApplicationDbContext context
+@inject ApplicationDbContext databaseContext
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject SignInManager<ApplicationUser> SignInManager
 
 @rendermode InteractiveServer
 @attribute [StreamRendering]
-
+@attribute [Authorize]
 
 <div class="row mt-5 justify-content-center">
     @if (movie != null) {
@@ -45,44 +50,62 @@
 </div>
 
 
-
-@using System.Text.Json
-<pre>
-@JsonSerializer.Serialize(movie, new JsonSerializerOptions() { WriteIndented = true})
-</pre>
-
-
 <script>
     function showAlert(message) {
         alert(message);
     }
 </script>
 
+<pre>
+    @message
+</pre>
+
+
+
 @code {
     [SupplyParameterFromQuery]
     string? SessionID {get; set;}
+    [CascadingParameter]
+    private Task<AuthenticationState>? authenticationState { get; set; }
+
     Movie? movie {get; set;}
 
+    public string message = "";
     private void RedirectHome() {
         NavigationManager.NavigateTo("/",true);
     }
     private async Task HandlePurchase() {
+        if (movie == null) { return;}
         await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation. in fact this entire Page could be cutted off. \n The ticket is now validated.");
 
+        if (authenticationState == null) { return;}
+        var authState = await authenticationState;
+        
+        if (authState.User.Identity?.Name == null) { return;}
+        var name = authState.User.Identity?.Name;
 
+        var databaseUser = await databaseContext.Users.Where(u => u.Email == name ).FirstAsync();
+        if (databaseUser == null) { return; }
+        
+        var newTicket = new Ticket() {Session = movie.Sessions[0], User = databaseUser };
+        await databaseContext.Tickets.AddAsync(newTicket);
         NavigationManager.NavigateTo("/",true);
     }
 
     protected override async Task OnInitializedAsync() {
         if (string.IsNullOrEmpty(SessionID)) { RedirectHome(); return;}
 
-        var movieEntry = await context.Movies.Where(m => m.Sessions.Any(s => s.Id == Int64.Parse(SessionID) ))
+        var movieEntry = await databaseContext.Movies.Where(m => m.Sessions.Any(s => s.Id == Int64.Parse(SessionID) ))
         .Include(m => m.PosterImage)
         .Include(m => m.Sessions.Where(s => s.Id == Int64.Parse(SessionID) ))
         .FirstOrDefaultAsync();
         if (movieEntry == null) { RedirectHome(); return;}
         movie = movieEntry;
+        
+        
+        //message = JsonSerializer.Serialize(authenticationState, new JsonSerializerOptions() {WriteIndented=true});
+
+        
     }
 
 }
-    using System.Text.Json;
