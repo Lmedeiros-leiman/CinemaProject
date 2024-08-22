@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240820221651_InitialMigration")]
+    [Migration("20240822185944_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -181,7 +181,10 @@ namespace CinemaProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("SessionId")
+                    b.Property<long>("PurchaseDate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("SessionId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
@@ -351,17 +354,13 @@ namespace CinemaProject.Migrations
 
             modelBuilder.Entity("CinemaProject.Data.Models.Ticket", b =>
                 {
-                    b.HasOne("CinemaProject.Data.Models.Session", "Session")
+                    b.HasOne("CinemaProject.Data.Models.Session", null)
                         .WithMany("Tickets")
-                        .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SessionId");
 
                     b.HasOne("CinemaProject.Data.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Session");
 
                     b.Navigation("User");
                 });

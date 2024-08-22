@@ -59,44 +59,16 @@
     string? SessionID {get; set;}
     [CascadingParameter]
     private Task<AuthenticationState>? authenticationState { get; set; }
-
+    private string UserEmail {get; set;} = string.Empty;
     Movie? movie {get; set;}
-
-    public string message = "";
-    private void RedirectHome() {
-        NavigationManager.NavigateTo("/",true);
-    }
-    private async Task HandlePurchase() {
-        if (movie == null) { return;}
-        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation.");
+    protected override async Task OnInitializedAsync() {
+        if (string.IsNullOrEmpty(SessionID)) { RedirectHome(); return;}
 
         if (authenticationState == null) { return;}
         var authState = await authenticationState;
         
         if (authState.User.Identity?.Name == null) { return;}
-        var name = authState.User.Identity?.Name;
-
-        var databaseUser = await databaseContext.Users.Where(u => u.Email == name ).FirstAsync();
-        if (databaseUser == null) { return; }
-
-        // checks if the user is has already purchase this ticket.
-        if (await databaseContext.Tickets.Where(t => t.User.Email == name).AnyAsync()) {
-            // the user has purchased the ticket before.
-            await JSRuntime.InvokeVoidAsync("showAlert", "This account has already purchased a ticket.");
-        } else {
-            // register this user ticket.
-            var newTicket = new Ticket() {Session = movie.Sessions[0], User = databaseUser };
-            await databaseContext.Tickets.AddAsync(newTicket);
-            await databaseContext.SaveChangesAsync();
-
-            await JSRuntime.InvokeVoidAsync("showAlert", "The ticket is now validated.");
-        }
-
-        NavigationManager.NavigateTo("/",true);
-    }
-
-    protected override async Task OnInitializedAsync() {
-        if (string.IsNullOrEmpty(SessionID)) { RedirectHome(); return;}
+        UserEmail = authState.User.Identity.Name;
 
         var movieEntry = await databaseContext.Movies.Where(m => m.Sessions.Any(s => s.Id == Int64.Parse(SessionID) ))
         .Include(m => m.PosterImage)
@@ -104,7 +76,38 @@
         .FirstOrDefaultAsync();
         if (movieEntry == null) { RedirectHome(); return;}
         movie = movieEntry;
+
         
     }
+
+    private void RedirectHome() {
+        NavigationManager.NavigateTo("/",true);
+    }
+    private async Task HandlePurchase() {
+        if (movie == null) { return; }
+        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation.");
+
+
+        var databaseUser = await databaseContext.Users.Where(u => u.Email == UserEmail ).FirstAsync();
+        if (databaseUser == null) { return; }
+        // checks if the user is has already purchase this ticket.
+        
+        bool hasPuchasedTicket = await databaseContext.Sessions
+                                    .Where(s => s.Id == movie.Sessions[0].Id)
+                                    .SelectMany(s => s.Tickets)
+                                    .AnyAsync(t => t.User.Email == UserEmail);
+        
+        if ( hasPuchasedTicket ) {  
+            await JSRuntime.InvokeVoidAsync("showAlert", "This account already purchased this ticket. No actions taken. (Resending confirmation ticket if email was setted.)");
+        } else {
+            // register this user ticket.
+            movie.Sessions[0].Tickets.Add(new Ticket() { User = databaseUser});
+            await databaseContext.SaveChangesAsync();
+            await JSRuntime.InvokeVoidAsync("showAlert", "The ticket is now validated.");
+        }
+        NavigationManager.NavigateTo("/",true);
+    }
+
+    
 
 }

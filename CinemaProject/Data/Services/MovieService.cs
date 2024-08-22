@@ -28,14 +28,14 @@ namespace CinemaProject.Data.Services;
 
         public async Task<List<Movie>> GetAllMovies() {
             return await _context.Movies
-                            //.Include(s => s.movieSessions)
                             .Include(p => p.PosterImage)
                             .Include(p => p.Sessions)
+                                .ThenInclude(s => s.Tickets)
+                                    .ThenInclude(t => t.User)
                             .Include(p => p.MovieExtras)
                             .ToListAsync();
         }
 
-        
         public async Task<List<Movie>> GetMoviesWithSessions() {
             
             return await _context.Movies

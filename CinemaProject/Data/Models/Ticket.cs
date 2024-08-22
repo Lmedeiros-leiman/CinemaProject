@@ -9,6 +9,6 @@ namespace CinemaProject.Data.Models
         [Key]
         public long Id { get; set; }
         public required ApplicationUser User { get; set; }
-        public required  Session Session { get; set; }
+        public long PurchaseDate {get; set;} = DateTime.UtcNow.Ticks;
     }
 }

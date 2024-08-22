@@ -225,7 +225,8 @@ namespace CinemaProject.Migrations
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UserId = table.Column<string>(type: "TEXT", nullable: true),
-                    SessionId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PurchaseDate = table.Column<long>(type: "INTEGER", nullable: false),
+                    SessionId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -239,8 +240,7 @@ namespace CinemaProject.Migrations
                         name: "FK_Tickets_Sessions_SessionId",
                         column: x => x.SessionId,
                         principalTable: "Sessions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
