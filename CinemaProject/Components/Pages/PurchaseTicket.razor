@@ -19,35 +19,32 @@
 @attribute [StreamRendering]
 @attribute [Authorize]
 
-<div class="row mt-5 justify-content-center">
+<div class="container">
     @if (movie != null) {
-    <div class="col-5 px-0 bg-warning">
         
-        <div class="card">
-            <div class="card-header text-center mt-1">
-                <h2 class="fs-4">You are about to purchase a ticket!</h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        @(movie.Title)
+        <div class="row justify-content-center">
+            <div class="col-auto col-md-5 col-lg-5 col-xl-5">
+                <div class="card mb-3">
+                    <img class="card-img-top" height="320px" src="./assets/@(movie.PosterImage.URLPath)" alt="Card image cap">
+                    <div class="card-body">
+                        <h1 class="card-title fs-3">@(movie.Title) | 
+                            <span class="card-text fs-5">@( DateOnly.FromDateTime(DateTime.FromBinary( movie.Sessions[0].SessionDate).ToUniversalTime()) ) at @(movie.Sessions[0].SessionTime)</span>
+                        </h1>
+                        <p class="card-text">You are about to purchase a ticket for @(movie.Title).</p>
+                        <p class="card-text">Your account details will be saved in our systems and a code will be sent via Email after payment is complete.</p>
                     </div>
-                    <div class="col">
-                        
+                    <div class="card-footer">
+                        <div class="float-end">
+                            <a href="./" class="btn btn-lg btn-outline-danger"> Cancel </a>
+                            <button class="btn btn-primary btn-lg ms-2" @onclick="HandlePurchase" > Continue to Payment </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <footer class="card-footer ">
-                <div class="row gap-2 justify-content-end">
-                    <a class="w-auto btn btn-outline-warning" href="/">Go back</a>
-                    <button class="w-auto btn btn-primary" @onclick="HandlePurchase" >Confirm</button>
-                </div>
-                
-            </footer>
         </div>
-    </div>
     }
 </div>
+
 
 
 <script>
@@ -55,11 +52,6 @@
         alert(message);
     }
 </script>
-
-<pre>
-    @message
-</pre>
-
 
 
 @code {
@@ -76,7 +68,7 @@
     }
     private async Task HandlePurchase() {
         if (movie == null) { return;}
-        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation. in fact this entire Page could be cutted off. \n The ticket is now validated.");
+        await JSRuntime.InvokeVoidAsync("showAlert", "Normally the user would be redirected to a purchase API like Stripe and receive an Email confirmation.");
 
         if (authenticationState == null) { return;}
         var authState = await authenticationState;
@@ -86,9 +78,20 @@
 
         var databaseUser = await databaseContext.Users.Where(u => u.Email == name ).FirstAsync();
         if (databaseUser == null) { return; }
-        
-        var newTicket = new Ticket() {Session = movie.Sessions[0], User = databaseUser };
-        await databaseContext.Tickets.AddAsync(newTicket);
+
+        // checks if the user is has already purchase this ticket.
+        if (await databaseContext.Tickets.Where(t => t.User.Email == name).AnyAsync()) {
+            // the user has purchased the ticket before.
+            await JSRuntime.InvokeVoidAsync("showAlert", "This account has already purchased a ticket.");
+        } else {
+            // register this user ticket.
+            var newTicket = new Ticket() {Session = movie.Sessions[0], User = databaseUser };
+            await databaseContext.Tickets.AddAsync(newTicket);
+            await databaseContext.SaveChangesAsync();
+
+            await JSRuntime.InvokeVoidAsync("showAlert", "The ticket is now validated.");
+        }
+
         NavigationManager.NavigateTo("/",true);
     }
 
@@ -101,10 +104,6 @@
         .FirstOrDefaultAsync();
         if (movieEntry == null) { RedirectHome(); return;}
         movie = movieEntry;
-        
-        
-        //message = JsonSerializer.Serialize(authenticationState, new JsonSerializerOptions() {WriteIndented=true});
-
         
     }
 
