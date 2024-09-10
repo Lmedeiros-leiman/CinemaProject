@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 //builder.Logging.ClearProviders();
-//builder.Logging.AddConsole();
+//builder.Logging.AddConsole();w 
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
