@@ -170,7 +170,7 @@
 
         [Required]
         [DataType(DataType.Text)]
-        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(int.MaxValue, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [Display(Name = "Movie Description")]
         public string Description { get; set; } = String.Empty;
 
@@ -180,7 +180,7 @@
 
         [Required]
         [DataType(DataType.Text)]
-        [StringLength(255, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(int.MaxValue, ErrorMessage = "The {0} must be at least {2}.", MinimumLength = 6)]
         [Display(Name = "Movie Categories")]
         public string Categories { get; set; } = String.Empty;
 
